@@ -1,1 +1,177 @@
-/* You can add global styles to this file, and also import other style files */
+// @use "node_modules/@ngneat/hot-toast/src/styles/styles.scss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::selection {
+  background-color: #e4fabf;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+.container {
+  padding: 1rem;
+}
+
+@layer components {
+  // Font Uber Move
+  @font-face {
+    font-family: 'Uber Move';
+    src: url('assets/fonts/UberMove/UberMove-Bold.eot');
+    src: local('UberMoveBold'), local('UberMove-Bold'),
+        url('assets/fonts/UberMove/UberMove-Bold.eot?#iefix') format('embedded-opentype'),
+        url('assets/fonts/UberMove/UberMove-Bold.woff2') format('woff2'),
+        url('assets/fonts/UberMove/UberMove-Bold.woff') format('woff'),
+        url('assets/fonts/UberMove/UberMove-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Uber Move';
+    src: url('assets/fonts/UberMove/UberMove-Regular.eot');
+    src: local('UberMoveRegular'), local('UberMove-Regular'),
+        url('assets/fonts/UberMove/UberMove-Regular.eot?#iefix') format('embedded-opentype'),
+        url('assets/fonts/UberMove/UberMove-Regular.woff2') format('woff2'),
+        url('assets/fonts/UberMove/UberMove-Regular.woff') format('woff'),
+        url('assets/fonts/UberMove/UberMove-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Uber Move';
+    src: url('assets/fonts/UberMove/UberMove-Light.eot');
+    src: local('UberMoveLight'), local('UberMove-Light'),
+        url('assets/fonts/UberMove/UberMove-Light.eot?#iefix') format('embedded-opentype'),
+        url('assets/fonts/UberMove/UberMove-Light.woff2') format('woff2'),
+        url('assets/fonts/UberMove/UberMove-Light.woff') format('woff'),
+        url('assets/fonts/UberMove/UberMove-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Uber Move';
+    src: url('assets/fonts/UberMove/UberMove-Medium.eot');
+    src: local('UberMoveMedium'), local('UberMove-Medium'),
+        url('assets/fonts/UberMove/UberMove-Medium.eot?#iefix') format('embedded-opentype'),
+        url('assets/fonts/UberMove/UberMove-Medium.woff2') format('woff2'),
+        url('assets/fonts/UberMove/UberMove-Medium.woff') format('woff'),
+        url('assets/fonts/UberMove/UberMove-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  // FONT: Agrandir-Regular
+  @font-face {
+    font-family: "Agrandir-Regular";
+    font-weight: 400;
+    src: url("assets/fonts/Agrandir/woff2/Agrandir-Regular.woff2");
+  }
+
+  // FONT: Agrandir-Bold
+  @font-face {
+    font-family: "Agrandir-Bold";
+    font-weight: 700;
+    src: url("assets/fonts/Agrandir/woff2/Agrandir-TextBold.woff2");
+  }
+
+  // FONT: SourceSansPro-Regular
+  @font-face {
+    font-family: "SourceSansPro-Regular";
+    font-weight: 400;
+    src: url("assets/fonts/source-sans-pro/woff2/SourceSansPro-Regular.woff2");
+  }
+
+  // FONT: SourceSansPro-Italic
+  @font-face {
+    font-family: "SourceSansPro-Italic";
+    font-weight: 400;
+    src: url("assets/fonts/source-sans-pro/woff2/SourceSansPro-It.woff2");
+  }
+
+  // FONT: SourceSansPro-Bold
+  @font-face {
+    font-family: "SourceSansPro-Bold";
+    font-weight: 700;
+    src: url("assets/fonts/source-sans-pro/woff2/SourceSansPro-Bold.woff2");
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Agrandir-Regular";
+  }
+  body {
+    font-family: "SourceSansPro-Regular";
+  }
+  button {
+    font-family: "SourceSansPro-Bold";
+  }
+}
+
+@font-face {
+  font-family: 'Uber Move';
+  src: url('assets/fonts/UberMove/UberMove-Bold.eot');
+  src: local('UberMoveBold'), local('UberMove-Bold'),
+      url('assets/fonts/UberMove/UberMove-Bold.eot?#iefix') format('embedded-opentype'),
+      url('assets/fonts/UberMove/UberMove-Bold.woff2') format('woff2'),
+      url('assets/fonts/UberMove/UberMove-Bold.woff') format('woff'),
+      url('assets/fonts/UberMove/UberMove-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Uber Move';
+  src: url('assets/fonts/UberMove/UberMove-Regular.eot');
+  src: local('UberMoveRegular'), local('UberMove-Regular'),
+      url('assets/fonts/UberMove/UberMove-Regular.eot?#iefix') format('embedded-opentype'),
+      url('assets/fonts/UberMove/UberMove-Regular.woff2') format('woff2'),
+      url('assets/fonts/UberMove/UberMove-Regular.woff') format('woff'),
+      url('assets/fonts/UberMove/UberMove-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Uber Move';
+  src: url('assets/fonts/UberMove/UberMove-Light.eot');
+  src: local('UberMoveLight'), local('UberMove-Light'),
+      url('assets/fonts/UberMove/UberMove-Light.eot?#iefix') format('embedded-opentype'),
+      url('assets/fonts/UberMove/UberMove-Light.woff2') format('woff2'),
+      url('assets/fonts/UberMove/UberMove-Light.woff') format('woff'),
+      url('assets/fonts/UberMove/UberMove-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Uber Move';
+  src: url('assets/fonts/UberMove/UberMove-Medium.eot');
+  src: local('UberMoveMedium'), local('UberMove-Medium'),
+      url('assets/fonts/UberMove/UberMove-Medium.eot?#iefix') format('embedded-opentype'),
+      url('assets/fonts/UberMove/UberMove-Medium.woff2') format('woff2'),
+      url('assets/fonts/UberMove/UberMove-Medium.woff') format('woff'),
+      url('assets/fonts/UberMove/UberMove-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+

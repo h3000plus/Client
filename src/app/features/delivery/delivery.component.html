@@ -1,0 +1,25 @@
+<!-- ! Header -->
+<div class=" overflow-y-auto">
+    <!-- <app-header></app-header> -->
+    <div class="mb-16">
+      <!-- ! Search Box -->
+      <app-search></app-search>
+
+      <!-- ! Categories -->
+      <app-category-list></app-category-list>
+
+      <app-filter></app-filter>
+
+      <!-- ! Restaurant Category with Restaurant -->
+
+      <app-restaurants-by-category *ngFor="let category of categories" [category]="category"></app-restaurants-by-category>
+
+      <!-- ! All dilevery restaurants -->
+
+      <app-category-restaurant-grid></app-category-restaurant-grid>
+
+      <!-- ! Bottom Menu -->
+      <app-bottom-menu></app-bottom-menu>
+    </div>
+
+  </div>
