@@ -9,6 +9,7 @@ import { CategoryRestaurantGridComponent } from './components/category-restauran
 import { SearchModule } from '../search/search.module';
 import { RestaurantsByCategoryComponent } from './components/restaurants-by-category/restaurants-by-category.component';
 import { FilterComponent } from './components/filter/filter.component';
+import { AddressComponent } from './components/address/address.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { FilterComponent } from './components/filter/filter.component';
     CategoryListComponent,
     CategoryRestaurantGridComponent,
     RestaurantsByCategoryComponent,
-    FilterComponent
+    FilterComponent,
+    AddressComponent
   ],
   imports: [
     CommonModule,

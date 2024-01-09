@@ -1,0 +1,11 @@
+<section>
+    <h1 class="text-xl font-black m-4">All Categories</h1>
+    <div class="columns-2 gap-x-3.5 ml-4 mr-4">
+        <div *ngFor="let category of categories">
+            <div class=" mb-3 card card-compact bg-base-100 shadow-md max-h-[180px] min-h-[180px]">
+                <img class="rounded-t-xl" [src]="category.image">
+                <span class="text-xl font-black text-center mt-2">{{category.name}}</span>
+            </div>
+        </div>
+    </div>
+</section>

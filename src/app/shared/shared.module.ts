@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { WelcomeScreenComponent } from './components/welcome-screen/welcome-screen/welcome-screen.component';
 import { RouterModule } from '@angular/router';
 import { BottomMenuComponent } from './components/bottom-menu/bottom-menu.component';
+import { RestaurantsListComponent } from './components/restaurants/restaurants-list.component';
+
 
 
 
@@ -10,6 +12,7 @@ import { BottomMenuComponent } from './components/bottom-menu/bottom-menu.compon
   declarations: [
     WelcomeScreenComponent,
     BottomMenuComponent,
+    RestaurantsListComponent,
   ],
   imports: [
     CommonModule,
@@ -17,7 +20,8 @@ import { BottomMenuComponent } from './components/bottom-menu/bottom-menu.compon
   ],
   exports: [
     WelcomeScreenComponent,
-    BottomMenuComponent
+    BottomMenuComponent,
+    RestaurantsListComponent
   ]
 })
 export class SharedModule { }

@@ -1,0 +1,44 @@
+<section>
+    <div class="bg-slate-300 min-h-[24vh] relative">
+        <span class="m-4"><img class="h-6 ml-4" src="assets/icons/left-arrow-black.png"></span>
+        <span class="absolute top-24 right-5"><img class="w-28" src="assets/icons/sushi.png"></span>
+        <h1 class="mt-14 ml-4 text-3xl font-bold font-uberMove">Healthy</h1>
+    </div>
+
+    <!-- filter -->
+    <div
+        class=" flex flex-row flex-grow gap-5 justify-start items-center overflow-x-auto category p-2"
+    >
+
+        <article
+        class="text-center rounded-3xl    min-w-[100px]  bg-slate-200 flex  justify-center items-center p-2 text-[12px] gap-1 hover:bg-secondaryLime cursor-pointer"
+        (click)="handleCategoryIconClick()"
+        >
+
+        <span><h3 class="font-bold font-uberMove text-lg">Price</h3></span><span><img class="h-6" src="/assets/icons/dropdown-arrow.png"></span>
+        </article>
+        <article
+        class="text-center  rounded-3xl    min-w-[100px] bg-slate-200  flex flex-col justify-center items-center p-2 text-[12px] gap-1 hover:bg-secondaryLime cursor-pointer"
+        (click)="handleCategoryIconClick()"
+        >
+        <h3 class="font-bold font-uberMove text-lg">Offers</h3>
+        </article>
+        <article
+        class="text-center  rounded-3xl    min-w-[100px]  bg-slate-200 flex justify-center items-center p-2 text-[12px] gap-1 hover:bg-secondaryLime cursor-pointer"
+        (click)="handleCategoryIconClick()"
+        >
+        <span><h3 class="font-bold font-uberMove text-lg">Dietary</h3></span><span><img class="h-6" src="/assets/icons/dropdown-arrow.png"></span>
+        </article>
+        <article
+        class="text-center  rounded-3xl    min-w-[100px] bg-slate-200 flex flex-col justify-center items-center p-2 text-[12px] gap-1 hover:bg-secondaryLime cursor-pointer"
+        (click)="handleCategoryIconClick()"
+        >
+        <h3 class="font-bold font-uberMove text-lg">Rating</h3>
+        </article>
+    </div>
+
+    <h1 class="text-2xl font-bold m-4">302 Results</h1>
+    <app-restaurants-list></app-restaurants-list>
+    <app-bottom-menu></app-bottom-menu>
+</section>
+

@@ -9,7 +9,7 @@ import { Restaurant } from '../../shared/models/restaurant.model';
 export class DeliveryComponent {
 
   showModal: boolean = false;
-  categories = [{title: "recently viewed"},{title: "popular"}]
+  categories = [{title: "recently viewed"}, {title: "recommended for you"}, {title: "popular"}]
 
 
   categoryTitle: string = '';

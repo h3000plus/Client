@@ -6,7 +6,9 @@ import { AppComponent } from './app.component';
 import { CustomerModule } from './features/customer/customer.module';
 import { DeliveryModule } from './features/delivery/delivery.module';
 import { RestaurantModule } from './features/restaurant/restaurant.module';
-
+import { PickupModule } from './features/pickup/pickup.module';
+import { BrowseModule } from './features/browse/browse.module';
+import { CartsModule } from './features/carts/carts.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,7 +17,10 @@ import { RestaurantModule } from './features/restaurant/restaurant.module';
     AppRoutingModule,
     CustomerModule,
     DeliveryModule,
-    RestaurantModule
+    PickupModule,
+    RestaurantModule,
+    BrowseModule,
+    CartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

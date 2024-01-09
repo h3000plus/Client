@@ -1,0 +1,25 @@
+<!-- ! Category List -->
+
+
+
+<div
+  class="flex flex-row flex-grow gap-5 justify-start items-center overflow-x-auto category p-2"
+>
+  <div *ngFor="let category of categories">
+    <article
+      class="text-center  rounded min-w-[100px] min-h-[100px] flex flex-col justify-center items-center p-2 text-[12px] gap-1 hover:bg-secondaryLime cursor-pointer"
+      (click)="handleCategoryIconClick()"
+    >
+    <img
+      src={{category.image}}
+      alt="Covid 19 icons"
+      class="max-h-[60%]"
+    />
+    <h6 class="text-lg font-bold">{{category.name}}</h6>
+    </article>
+  </div>
+
+</div>
+
+
+

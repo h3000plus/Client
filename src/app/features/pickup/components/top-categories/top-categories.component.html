@@ -1,0 +1,35 @@
+<!-- ! Restaurants -->
+<!-- <ng-template #loadProducts> -->
+    <div class="bg-white px-4 pb-16 mt-[1vh]">
+        <div class="mx-auto max-w-2xl">
+          <h6 class="font-uberMove font-bold text-lg">Top Categories</h6>
+
+          <ul
+            class="grid mt-5 grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8"
+            *ngIf="categories.length > 0"
+          >
+            <li
+              class="group card max-h-[80px] min-h-[80px] bg-base-100 shadow"
+              *ngFor="let category of categories"
+
+            >
+              <div
+                class="p-5 flex gap-5 aspect-h-1 aspect-w-1 w-full overflow-hidden xl:aspect-h-8 xl:aspect-w-7"
+              >
+                <img
+                    [src]="category.image"
+                    class="max-h-[90%] object-cover object-center group-hover:opacity-75"
+                />
+                <h3 class="mt-1 text-lg text-gray-700 font-bold font-uberMove">{{ category.name }}</h3>
+              </div>
+
+
+
+              <!-- <p class="mt-1 text-lg font-medium text-gray-900">
+                {{ +product.price | takaCurrency }}
+              </p> -->
+            </li>
+          </ul>
+        </div>
+      </div>
+    <!-- </ng-template> -->
