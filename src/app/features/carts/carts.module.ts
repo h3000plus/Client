@@ -4,12 +4,14 @@ import { CommonModule } from '@angular/common';
 import { CartsRoutingModule } from './carts-routing.module';
 import { AddToCartComponent } from './components/add-to-cart/add-to-cart.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { PlaceOrderComponent } from './components/place-order/place-order.component';
 
 
 @NgModule({
   declarations: [
     AddToCartComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    PlaceOrderComponent
   ],
   imports: [
     CommonModule,

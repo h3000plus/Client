@@ -4,6 +4,7 @@ import { WelcomeScreenComponent } from './components/welcome-screen/welcome-scre
 import { RouterModule } from '@angular/router';
 import { BottomMenuComponent } from './components/bottom-menu/bottom-menu.component';
 import { RestaurantsListComponent } from './components/restaurants/restaurants-list.component';
+import { RestaurantsGridComponent } from './components/restaurants-grid/restaurants-grid.component';
 
 
 
@@ -13,6 +14,7 @@ import { RestaurantsListComponent } from './components/restaurants/restaurants-l
     WelcomeScreenComponent,
     BottomMenuComponent,
     RestaurantsListComponent,
+    RestaurantsGridComponent,
   ],
   imports: [
     CommonModule,

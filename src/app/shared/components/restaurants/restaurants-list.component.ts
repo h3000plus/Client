@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Restaurant } from '../../models/restaurant.model';
 
 @Component({
@@ -7,41 +7,5 @@ import { Restaurant } from '../../models/restaurant.model';
   styleUrl: './restaurants-list.component.scss'
 })
 export class RestaurantsListComponent {
-  restaurants: Restaurant[] = [
-    {
-      _id: '1',
-      name: 'Barano NYC',
-      image: '/assets/icons/restaurant.jpeg'
-    },
-    {
-      _id: '2',
-      name: 'Casa comfort',
-      image: '/assets/icons/restaurant.jpeg'
-    },
-    {
-      _id: '3',
-      name: 'Asado Favorito',
-      image: '/assets/icons/restaurant.jpeg'
-    },
-    {
-      _id: '4',
-      name: 'Casa Paco',
-      image: '/assets/icons/restaurant.jpeg'
-    },
-    {
-      _id: '5',
-      name: 'Las Tapas',
-      image: '/assets/icons/restaurant.jpeg'
-    },
-    {
-      _id: '6',
-      name: 'Chic Churro',
-      image: '/assets/icons/restaurant.jpeg'
-    },
-    {
-      _id: '7',
-      name: 'Dummy Restaurant 7',
-      image: '/assets/icons/restaurant.jpeg'
-    }
-  ];
+  @Input() restaurant!: {_id: string, name:string, image: string}
 }

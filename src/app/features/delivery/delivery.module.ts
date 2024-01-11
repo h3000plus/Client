@@ -10,6 +10,10 @@ import { SearchModule } from '../search/search.module';
 import { RestaurantsByCategoryComponent } from './components/restaurants-by-category/restaurants-by-category.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { AddressComponent } from './components/address/address.component';
+import { RecentyViewedComponent } from './components/recenty-viewed/recenty-viewed.component';
+import { RecommendedComponent } from './components/recommended/recommended.component';
+import { Top10Component } from './components/top10/top10.component';
+import { PopularComponent } from './components/popular/popular.component';
 
 
 @NgModule({
@@ -19,7 +23,11 @@ import { AddressComponent } from './components/address/address.component';
     CategoryRestaurantGridComponent,
     RestaurantsByCategoryComponent,
     FilterComponent,
-    AddressComponent
+    AddressComponent,
+    RecentyViewedComponent,
+    RecommendedComponent,
+    Top10Component,
+    PopularComponent
   ],
   imports: [
     CommonModule,

@@ -38,7 +38,7 @@
     </div>
 
     <h1 class="text-2xl font-bold m-4">302 Results</h1>
-    <app-restaurants-list></app-restaurants-list>
+    <app-restaurants-list *ngFor="let restaurant of restaurants" [restaurant]="restaurant"></app-restaurants-list>
     <app-bottom-menu></app-bottom-menu>
 </section>
 

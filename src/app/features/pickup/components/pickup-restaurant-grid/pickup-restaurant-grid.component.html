@@ -35,6 +35,46 @@
               </p> -->
             </li>
           </ul>
-        </div>
-      </div>
+          </div>
+          </div>
+
+          <!-- search by category -->
+          <div class="bg-white px-4 pb-16 mt-[1vh]">
+            <div class="mx-auto max-w-2xl">
+              <h1 class="text-2xl font-bold m-4">302 Results</h1>
+
+              <ul
+                class="grid mt-5 grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8"
+                *ngIf="restaurants.length > 0"
+              >
+                <li
+                  class="group rl card card-compact max-h-[250px] min-h-[250px] bg-base-100 shadow-md"
+                  *ngFor="let restaurant of restaurants"
+                  (click)="handleProductClick(restaurant)"
+                >
+                  <div
+                    class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg xl:aspect-h-8 xl:aspect-w-7"
+                  >
+                    <div class="flex justify-center items-center max-h-[190px] max-w-[400px] min-w-[400px] min-h-[190px]">
+                      <img
+                        [src]="restaurant.image"
+                        alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
+                        class="rounded-8xl max-h-[200px] min-w-[400px] object-cover object-center group-hover:opacity-75 max-h-[150px]"
+                      />
+                    </div>
+                  </div>
+                  <div class="ml-2 flex justify-between">
+                    <h3 class="mt-4 text-lg text-gray-700 font-bold font-uberMove">{{ restaurant.name }}</h3>
+                    <span class="font-bold text-lg flex gap-1 mt-4 mr-4"><img class="h-6" src="/assets/icons/like.png">4.7k</span>
+                  </div>
+                  <h4 class="text-lg ml-2">7864.1 mi</h4>
+                  <span class="heartRA"><img class="h-10" src="/assets/icons/white-heart.png"></span>
+                  <div class="offerA bg-green-700 text-white h-7 w-44"><span class="p-3 text-1xl">Free Item(Spend $40)</span></div>
+                  <!-- <p class="mt-1 text-lg font-medium text-gray-900">
+                    {{ +product.price | takaCurrency }}
+                  </p> -->
+                </li>
+              </ul>
+              </div>
+              </div>
     <!-- </ng-template> -->

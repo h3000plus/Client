@@ -9,6 +9,7 @@ import { RestaurantModule } from './features/restaurant/restaurant.module';
 import { PickupModule } from './features/pickup/pickup.module';
 import { BrowseModule } from './features/browse/browse.module';
 import { CartsModule } from './features/carts/carts.module';
+import { OrderModule } from './features/order/order.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +21,8 @@ import { CartsModule } from './features/carts/carts.module';
     PickupModule,
     RestaurantModule,
     BrowseModule,
-    CartsModule
+    CartsModule,
+    OrderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

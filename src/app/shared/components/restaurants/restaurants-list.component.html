@@ -3,11 +3,11 @@
         <img class="h-7 mt-4 ml-2" src="/assets/icons/left-arrow-black.png">
         <h1 class=" font-black text-2xl mt-4 mb-4">Recommended For You</h1>
     </div> -->
-    <div *ngFor="let restaurant of restaurants">
+    <!-- <div *ngFor="let restaurant of restaurants"> -->
 
         <div class="flex relative">
             <div>
-                <img class="w-36 rounded-2xl mt-1 ml-5 mb-4 mr-5" [src]="restaurant.image">
+                <img class="w-36 rounded-2xl mt-1 ml-5 mb-4 mr-5" src={{restaurant.image}}>
                 <img class="absolute top-5 left-28 max-w-[30px]" src="/assets/icons/white-heart.png">
                 <img class="absolute top-14 right-5 max-w-[22px]" src="/assets/icons/like.png">
                 <span class="absolute top-14 right-12 font-bold text-xl">4.4K</span>
@@ -24,5 +24,5 @@
 
 
 
-    </div>
+    <!-- </div> -->
 </section>
