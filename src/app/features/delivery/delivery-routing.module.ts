@@ -6,6 +6,7 @@ import { PopularComponent } from './components/popular/popular.component';
 import { RecentyViewedComponent } from './components/recenty-viewed/recenty-viewed.component';
 import { Top10Component } from './components/top10/top10.component';
 import { RecommendedComponent } from './components/recommended/recommended.component';
+import { SearchCategoriesComponent } from './components/search-categories/search-categories.component';
 
 const routes: Routes = [
   {
@@ -20,16 +21,20 @@ const routes: Routes = [
         component: PopularComponent
       },
       {
-        path: 'recently-viewed',
+        path: 'recently',
         component: RecentyViewedComponent
       },
       {
-        path: 'top-10',
+        path: 'top',
         component: Top10Component
       },
       {
         path: 'recommended',
         component: RecommendedComponent
+      },
+      {
+        path: 'search',
+        component: SearchCategoriesComponent
       }
     ]
   }

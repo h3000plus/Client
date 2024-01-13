@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ICustomer } from '../../../../shared/models/customer.model';
+import { CustomerService } from '../../../../services/customer.service';
 
 @Component({
   selector: 'app-address',
@@ -13,7 +15,7 @@ export class AddressComponent {
 
   constructor(
     private router: Router,
-    // private customerService: CustomerServicesService,
+    private _customerService: CustomerService,
     private formBuilder: FormBuilder
   ) {
     this.addressForm = this.formBuilder.group({
@@ -37,29 +39,34 @@ export class AddressComponent {
     return false;
   }
 
+  emailData: string = "";
+  passwordData: string = "";
+
   /**
    * Handles the click event of the login button.
    * If the login form is valid, it sends a request to the server to log in the customer.
    * If the login is successful, it saves the access token and navigates to the home page.
    * If the login fails, it displays an error message.
    */
-  handleLoginClick(): void {
+  handleNextClick(): void {
     if (this.addressForm.valid) {
-      const loginData = this.addressForm.value;
-      // this.customerService.loginCustomer(loginData).subscribe({
-      //   next: (data) => {
-      //     this.customerService.saveAccessToken(
-      //       data.access_token,
-      //       data.expires_in
-      //     );
-      //     this.message.success('Login Successful')
-      //     this.router.navigate(['/home']);
-      //   },
-      //   error: (error) => {
-      //     console.error(error);
-      //     this.message.failed('Login failed')
-      //   },
-      // });
+      const addresData = this.addressForm.value.address;
+      this.emailData = JSON.parse(localStorage.getItem('user') as any).email;
+      this.passwordData = JSON.parse(localStorage.getItem('user') as any).password;
+      const user: ICustomer = {
+        address: addresData,
+        email: this.emailData,
+        password: this.passwordData
+      }
+      this._customerService.signup(user).subscribe(
+        (data) => {
+          if(data.messeag === 'added') {
+            this.router.navigate(['home']);
+          }
+        }
+      );
     }
   }
+
+
 }

@@ -10,21 +10,28 @@ import { PickupModule } from './features/pickup/pickup.module';
 import { BrowseModule } from './features/browse/browse.module';
 import { CartsModule } from './features/carts/carts.module';
 import { OrderModule } from './features/order/order.module';
+import { HttpClientModule } from '@angular/common/http';
+import { DeliveryService } from './services/delivery.service';
+import { HomeModule } from './features/home/home.module';
+import { ReservationModule } from './features/reservation/reservation.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HomeModule,
     CustomerModule,
     DeliveryModule,
     PickupModule,
+    ReservationModule,
     RestaurantModule,
     BrowseModule,
     CartsModule,
-    OrderModule
+    OrderModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [DeliveryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

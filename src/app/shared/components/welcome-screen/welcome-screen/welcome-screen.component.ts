@@ -27,4 +27,8 @@ export class WelcomeScreenComponent {
       // }, 4000);
   //   }
   }
+
+  handleContinueClick(){
+    this.router.navigate(['customer/enter-email']);
+  }
 }

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ICustomerLogin } from '../../../../shared/models/customerLogin.model';
+import { CustomerService } from '../../../../services/customer.service';
 
 @Component({
   selector: 'app-enter-password',
@@ -8,15 +10,16 @@ import { Router } from '@angular/router';
   styleUrl: './enter-password.component.scss'
 })
 export class EnterPasswordComponent {
-  loginForm: FormGroup;
+  passwordForm: FormGroup;
+  emailData: any;
   // private message = inject(MessageService);
 
   constructor(
     private router: Router,
-    // private customerService: CustomerServicesService,
+    private _customerService: CustomerService,
     private formBuilder: FormBuilder
   ) {
-    this.loginForm = this.formBuilder.group({
+    this.passwordForm = this.formBuilder.group({
       // email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
@@ -28,7 +31,7 @@ export class EnterPasswordComponent {
    * @returns True if the field is invalid and has been touched or modified, false otherwise.
    */
   isFieldInvalid(fieldName: string): boolean {
-    const fieldControl = this.loginForm.get(fieldName);
+    const fieldControl = this.passwordForm.get(fieldName);
     if (fieldControl) {
       return (
         fieldControl.invalid && (fieldControl.dirty || fieldControl.touched)
@@ -43,23 +46,20 @@ export class EnterPasswordComponent {
    * If the login is successful, it saves the access token and navigates to the home page.
    * If the login fails, it displays an error message.
    */
-  handleLoginClick(): void {
-    if (this.loginForm.valid) {
-      const loginData = this.loginForm.value;
-      // this.customerService.loginCustomer(loginData).subscribe({
-      //   next: (data) => {
-      //     this.customerService.saveAccessToken(
-      //       data.access_token,
-      //       data.expires_in
-      //     );
-      //     this.message.success('Login Successful')
-      //     this.router.navigate(['/home']);
-      //   },
-      //   error: (error) => {
-      //     console.error(error);
-      //     this.message.failed('Login failed')
-      //   },
-      // });
+  handleNextClick(): void {
+    if (this.passwordForm.valid) {
+      const passwordData = this.passwordForm.value.password;
+      this.emailData = JSON.parse(localStorage.getItem('email') as any).email;
+      const loginData: ICustomerLogin = {
+        email: this.emailData,
+        password: passwordData
+      }
+      this._customerService.login(loginData).subscribe(
+        (data) => {
+          localStorage.setItem('token', JSON.stringify(data.access_token));
+          this.router.navigate(['home']);
+        }
+      );
     }
   }
 }

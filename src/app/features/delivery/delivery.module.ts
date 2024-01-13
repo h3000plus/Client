@@ -14,6 +14,8 @@ import { RecentyViewedComponent } from './components/recenty-viewed/recenty-view
 import { RecommendedComponent } from './components/recommended/recommended.component';
 import { Top10Component } from './components/top10/top10.component';
 import { PopularComponent } from './components/popular/popular.component';
+import { SearchCategoriesComponent } from './components/search-categories/search-categories.component';
+import { TopCategoriesComponent } from './components/top-categories/top-categories.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { PopularComponent } from './components/popular/popular.component';
     RecentyViewedComponent,
     RecommendedComponent,
     Top10Component,
-    PopularComponent
+    PopularComponent,
+    SearchCategoriesComponent,
+    TopCategoriesComponent
   ],
   imports: [
     CommonModule,

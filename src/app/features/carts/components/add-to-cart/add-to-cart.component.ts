@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Category } from '../../../../shared/models/category.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-to-cart',
@@ -7,6 +8,7 @@ import { Category } from '../../../../shared/models/category.model';
   styleUrl: './add-to-cart.component.scss'
 })
 export class AddToCartComponent {
+  constructor(private router: Router) {}
   options: Category[] = [
     {
       name:"Salt",
@@ -35,4 +37,8 @@ export class AddToCartComponent {
       image: "6"
     },
   ]
+
+  handleCartClick(){
+    this.router.navigate(['cart']);
+  }
 }

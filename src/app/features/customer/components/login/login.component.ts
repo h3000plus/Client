@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CustomerService } from '../../../../services/customer.service';
 // import { CustomerServicesService } from '../../services/customer-services.service';
 // import { MessageService } from 'src/app/services/message.service';
 
@@ -11,19 +12,20 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-  loginForm: FormGroup;
+  emailForm: FormGroup;
   // private message = inject(MessageService);
 
   constructor(
     private router: Router,
-    // private customerService: CustomerServicesService,
+    private _customerService: CustomerService,
     private formBuilder: FormBuilder
   ) {
-    this.loginForm = this.formBuilder.group({
+    this.emailForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      // password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
+
+  exist: boolean = false;
 
   /**
    * Checks if a form field is invalid based on its name.
@@ -31,7 +33,7 @@ export class LoginComponent {
    * @returns True if the field is invalid and has been touched or modified, false otherwise.
    */
   isFieldInvalid(fieldName: string): boolean {
-    const fieldControl = this.loginForm.get(fieldName);
+    const fieldControl = this.emailForm.get(fieldName);
     if (fieldControl) {
       return (
         fieldControl.invalid && (fieldControl.dirty || fieldControl.touched)
@@ -46,23 +48,30 @@ export class LoginComponent {
    * If the login is successful, it saves the access token and navigates to the home page.
    * If the login fails, it displays an error message.
    */
-  handleLoginClick(): void {
-    if (this.loginForm.valid) {
-      const loginData = this.loginForm.value;
-      // this.customerService.loginCustomer(loginData).subscribe({
-      //   next: (data) => {
-      //     this.customerService.saveAccessToken(
-      //       data.access_token,
-      //       data.expires_in
-      //     );
-      //     this.message.success('Login Successful')
-      //     this.router.navigate(['/home']);
-      //   },
-      //   error: (error) => {
-      //     console.error(error);
-      //     this.message.failed('Login failed')
-      //   },
-      // });
+  handleNextClick(): void {
+    if (this.emailForm.valid) {
+      const _email = this.emailForm.value;
+      localStorage.setItem('email', JSON.stringify(_email));
+      this._customerService.isExistEmail(_email).subscribe(
+        (data) => {
+          if (data.exists) {
+            this.router.navigate(['customer/login-password']);
+          }
+          else {
+            this.router.navigate(['customer/register-password']);
+          }
+        }
+      )
+
     }
+
   }
+
 }
+
+// constructor( private router: Router, private _deliveryService: DeliveryService) {}
+
+//   restaurants: Restaurant[] = []
+//   ngOnInit(){
+//     this._deliveryService.deliveryRestaurants().subscribe( data => this.restaurants = data)
+//   }

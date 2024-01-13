@@ -6,11 +6,11 @@ import { PlaceOrderComponent } from './components/place-order/place-order.compon
 
 const routes: Routes = [
   {
-    path: 'cart',
+    path: 'add-to-cart',
     component: AddToCartComponent
   },
   {
-    path: 'add-to-cart',
+    path: 'cart',
     component: CheckoutComponent
   },
   {

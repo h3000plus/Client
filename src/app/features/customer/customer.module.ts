@@ -10,6 +10,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { EnterPasswordComponent } from './components/enter-password/enter-password.component';
 import { AddressComponent } from './components/address/address.component';
+import { RegisterPasswordComponent } from './components/register-password/register-password.component';
+import { SearchAddressComponent } from './components/search-address/search-address.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { AddressComponent } from './components/address/address.component';
     ProfileComponent,
     RegisterComponent,
     EnterPasswordComponent,
-    AddressComponent
+    AddressComponent,
+    RegisterPasswordComponent,
+    SearchAddressComponent
   ],
   imports: [
     CommonModule,

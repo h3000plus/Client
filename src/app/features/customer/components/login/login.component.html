@@ -1,5 +1,5 @@
 <section class = "mx-[5vw] mt-[5vh]">
-    <form class="w-[90vw]" [formGroup]="loginForm" (ngSubmit)="handleLoginClick()">
+    <form class="w-[90vw]" [formGroup]="emailForm" (ngSubmit)="handleNextClick()">
       <h3 class="mt-[4vh] text-xl font-bold">What's your email address?</h3>
 
         <div class="form-control w-[90vw]">
@@ -29,7 +29,7 @@
             class="btn bg-black text-white px-6 mt-[60vh]"
             [disabled]="
               isFieldInvalid('email') ||
-              !loginForm.get('email')?.valid
+              !emailForm.get('email')?.valid
             "
           >
             Next
