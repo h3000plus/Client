@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DeliveryService } from '../../../../services/delivery.service';
 import { Restaurant } from '../../../../shared/models/restaurant.model';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-search-categories',
@@ -9,12 +10,22 @@ import { Restaurant } from '../../../../shared/models/restaurant.model';
 })
 export class SearchCategoriesComponent {
 
-  constructor(private _deliveryService: DeliveryService) {}
+  constructor(private _deliveryService: DeliveryService,private http:HttpClient) {}
 
   restaurants: Restaurant[] = [];
 
-  searchRestaurant(searchTerm: string){
-    console.log(searchTerm)
-    this._deliveryService.searchRestaurant(searchTerm).subscribe( data => this.restaurants = data)
+  searchRestaurant(query: KeyboardEvent){
+    if (query) {
+      const element = query.target as HTMLInputElement;
+      if (element.value.length > 0) {
+        this._deliveryService.searchRestaurant(element.value).subscribe(
+          (data) => {
+            this.restaurants = data
+          }
+        )
+      }
+    }
+  //  console.log(this._deliveryService)
+  //  this.http.get(`http://localhost:3000/restaurants/delivery/search?searchTerm=${searchTerm}`).subscribe( data => this.restaurants = data)
   }
 }

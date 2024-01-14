@@ -6,8 +6,18 @@ import { Component, ElementRef, Input, QueryList, ViewChild } from '@angular/cor
   styleUrl: './search.component.scss'
 })
 export class SearchComponent {
-  @ViewChild('searchRestaurant', {read: ElementRef}) searchRestaurant: QueryList<ElementRef> | undefined;
-  ngDoCheck() {
-    console.log(this.searchRestaurant);
+  @ViewChild('searchRestaurant', {static:true}) searchRestaurant: any;
+  // private listenForPlotChanges() {
+  //   this.searchRestaurant?.changes.subscribe(
+  //     (next: QueryList<ElementRef>) => {
+  //       console.log('listenForPlotChanges next:', next);
+  //     }
+  //   )
+  // }
+  @Input() search: any;
+  onChange() {
+    this.search(this.searchRestaurant.nativeElement.value)
+    // console.log(this.searchRestaurant.nativeElement.value)
   }
+
 }

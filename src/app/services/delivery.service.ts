@@ -28,7 +28,6 @@ export class DeliveryService {
   }
 
   deliveryRestaurants(): Observable<any> {
-    console.log(this.headerDict)
     return this.http.get('http://localhost:3000/restaurants/delivery', this.requestOptions)
   }
 }
