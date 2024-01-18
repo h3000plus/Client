@@ -22,6 +22,14 @@ export class DeliveryService {
     headers: new HttpHeaders(this.headerDict)
   };
 
+  restaurantItems(restaurantId: string): Observable<any> {
+    return this.http.get(`http://localhost:3000/items/${restaurantId}`);
+  }
+
+  restaurantDetails(restaurantId: string): Observable<any> {
+    return this.http.get(`http://localhost:3000/details/${restaurantId}`);
+  }
+
   searchRestaurant(searchTerm: string): Observable<any> {
     console.log(searchTerm);
     return this.http.get(`http://localhost:3000/restaurants/delivery/search?searchTerm=${searchTerm}`);

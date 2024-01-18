@@ -16,14 +16,14 @@
               class="relative flex justify-between aspect-w-1 w-full overflow-hidden rounded-lg xl:aspect-h-8 xl:aspect-w-7"
             >
                 <div class="pl-4">
-                    <p class="text-xl font-bold">Maccheroni Pasta</p>
-                    <p class="text-lg font-semibold">$0.19</p>
+                    <p class="text-xl font-bold">{{item.name}}</p>
+                    <p class="text-lg font-semibold">${{item.price}}</p>
                     <p class="text-base font-normal">
-                        something description
+                        {{item.description}}
                     </p>
                     <div class="flex"><span class="p-2 max-w-[30vw] rounded-2xl bg-slate-200 font-bold flex gap-1 mt-2 justify-center text-base"><img class="h-5" src="/assets/icons/like.png">75% (65)</span></div>
                 </div>
-                <img [src]="item.image" class="mr-4 rounded-2xl max-h-[150px] min-w-[150px]"
+                <img [src]="item.image" class="mr-4 rounded-2xl max-h-[150px] min-w-[150px] min-h-[150px] max-w-[150px]"
                 />
                 <span class="absolute bottom-1 right-1"><img class="h-12 bg-white rounded-full" src="/assets/icons/plus.png"></span>
             </div>

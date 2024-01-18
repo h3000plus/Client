@@ -4,7 +4,7 @@ import { RestaurantComponent } from './restaurant.component';
 
 const routes: Routes = [
   {
-    path: 'restaurant',
+    path: 'restaurant/:_id',
     component: RestaurantComponent
   },
 ];

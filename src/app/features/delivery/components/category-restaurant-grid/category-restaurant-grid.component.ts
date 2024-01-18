@@ -19,8 +19,12 @@ export class CategoryRestaurantGridComponent {
 
   isLoading: boolean = false;
 
-  handleProductClick(restaurant: Restaurant) {
+  handleRestaurantClick(restaurant: Restaurant) {
     this.router.navigate(['/restaurant', restaurant?._id]);
   }
+
+  // restaurantDetails () {
+
+  // }
 
 }

@@ -20,24 +20,24 @@
         [product]="restaurant"
       ></app-product> -->
     <!-- </ng-template> -->
-    <div *ngFor="let restaurant of restaurants">
+    <div *ngFor="let item of items" (click)="handleItemClick(item)">
       <div
 class=" card card-compact w-96 bg-base-100 shadow-md max-h-[220px] max-w-[150px] min-w-[150px] min-h-[220px]"
 >
 <div class="relative">
   <figure>
     <img
-      src="{{ restaurant.image }}"
+      src="{{ item?.image }}"
       alt="Shoes"
-      class="rounded-3xl max-h-[150px] min-w-[150px]"
+      class="rounded-3xl object-fill min-h-[150px] min-w-[150px] max-h-[150px] max-w-[150px]"
     />
   </figure>
 
   <div class="p-0 m-0 gap-0">
 
-      <h2 class="card-title text-lg font-uberMove">{{ restaurant.name }}</h2>
+      <h2 class="card-title text-lg font-uberMove">{{ item?.name }}</h2>
 
-    <h5>$0.59</h5>
+    <h5>${{ item?.price }}</h5>
   </div>
   <span class="absolute bottom-16 right-2"><img class="h-12 bg-white rounded-full" src="/assets/icons/plus.png"></span>
 </div>

@@ -16,7 +16,7 @@
         <span class="text-2xl font-semibold font-uberMove ml-3">Add Ons</span>
         <div *ngFor="let ingredient of item.addon">
             <div class="flex items-center mt-3 mb-4 ml-5">
-                <input (change)="addIngredient($event, ingredient)" id={{ingredient.name}} type="checkbox" value="" name="default-radio" class="accent-black w-4 h-4 ">
+                <input (change)="addIngredient($event, ingredient)" id={{ingredient.name}} type="checkbox" [checked]="ischeckedAdd[item.addon.indexOf(ingredient)]" value="checked" name="default-radio" class="accent-black w-4 h-4 ">
                 <label for="default-radio-1" class="ms-2 text-lg font-semibold text-gray-900 dark:text-gray-300">{{ingredient.name}} - ${{ingredient.price}}</label>
             </div>
         </div>
@@ -25,7 +25,7 @@
         <span class="text-2xl font-semibold font-uberMove ml-3">No</span>
         <div *ngFor="let ingredient of item.no">
             <div class="flex items-center mt-3 mb-4 ml-5">
-                <input (change)="removeIngredient($event, ingredient)" id={{ingredient.name}} type="checkbox" value="" name="default-radio" class="accent-black w-4 h-4 ">
+                <input (change)="removeIngredient($event, ingredient)" id={{ingredient.name}} type="checkbox" [checked]="ischeckedNo[item.no.indexOf(ingredient)]" value="" name="default-radio" class="accent-black w-4 h-4 ">
                 <label for="default-radio-1" class="ms-2 text-lg font-semibold text-gray-900 dark:text-gray-300">{{ingredient.name}}</label>
             </div>
         </div>
@@ -37,8 +37,8 @@
     </article>
     <div class="p-2"></div>
 
-    <button class="btm-nav mt-2 ml-[3vw] rounded-xl font-uberMove bg-black text-lg h-16 w-[94vw]" (click)="handleCartClick(item)">
-        <p class="text-white" (click)="onAddToCartClick()">Add {{quantity}} to cart ${{totalCost}}</p>
+    <button class="btm-nav mt-2 ml-[3vw] rounded-xl font-uberMove bg-black text-lg h-16 w-[94vw]" (click)="handleCartClick()">
+        <p class="text-white" (click)="onUpdateCartClick()">Update {{quantity}} to cart ${{totalCost}}</p>
       </button>
 
 </section>

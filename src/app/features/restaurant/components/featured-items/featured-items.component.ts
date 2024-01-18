@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { Restaurant } from '../../../../shared/models/restaurant.model';
+import { IItem } from '../../../../shared/models/item.model';
+import { DeliveryService } from '../../../../services/delivery.service';
+import { switchMap } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-featured-items',
@@ -7,83 +11,22 @@ import { Restaurant } from '../../../../shared/models/restaurant.model';
   styleUrl: './featured-items.component.scss'
 })
 export class FeaturedItemsComponent {
-  restaurants: Restaurant[] = [
-    {
-      _id: '1',
-      name: 'Barano NYC',
-      image: '/assets/icons/restaurant.jpeg',
-      deliveryFee: 50,
-      deliveryTime: 100,
-      like: "4.1k",
-      category_id: "1",
-      delivery: true,
-      pickup: true
-    },
-    {
-      _id: '2',
-      name: 'Barano NYC',
-      image: '/assets/icons/restaurant.jpeg',
-      deliveryFee: 50,
-      deliveryTime: 100,
-      like: "4.1k",
-      category_id: "2",
-      delivery: true,
-      pickup: true
-    },
-    {
-      _id: '3',
-      name: 'Barano NYC',
-      image: '/assets/icons/restaurant.jpeg',
-      deliveryFee: 50,
-      deliveryTime: 100,
-      like: "4.1k",
-      category_id: "3",
-      delivery: true,
-      pickup: true
-    },
-    {
-      _id: '4',
-      name: 'Barano NYC',
-      image: '/assets/icons/restaurant.jpeg',
-      deliveryFee: 50,
-      deliveryTime: 100,
-      like: "4.1k",
-      category_id: "4",
-      delivery: true,
-      pickup: true
-    },
-    {
-      _id: '5',
-      name: 'Barano NYC',
-      image: '/assets/icons/restaurant.jpeg',
-      deliveryFee: 50,
-      deliveryTime: 100,
-      like: "4.1k",
-      category_id: "5",
-      delivery: true,
-      pickup: true
-    },
-    {
-      _id: '6',
-      name: 'Barano NYC',
-      image: '/assets/icons/restaurant.jpeg',
-      deliveryFee: 50,
-      deliveryTime: 100,
-      like: "4.1k",
-      category_id: "6",
-      delivery: true,
-      pickup: true
-    },
-    {
-      _id: '7',
-      name: 'Barano NYC',
-      image: '/assets/icons/restaurant.jpeg',
-      deliveryFee: 50,
-      deliveryTime: 100,
-      like: "4.1k",
-      category_id: "7",
-      delivery: true,
-      pickup: true
-    },
-  ];
+
+  constructor(private route: ActivatedRoute, private _deliveryService: DeliveryService, private router: Router) {}
+  items: IItem[] = [];
+  restaurantId: string = "";
+  ngOnInit(): void {
+    this.route.params.pipe(
+      switchMap((params) => {
+        this.restaurantId = params['_id'];
+        return this._deliveryService.restaurantItems(this.restaurantId);
+      })
+    ).subscribe((data) => {
+      this.items = data;
+    });
+  }
+
+  handleItemClick(item: IItem) {
+    this.router.navigate(['/item', item?._id]);
+  }
 }

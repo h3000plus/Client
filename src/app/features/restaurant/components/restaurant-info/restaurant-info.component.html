@@ -11,9 +11,9 @@
     </div>
 
     <div calss="flex flex-col items-center justify-center">
-        <h1 class="text-center mt-3 text-3xl font-black">Barano NYC</h1>
+        <h1 class="text-center mt-3 text-3xl font-black">{{restaurant.name}}</h1>
 
-        <div class="flex justify-center min-w-[100vw]"><span class="p-2 max-w-[50vw] rounded-2xl bg-slate-200 font-bold flex gap-1 m-2 justify-center text-2xl"><img class="h-6" src="/assets/icons/like.png">4.4k . 1.4mi</span></div>
+        <div class="flex justify-center min-w-[100vw]"><span class="p-2 max-w-[50vw] rounded-2xl bg-slate-200 font-bold flex gap-1 m-2 justify-center text-2xl"><img class="h-6" src="/assets/icons/like.png">{{restaurant.like}}. 1.4mi</span></div>
 
             <div class="flex justify-center min-w-[100vw]">
                 <span class="p-2 max-w-[50vw] rounded-2xl bg-slate-200 flex gap-1 m-2 justify-center text-2xl">
@@ -24,27 +24,32 @@
                         Pickup
                     </span>
                 </span></div>
-            <div class="flex justify-center min-w-[100vw]">
-                <span class="p-2 min-w-[90vw] rounded-2xl flex gap-1 m-2 justify-between text-2xl">
-                    <span class="text-center">
-                        <div>
-                            1.49 Delivery Fee
-                        </div>
-                        <div>
-                            Pricing and Fees
-                        </div>
 
-                    </span>
-                    <span class="text-center">
-                        <div>
-                            30 min
-                        </div>
-                        <div>
-                            Delivery Time
-                        </div>
-                    </span>
-                </span>
-            </div>
+                <div>
+                    <div class="flex m-1 shadow-lg justify-center min-w-[100vw]">
+                        <span class="p-2 min-w-[90vw] rounded-2xl flex gap-1 m-2 justify-between text-2xl">
+                            <span class="text-center">
+                                <div>
+                                    1.49 Delivery Fee
+                                </div>
+                                <div>
+                                    Pricing and Fees
+                                </div>
+
+                            </span>
+                            <span class="text-center">
+                                <div>
+                                    30 min
+                                </div>
+                                <div>
+                                    Delivery Time
+                                </div>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+
+
 
     </div>
 

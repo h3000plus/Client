@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DeliveryService } from './services/delivery.service';
 import { HomeModule } from './features/home/home.module';
 import { ReservationModule } from './features/reservation/reservation.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,7 +30,8 @@ import { ReservationModule } from './features/reservation/reservation.module';
     BrowseModule,
     CartsModule,
     OrderModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [DeliveryService],
   bootstrap: [AppComponent]

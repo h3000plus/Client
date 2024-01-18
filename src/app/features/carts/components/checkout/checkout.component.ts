@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ICart } from '../../../../shared/models/cart.model';
+import { switchMap } from 'rxjs';
+import { CartService } from '../../../../services/cart.service';
 
 @Component({
   selector: 'app-checkout',
@@ -7,9 +10,38 @@ import { Router } from '@angular/router';
   styleUrl: './checkout.component.scss'
 })
 export class CheckoutComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private route: ActivatedRoute, private _cartService: CartService) {}
+
+  cartItems: ICart[] = [];
+  total: number = 0;
+  quantity: number | undefined = 0;
+
+  ngOnInit() {
+    this.cartItems = this._cartService.getItems();
+    this.subtotal(this.cartItems);
+  }
+
+  onPlusClick(cartId: string) {
+    this.quantity = this._cartService.increaseQuantity(cartId);
+  }
+
+  onMinusClick(cartId: string) {
+    this.quantity = this._cartService.decreaseQuantity(cartId);
+  }
 
   handleCheckout(){
     this.router.navigate(['checkout']);
+  }
+
+  handleEditCart(cart: ICart) {
+    this.router.navigate(['/edit-cart', cart?.cartId]);
+  }
+
+  subtotal (items: ICart[]): number {
+    this.total = 0;
+    for (let i = 0; i < items.length; i++) {
+      this.total += items[i].price;
+    }
+    return this.total;
   }
 }

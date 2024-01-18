@@ -1,23 +1,20 @@
 import { Component } from '@angular/core';
-import { Category } from '../../../../shared/models/category.model';
-import { ActivatedRoute, Router } from '@angular/router';
-import { DeliveryService } from '../../../../services/delivery.service';
-import { switchMap } from 'rxjs';
-import { ItemService } from '../../../../services/item.service';
-import { FormsModule } from '@angular/forms';
 import { ICart, IIngredient } from '../../../../shared/models/cart.model';
+import { switchMap } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from '../../../../services/cart.service';
-import { Restaurant } from '../../../../shared/models/restaurant.model';
-import { IItem } from '../../../../shared/models/item.model';
+import { ItemService } from '../../../../services/item.service';
 
 @Component({
-  selector: 'app-add-to-cart',
-  templateUrl: './add-to-cart.component.html',
-  styleUrl: './add-to-cart.component.scss'
+  selector: 'app-edit-cart',
+  templateUrl: './edit-cart.component.html',
+  styleUrl: './edit-cart.component.scss'
 })
-export class AddToCartComponent {
-  constructor(private route: ActivatedRoute, private _cartService: CartService, private _itemService: ItemService, private router: Router) {}
+export class EditCartComponent {
+
+  constructor(private route: ActivatedRoute, private _itemService: ItemService, private cartService: CartService, private router: Router) {}
   item: any;
+  cartItem: any;
   itemId: string = "";
   cartId: string = "";
   totalCost: number = 0;
@@ -34,42 +31,100 @@ export class AddToCartComponent {
   description: string = "";
   check: any;
   price: number = 0;
-
-
+  ischeckedAdd: boolean[] = [];
+  ischeckedNo: boolean[] = [];
 
 
   ngOnInit(): void {
+
     // this.getCartQuantity();
+
     this.route.params.pipe(
       switchMap((params) => {
-        this.itemId = params['itemId'];
-        console.log(this.itemId)
-        return this._itemService.itemDetails(this.itemId);
+        this.cartId = params['cartId'];
+        return this.cartService.getData('cartItems')
       })
     ).subscribe((data) => {
+      const cartItems = JSON.parse(data as string)
+
+      this.cartItem = this.cartService.getItem(this.cartId, cartItems)
+      this.itemId = this.cartItem._id;
+      this.quantity = this.cartItem.quantity;
+      this.add = this.cartItem.addon;
+      this.no = this.cartItem.no
+
+      // console.log(this.totalCost)
+    })
+
+
+    this._itemService.itemDetails(this.itemId).subscribe((data) => {
       this.item = data;
+
       this.price = data.price;
-      this.totalCost = data.price;
-      this.singleCost = data.price;
-      this.resId = data.resId;
+      // console.log(this.price)
+      // this.totalCost = data.price;
+      // this.singleCost = data.price;
+      // this.resId = data.resId;
       this.itemName = data.name;
       this.image = data.image;
       this.description = data.description;
+
+
+      // checkbox
+      for (let i = 0; i < this.item.addon.length; i++) {
+        let no = true;
+        for (let j = 0; j < this.cartItem.addon.length; j++) {
+
+          if (this.item.addon[i].name === this.cartItem.addon[j].name) {
+            this.ischeckedAdd.push(true);
+            no = false;
+          }
+        }
+        if (no) {
+          this.ischeckedAdd.push(false);
+        }
+      }
+
+
+      for (let i = 0; i < this.item.no.length; i++) {
+        let no = true;
+        for (let j = 0; j < this.cartItem.no.length; j++) {
+
+          if (this.item.no[i].name === this.cartItem.no[j].name) {
+            this.ischeckedNo.push(true);
+            no = false;
+          }
+        }
+        if (no) {
+          this.ischeckedNo.push(false);
+        }
+      }
+
+      // totalCost
+      this.singleCost += this.price;
+      for (let i = 0; i < this.item.addon.length; i++) {
+        if (this.ischeckedAdd[i] === false) continue;
+        this.singleCost += this.item.addon[i].price;
+      }
+      this.totalCost = (this.singleCost * this.quantity);
+
+
     });
-
-
   }
 
-  onAddToCartClick () {
-    this.cartId = Math.floor(100000 + Math.random() * 900000).toString();
-    this._cartService.addToCart(this.itemId, this.resId, this.cartId, this.itemName, this.image, this.description, this.quantity, this.totalCost, this.add, this.no);
+
+
+
+  onUpdateCartClick () {
+    // this.cartId = Math.floor(100000 + Math.random() * 900000).toString();
+    this.cartService.updateCart(this.itemId, this.resId, this.cartId, this.itemName, this.image, this.description, this.quantity, this.totalCost, this.add, this.no);
   }
 // checking if an item is in the cart - incomplete
   getCartQuantity () {
     this.route.params.pipe(
       switchMap((params) => {
         this.itemId = params['itemId'];
-        const item = this._cartService.getItemQuantity(this.itemId);
+        const item = this.cartService.getItemQuantity(this.itemId);
         if (item) this.quantity = item;
         return item;
       })
@@ -151,7 +206,8 @@ export class AddToCartComponent {
     this.totalCost = (this.singleCost * this.quantity);
   }
 
-  handleCartClick(item: IItem){
-    this.router.navigate(['/restaurant', item?.resId]);
+  handleCartClick() {
+    this.router.navigate(['cart']);
   }
+
 }

@@ -7,23 +7,26 @@
 
     <div>
         <!-- ngFor -->
-        <div class="shadow-[#DCDCDC_0px_1px_0px_0px]">
-            <div class="flex pb-3 pt-3">
-                <img class="min-w-[25%] max-w-[25%] h-24 rounded-xl ml-4 mt-6 mr-4" src="/assets/icons/catg.jpg">
-                <div class="min-w-[35%] max-w-[35%]">
-                    <h1 class="text-2xl font-bold font-uberMove">Pizzette</h1>
-                    <p class="text-lg font-semibold font-uberMove">Lorem ipsum <br> dolor sit <br> amet</p>
-                    <p class="text-xl font-semibold font-uberMove">$67.50</p>
+        <div *ngFor="let item of cartItems">
+            <div class="shadow-[#DCDCDC_0px_1px_0px_0px]">
+                <div class="flex pb-3 pt-3">
+                    <img (click)="handleEditCart(item)" class="min-w-[25%] max-w-[25%] h-24 rounded-xl ml-4 mt-6 mr-4" src="/assets/icons/catg.jpg">
+                    <div (click)="handleEditCart(item)" class="min-w-[35%] max-w-[35%]">
+                        <h1 class="text-2xl font-bold font-uberMove">{{item.name}}</h1>
+                        <p class="text-lg font-semibold font-uberMove">{{item.description}}</p>
+                        <p class="text-xl font-semibold font-uberMove">${{item.price.toFixed(2)}}</p>
+                    </div>
+                    <article
+                        class="max-h-[5vh] text-center mt-10 rounded-3xl min-w-[28%] max-w-[28%] bg-slate-200 flex  justify-center items-center p-1  gap-6 hover:bg-green-600 cursor-pointer"
+                    >
+                        <span><h3 (click)="onMinusClick(item.cartId)" class="font-bold font-uberMove text-3xl">-</h3></span><span><h3 class="font-bold font-uberMove text-xl">{{item.quantity}}</h3></span><span><h3 (click)="onPlusClick(item.cartId)" class="font-bold font-uberMove text-3xl">+</h3></span>
+                    </article>
                 </div>
-                <article
-                    class="max-h-[5vh] text-center mt-10 rounded-3xl min-w-[28%] max-w-[28%] bg-slate-200 flex  justify-center items-center p-1  gap-6 hover:bg-secondaryLime cursor-pointer"
-                >
-                    <span><h3 class="font-bold font-uberMove text-3xl">-</h3></span><span><h3 class="font-bold font-uberMove text-xl">2</h3></span><span><h3 class="font-bold font-uberMove text-3xl">+</h3></span>
-                </article>
             </div>
         </div>
+
         <!-- ngFor -->
-        <div class="shadow-[#DCDCDC_0px_1px_0px_0px]">
+        <!-- <div class="shadow-[#DCDCDC_0px_1px_0px_0px]">
             <div class="flex pb-3 pt-3">
                 <img class="min-w-[25%] max-w-[25%] h-24 rounded-xl ml-4 mt-6 mr-4" src="/assets/icons/catg.jpg">
                 <div class="min-w-[35%] max-w-[35%]">
@@ -37,13 +40,13 @@
                     <span><h3 class="font-bold font-uberMove text-3xl">-</h3></span><span><h3 class="font-bold font-uberMove text-xl">2</h3></span><span><h3 class="font-bold font-uberMove text-3xl">+</h3></span>
                 </article>
             </div>
-        </div>
+        </div> -->
     </div>
 
 
     <div class="m-4 flex justify-between">
         <h1 class="text-2xl font-bold font-uberMove">Subtotal</h1>
-        <h1 class="text-2xl font-bold font-uberMove">$150</h1>
+        <h1 class="text-2xl font-bold font-uberMove">${{subtotal(cartItems).toFixed(2)}}</h1>
     </div>
 
     <div class="p-10"></div>
