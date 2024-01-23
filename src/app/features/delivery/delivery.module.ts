@@ -16,6 +16,9 @@ import { Top10Component } from './components/top10/top10.component';
 import { PopularComponent } from './components/popular/popular.component';
 import { SearchCategoriesComponent } from './components/search-categories/search-categories.component';
 import { TopCategoriesComponent } from './components/top-categories/top-categories.component';
+import { PriceFilterComponent } from './components/price-filter/price-filter.component';
+import { FeeFilterComponent } from './components/fee-filter/fee-filter.component';
+import { LikeFilterComponent } from './components/like-filter/like-filter.component';
 
 
 @NgModule({
@@ -31,7 +34,10 @@ import { TopCategoriesComponent } from './components/top-categories/top-categori
     Top10Component,
     PopularComponent,
     SearchCategoriesComponent,
-    TopCategoriesComponent
+    TopCategoriesComponent,
+    PriceFilterComponent,
+    FeeFilterComponent,
+    LikeFilterComponent,
   ],
   imports: [
     CommonModule,

@@ -1,7 +1,7 @@
 <section>
     <div class="relative bg-white max-h-96 border-y-stone-400">
         <img class="h-52 w-full" src='/assets/icons/restaurant.jpeg'>
-        <span class="absolute top-14 left-5 bg-white rounded-full"><img class="h-7 m-2" src="/assets/icons/left-arrow-black.png"></span>
+        <span (click)="handleLeftClick(item.resId)" class="absolute top-14 left-5 bg-white rounded-full"><img class="h-7 m-2" src="/assets/icons/left-arrow-black.png"></span>
         <h1 class="text-3xl font-black font-uberMove m-3">{{item.name}}</h1>
         <span class="text-2xl font-semibold font-uberMove m-3">${{item.price}}</span>
         <p class="text-xl font-medium font-uberMove mt-1 ml-3">{{item.description}}</p>

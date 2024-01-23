@@ -1,0 +1,25 @@
+<img class="h-5 left-5 m-4" (click)="handleback()" src="/assets/icons/left-arrow-black.png">
+
+<h1 class="m-4 font-uberMove font-semibold text-4xl">Loyalty Points</h1>
+
+<div class="m-5 h-32 w-[90%] flex rounded-2xl bg-slate-200">
+    <img class="h-16 m-6" src="/assets/icons/award.png">
+    <h1 class="text-4xl font-uberMove font-bold mt-9">1200pts</h1>
+</div>
+
+<div class="mt-16">
+    <h1 class="m-5 text-xl font-bold">Recently Activity</h1>
+
+    <div *ngFor="let point of points">
+        <div class="m-5">
+            <div class="flex gap-5">
+                <img class="h-12 w-12 rounded-full" src={{point.image}}>
+                <span>
+                    <h1 class="text-xl mt-3 font-bold">Your {{point.log}} {{point.points}} points</h1>
+                </span>
+            </div>
+            <div class="shadow-[#DCDCDC_0px_2px_0px_0px] h-2"></div>
+        </div>
+    </div>
+
+</div>

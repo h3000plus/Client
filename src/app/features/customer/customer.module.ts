@@ -12,6 +12,11 @@ import { EnterPasswordComponent } from './components/enter-password/enter-passwo
 import { AddressComponent } from './components/address/address.component';
 import { RegisterPasswordComponent } from './components/register-password/register-password.component';
 import { SearchAddressComponent } from './components/search-address/search-address.component';
+import { WalletComponent } from './components/wallet/wallet.component';
+import { LoyaltyComponent } from './components/loyalty/loyalty.component';
+import { AccountComponent } from './components/account/account.component';
+import { FavoriteComponent } from './components/favorite/favorite.component';
+import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +27,11 @@ import { SearchAddressComponent } from './components/search-address/search-addre
     EnterPasswordComponent,
     AddressComponent,
     RegisterPasswordComponent,
-    SearchAddressComponent
+    SearchAddressComponent,
+    AccountComponent,
+    WalletComponent,
+    LoyaltyComponent,
+    FavoriteComponent
   ],
   imports: [
     CommonModule,
@@ -30,6 +39,7 @@ import { SearchAddressComponent } from './components/search-address/search-addre
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    SharedModule
   ],
   exports: [ LoginComponent, RegisterComponent, SelectionScreenComponent ]
 })

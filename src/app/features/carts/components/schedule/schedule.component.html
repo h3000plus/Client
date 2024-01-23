@@ -1,0 +1,84 @@
+<section>
+
+        <div class="flex m-5 gap-3">
+            <img (click)="handleLeftClick()" class="h-6 pt-1" src="/assets/icons/left-arrow-black.png">
+            <h1 class="font-black text-2xl">Schedule</h1>
+        </div>
+
+
+        <div *ngIf="!scheduleMode" class="flex justify-center min-w-[100vw]">
+            <span class="p-2 min-w-[91vw] rounded-3xl bg-slate-200 flex gap-1 m-2 justify-between text-2xl">
+                <span (click)="deliveryMode()" class="pl-5">
+                    Delivery
+                </span>
+                <span class="pr-5">
+                    <h1 class="bg-white rounded-3xl pl-10 pr-10">Pickup</h1>
+                </span>
+            </span>
+        </div>
+
+        <div *ngIf="scheduleMode" class="flex justify-center min-w-[100vw]">
+            <span class="p-2 min-w-[91vw] rounded-3xl bg-slate-200 flex gap-1 m-2 justify-between text-2xl">
+                <span class="pr-5">
+                    <h1 class="bg-white rounded-3xl pl-10 pr-10">Delivery</h1>
+                </span>
+                <span (click)="pickupMode()" class="pr-8">
+                    Pickup
+                </span>
+            </span>
+        </div>
+
+        <div class="mt-5 flex justify-between">
+            <div (click)="handleToday()" class="ml-5 mr-5 card-compact rounded-xl min-h-[10vh] max-w-[20vh]" [ngClass]="{'shadow-[0_0_5px_rgba(0,0,0,1.0)]': todayC, 'shadow-[0_0_3px_rgba(0,0,0,0.3)]': !todayC}">
+                <h1 class="text-2xl p-2 font-bold text-center">Today</h1>
+                <h1 class="text-2xl p-2 font-normal text-center"> {{day}} / {{month}} / {{year}}</h1>
+            </div>
+
+            <div (click)="handleTomorrow()" class="ml-5 mr-5 card-compact rounded-xl min-h-[10vh] max-w-[20vh]" [ngClass]="{'shadow-[0_0_5px_rgba(0,0,0,1.0)]': tomorrowC, 'shadow-[0_0_3px_rgba(0,0,0,0.3)]': !tomorrowC}">
+                <h1 class="text-2xl p-2 font-bold text-center">Tommorow</h1>
+                <h1 class="text-2xl p-2 font-normal text-center"> {{nDay}} / {{nMonth}} / {{nYear}}</h1>
+            </div>
+        </div>
+
+
+
+
+
+
+        <!-- schedule-selector.component.html -->
+
+
+
+      <div *ngFor="let time of scheduleOptions" class="m-5">
+
+        <div class="flex h-16  justify-between">
+            <label for="{{ time }}" class="text-2xl font-bold pt-4">{{ time }}</label>
+            <input
+                type="radio"
+                name="schedule"
+                id="{{ time }}"
+
+                [value]="time"
+                class="mr-2"
+                (change)="handleSelected($event)"
+            />
+        </div>
+
+        <div class="shadow-[#DCDCDC_0px_2px_0px_0px] h-2"></div>
+
+      </div>
+
+      <div class="p-20"></div>
+
+      <div class="fixed bottom-0 w-full bg-white">
+        <button class="mt-4 ml-[3vw] rounded-xl bg-black text-lg h-16 w-[94vw]" (click)="handleScheduleClick()">
+            <p class="text-white font-bold font-uberMove">Schedule</p>
+        </button>
+        <button class="mt-4 mb-4 ml-[3vw] rounded-xl bg-slate-300 text-lg h-16 w-[94vw] ">
+            <p class="text-black font-bold font-uberMove">Cancel</p>
+        </button>
+    </div>
+
+
+
+</section>

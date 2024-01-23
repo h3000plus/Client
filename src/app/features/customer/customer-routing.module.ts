@@ -7,6 +7,11 @@ import { EnterPasswordComponent } from './components/enter-password/enter-passwo
 import { AddressComponent } from './components/address/address.component';
 import { RegisterPasswordComponent } from './components/register-password/register-password.component';
 import { SearchAddressComponent } from './components/search-address/search-address.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { AccountComponent } from './components/account/account.component';
+import { WalletComponent } from './components/wallet/wallet.component';
+import { LoyaltyComponent } from './components/loyalty/loyalty.component';
+import { FavoriteComponent } from './components/favorite/favorite.component';
 
 const routes: Routes = [
   {
@@ -46,11 +51,28 @@ const routes: Routes = [
         component: SearchAddressComponent
       }
     ],
-  // },
-  // {
-  //   path: 'profile',
-  //   component: ProfileComponent,
+
   },
+  {
+    path: 'profile',
+    component: ProfileComponent
+  },
+  {
+    path: 'account',
+    component: AccountComponent
+  },
+  {
+    path: 'wallet',
+    component: WalletComponent
+  },
+  {
+    path: 'loyalty-program',
+    component: LoyaltyComponent
+  },
+  {
+    path: 'favorite',
+    component: FavoriteComponent
+  }
 ];
 
 @NgModule({

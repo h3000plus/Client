@@ -15,8 +15,10 @@ export class CheckoutComponent {
   cartItems: ICart[] = [];
   total: number = 0;
   quantity: number | undefined = 0;
+  schedule: boolean = false;
 
   ngOnInit() {
+    localStorage.setItem('schedule', JSON.stringify(this.schedule));
     this.cartItems = this._cartService.getItems();
     this.subtotal(this.cartItems);
   }
@@ -35,6 +37,10 @@ export class CheckoutComponent {
 
   handleEditCart(cart: ICart) {
     this.router.navigate(['/edit-cart', cart?.cartId]);
+  }
+
+  handleCrossClick() {
+    history.back();
   }
 
   subtotal (items: ICart[]): number {

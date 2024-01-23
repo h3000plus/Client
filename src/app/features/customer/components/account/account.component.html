@@ -1,0 +1,47 @@
+<section>
+    <div class="m-4 flex justify-between">
+        <h1 class="text-3xl font-black max-w-[50%]">Md. Najmul Huda Hridoy</h1>
+        <img (click)="handleProfileClick()" class="h-14 mt-1" src="/assets/icons/account.png">
+    </div>
+    <div class="flex justify-center gap-3 mt-16">
+        <span (click)="handleFavoriteClick()" class="h-22 w-20 bg-slate-200 rounded-2xl"><img class="h-6 ml-7 mt-4" src="/assets/icons/hearts.png"><P class="text-center font-semibold text-base">Favorites</P></span>
+        <span (click)="handleLoyaltyClick()" class="h-22 w-20 bg-slate-200 rounded-2xl"><img class="h-6 ml-7 mt-4" src="/assets/icons/loyalty-program.png"><P class="text-center font-semibold text-base">Loyalty Programs</P></span>
+        <span (click)="handleWalletClick()" class="h-22 w-20 bg-slate-200 rounded-2xl"><img class="h-6 ml-7 mt-4" src="/assets/icons/wallet.png"><P class="text-center font-semibold text-base">Wallet</P></span>
+        <span (click)="handleOrderClick()" class="h-22 w-20 bg-slate-200 rounded-2xl"><img class="h-6 ml-7 mt-4" src="/assets/icons/paper-bag.png"><P class="text-center font-semibold text-base">Orders</P></span>
+    </div>
+
+    <div class="mt-16">
+        <div class="shadow-[#DCDCDC_0px_5px_0px_0px] h-2"></div>
+        <div class="m-5">
+            <div class="flex pt-3 gap-3">
+                <img class="h-6 ml-1 pt-1 w-4" src="/assets/icons/question.png">
+                <span>
+                    <h1 class="text-xl ml-6 font-bold">Help</h1>
+                </span>
+            </div>
+
+        </div>
+
+        <div class="m-5">
+            <div class="flex pt-3 gap-3">
+                <img class="h-6 pt-1 w-5" src="/assets/icons/insurance.png">
+                <span>
+                    <h1 class="text-xl ml-6 font-bold">Privacy</h1>
+                </span>
+            </div>
+
+        </div>
+        <div class="m-5">
+            <div class="flex pt-3 gap-3">
+                <img class="h-6 ml-1 pt-1 w-4" src="/assets/icons/information.png">
+                <span>
+                    <h1 class="text-xl ml-6 font-bold">About</h1>
+                </span>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- ! Bottom Menu -->
+    <app-bottom-menu></app-bottom-menu>
+</section>

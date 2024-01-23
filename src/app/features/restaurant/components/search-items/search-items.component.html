@@ -1,0 +1,55 @@
+<!-- ! Header -->
+<div class=" overflow-y-auto">
+    <div class="mb-16">
+      <!-- ! Search Box -->
+      <!-- <app-search [search]="searchRestaurant"></app-search> -->
+      <section class="mt-[1vh] px-4 pb-2">
+        <div class="relative">
+          <input
+            type="text"
+            (keyup) ="searchItem($event)"
+            class="input text-center input-bordered border-black w-full rounded-3xl"
+
+          />
+          <button >
+            <img
+              (click)="handleLeftClick()"
+              src="/assets/icons/left-arrow-black.png"
+              alt="search icon"
+              class="absolute h-5 top-1/2 transform -translate-y-1/2 left-3"
+            />
+          </button>
+        </div>
+    </section>
+
+    <ul
+          class="grid mt-5 grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8"
+          *ngIf="items.length > 0"
+        >
+          <li
+            class="group rl card card-compact max-h-[100px] min-h-[100px] bg-base-100 shadow-[0_0_2px_rgba(0,0,0,0.3)] m-2"
+            *ngFor="let item of items" (click)="handleItemClick(item)"
+
+          >
+            <div
+              class="relative flex justify-between aspect-w-1 w-full overflow-hidden rounded-lg xl:aspect-h-8 xl:aspect-w-7"
+            >
+                <div class="pl-4 mt-4">
+                    <p class="text-xl font-bold">{{item.name}}</p>
+                    <p class="text-lg font-semibold">${{item.price}}</p>
+                </div>
+                <img [src]="item.image" class="mr-4 mt-2 rounded-2xl max-h-[80px] min-w-[100px] min-h-[80px] max-w-[100px]"
+                />
+                <span class="absolute bottom-1 right-1"><img class="h-8 bg-white rounded-full" src="/assets/icons/plus.png"></span>
+            </div>
+            <!-- <p class="mt-1 text-lg font-medium text-gray-900">
+              {{ +product.price | takaCurrency }}
+            </p> -->
+          </li>
+        </ul>
+    </div>
+</div>
+
+<!-- (keyup) = "searchItem($event)" -->
+<!-- (click)="handleLeftClick()" -->
+<!-- (click)="handleItemClick(item)" -->

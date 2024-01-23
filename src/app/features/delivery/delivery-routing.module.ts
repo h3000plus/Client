@@ -7,8 +7,23 @@ import { RecentyViewedComponent } from './components/recenty-viewed/recenty-view
 import { Top10Component } from './components/top10/top10.component';
 import { RecommendedComponent } from './components/recommended/recommended.component';
 import { SearchCategoriesComponent } from './components/search-categories/search-categories.component';
+import { PriceFilterComponent } from './components/price-filter/price-filter.component';
+import { FeeFilterComponent } from './components/fee-filter/fee-filter.component';
+import { LikeFilterComponent } from './components/like-filter/like-filter.component';
 
 const routes: Routes = [
+  {
+    path: 'f',
+    component: FeeFilterComponent
+  },
+  {
+    path: 'l',
+    component: LikeFilterComponent
+  },
+  {
+    path: 'p',
+    component: PriceFilterComponent
+  },
   {
     path: 'delivery',
     component: DeliveryComponent,

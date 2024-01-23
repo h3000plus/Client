@@ -12,4 +12,8 @@ export class ItemService {
   itemDetails(itemId: string): Observable<any> {
     return this.http.get(`http://localhost:3000/itemDetails/${itemId}`);
   }
+
+  searchRestaurantItem(resId: string, searchTerm: string): Observable<any> {
+    return this.http.get(`http://localhost:3000/items/${resId}/search?searchTerm=${searchTerm}`);
+  }
 }

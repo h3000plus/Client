@@ -7,6 +7,7 @@ import { RestaurantInfoComponent } from './components/restaurant-info/restaurant
 import { FeaturedItemsComponent } from './components/featured-items/featured-items.component';
 import { ItemsByCategoryComponent } from './components/items-by-category/items-by-category.component';
 import { ScrollCategoriesComponent } from './components/scroll-categories/scroll-categories.component';
+import { SearchItemsComponent } from './components/search-items/search-items.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ScrollCategoriesComponent } from './components/scroll-categories/scroll
     RestaurantInfoComponent,
     FeaturedItemsComponent,
     ItemsByCategoryComponent,
-    ScrollCategoriesComponent
+    ScrollCategoriesComponent,
+    SearchItemsComponent
   ],
   imports: [
     CommonModule,

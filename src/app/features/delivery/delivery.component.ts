@@ -23,4 +23,5 @@ export class DeliveryComponent {
   handleSearchClick() {
     this.router.navigate(['delivery/search']);
   }
+
 }

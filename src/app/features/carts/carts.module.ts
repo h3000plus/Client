@@ -6,6 +6,7 @@ import { AddToCartComponent } from './components/add-to-cart/add-to-cart.compone
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { PlaceOrderComponent } from './components/place-order/place-order.component';
 import { EditCartComponent } from './components/edit-cart/edit-cart.component';
+import { ScheduleComponent } from './components/schedule/schedule.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { EditCartComponent } from './components/edit-cart/edit-cart.component';
     AddToCartComponent,
     CheckoutComponent,
     PlaceOrderComponent,
-    EditCartComponent
+    EditCartComponent,
+    ScheduleComponent
   ],
   imports: [
     CommonModule,

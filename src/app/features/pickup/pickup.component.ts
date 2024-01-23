@@ -8,6 +8,10 @@ import { Router } from '@angular/router';
 })
 export class PickupComponent {
   constructor(private router: Router) {}
+
+  ngOnInit() {
+    
+  }
   handleSearchClick(){
     this.router.navigate(['pickup/search']);
   }

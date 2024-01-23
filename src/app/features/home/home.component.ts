@@ -8,10 +8,18 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent {
   constructor(private router: Router) {}
+
+  mode: boolean = true;
+
+
   handleDeliveryClick(){
+    this.mode = true;
+    localStorage.setItem('mode', JSON.stringify(this.mode));
     this.router.navigate(['delivery'])
   }
   handlePickupClick(){
+    this.mode = false;
+    localStorage.setItem('mode', JSON.stringify(this.mode));
     this.router.navigate(['pickup'])
   }
   handleResrvationClick(){

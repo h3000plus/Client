@@ -1,19 +1,21 @@
-<div class="min-h-[30vh] min-w-[30vh] gap-0 flex justify-between ml-6 mr-6">
 
+<div class="bg-green-600 h-[100vh] min-w-[30vh]">
+    <div class="gap-0 flex justify-between ml-4 mr-8">
 
+        <div class="bg-white rounded-full h-28 min-w-[14vh] mt-[350px]"(click)="handlePickupClick()">
+            <img class="h-[50%] w-[50%] mt-4 ml-7" src="/assets/icons/walk.png">
+            <h1 class="font-bold text-lg text-center">Pickup</h1>
+        </div>
 
-    <div class="bg-green-600 rounded-full h-28 min-w-[14vh] mt-[350px]"(click)="handlePickupClick()">
-        <img class="h-[50%] w-[50%] mt-4 ml-7" src="/assets/icons/walk.png">
-        <h1 class="font-bold text-lg text-center">Pickup</h1>
-    </div>
+        <div class="bg-white rounded-full h-28 min-w-[14vh] mt-[200px]" (click)="handleDeliveryClick()">
+            <img class="h-[50%] w-[50%] mt-4 ml-8" src="/assets/icons/home-delivery.png">
+            <h1 class="font-bold text-lg text-center">Delivery</h1>
+        </div>
 
-    <div class="bg-green-600 rounded-full h-28 min-w-[14vh] mt-[200px]" (click)="handleDeliveryClick()">
-        <img class="h-[50%] w-[50%] mt-4 ml-8" src="/assets/icons/home-delivery.png">
-        <h1 class="font-bold text-lg text-center">Delivery</h1>
-    </div>
+        <div class="bg-white rounded-full h-28 min-w-[14vh] mt-[350px]" (click)="handleResrvationClick()">
+            <img class="h-[40%] w-[40%] mt-4 ml-8"  src="/assets/icons/reservation.png">
+            <h1 class="font-bold text-lg text-center">Reservation</h1>
+        </div>
 
-    <div class="bg-green-600 rounded-full h-28 min-w-[14vh] mt-[350px]" (click)="handleResrvationClick()">
-        <img class="h-[40%] w-[40%] mt-4 ml-8"  src="/assets/icons/reservation.png">
-        <h1 class="font-bold text-lg text-center">Reservation</h1>
     </div>
 </div>

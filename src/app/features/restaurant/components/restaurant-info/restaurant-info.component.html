@@ -1,13 +1,13 @@
 <section>
     <div class="relative">
-        <img class="" src='https://media.istockphoto.com/id/1409730005/photo/chef-cooking-at-a-restaurant-and-flaming-the-food.jpg?s=1024x1024&w=is&k=20&c=KvPvEJruhwHuUk1RuzwZwgyfUajtFt_F_-r5uDhgflc='>
-        <div class="absolute top-5 right-5 flex gap-5">
+        <img class="h-[24vh] w-[100vh]" src='https://media.istockphoto.com/id/1409730005/photo/chef-cooking-at-a-restaurant-and-flaming-the-food.jpg?s=1024x1024&w=is&k=20&c=KvPvEJruhwHuUk1RuzwZwgyfUajtFt_F_-r5uDhgflc='>
+        <div class="absolute top-16 right-5 flex gap-2">
 
-            <span><img class="h-10" src="/assets/icons/search-icon-white.jpg"></span>
-            <span><img class="h-10" src="/assets/icons/white-heart.png"></span>
-            <span><img class="h-10" src="/assets/icons/three-dots.png"></span>
+            <span (click)="handleSearchClick(restaurant)" class="bg-slate-500 rounded-full opacity-60 "><img class="h-14 p-3" src="/assets/icons/search-icon-white.jpg"></span>
+            <span class="bg-slate-500 rounded-full opacity-60 "><img class="h-14 p-3" src="/assets/icons/white-heart.png"></span>
+            <span class="bg-slate-500 rounded-full opacity-60 "><img class="h-14 p-3" src="/assets/icons/three-dots.png"></span>
         </div>
-        <span class="absolute top-5 left-5"><img class="h-8" src="/assets/icons/left-arrow.png"></span>
+        <span (click)="handleBackClick()" class="absolute bg-slate-500 rounded-full opacity-60 top-16 left-5"><img class="h-14 p-3" src="/assets/icons/left-arrow.png"></span>
     </div>
 
     <div calss="flex flex-col items-center justify-center">
@@ -15,27 +15,38 @@
 
         <div class="flex justify-center min-w-[100vw]"><span class="p-2 max-w-[50vw] rounded-2xl bg-slate-200 font-bold flex gap-1 m-2 justify-center text-2xl"><img class="h-6" src="/assets/icons/like.png">{{restaurant.like}}. 1.4mi</span></div>
 
-            <div class="flex justify-center min-w-[100vw]">
-                <span class="p-2 max-w-[50vw] rounded-2xl bg-slate-200 flex gap-1 m-2 justify-center text-2xl">
-                    <span class="font-bold pr-2">
+            <div *ngIf="!mode" class="flex justify-center min-w-[100vw]">
+                <span class="p-2 max-w-[50vw] rounded-3xl bg-slate-200 flex gap-1 m-2 justify-center text-2xl">
+                    <span (click)="deliveryMode()" class="pl-2">
                         Delivery
                     </span>
-                    <span>
+                    <span class="pr-2">
+                        <h1 class="bg-white rounded-3xl pl-2 pr-2">Pickup</h1>
+                    </span>
+                </span>
+            </div>
+
+            <div *ngIf="mode" class="flex justify-center min-w-[100vw]">
+                <span class="p-2 max-w-[50vw] rounded-3xl bg-slate-200 flex gap-1 m-2 justify-center text-2xl">
+                    <span class="pr-2">
+                        <h1 class="bg-white rounded-3xl ml-5 pl-2 pr-1">Delivery</h1>
+                    </span>
+                    <span (click)="pickupMode()" class="mr-4">
                         Pickup
                     </span>
-                </span></div>
+                </span>
+            </div>
 
-                <div>
-                    <div class="flex m-1 shadow-lg justify-center min-w-[100vw]">
-                        <span class="p-2 min-w-[90vw] rounded-2xl flex gap-1 m-2 justify-between text-2xl">
+                <div *ngIf="mode">
+                    <div class="flex m-3 rounded-lg shadow-[0_0_2px_rgba(0,0,0,0.3)] justify-center min-w-[60vw]">
+                        <span class="p-2 min-w-[90vw] flex gap-1 m-1 justify-between text-2xl">
                             <span class="text-center">
                                 <div>
-                                    1.49 Delivery Fee
+                                    $1.49 Delivery Fee
                                 </div>
                                 <div>
                                     Pricing and Fees
                                 </div>
-
                             </span>
                             <span class="text-center">
                                 <div>
@@ -49,7 +60,28 @@
                     </div>
                 </div>
 
-
+                <div *ngIf="!mode">
+                    <div class="flex m-3 rounded-lg shadow-[0_0_2px_rgba(0,0,0,0.3)] justify-center min-w-[60vw]">
+                        <span class="p-2 min-w-[90vw] flex gap-1 m-1 justify-between text-2xl">
+                            <span class="text-center">
+                                <div>
+                                    $0.00
+                                </div>
+                                <div>
+                                    Pricing and Fees
+                                </div>
+                            </span>
+                            <span class="text-center">
+                                <div>
+                                    15 min
+                                </div>
+                                <div>
+                                    Pickup Time
+                                </div>
+                            </span>
+                        </span>
+                    </div>
+                </div>
 
     </div>
 

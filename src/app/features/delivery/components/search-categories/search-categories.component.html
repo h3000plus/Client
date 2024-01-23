@@ -7,34 +7,56 @@
         <div class="relative">
           <input
             type="text"
-            placeholder="Search"
-            class="input input-bordered border-black w-full rounded-3xl"
+
+            class="input text-center input-bordered border-black w-full rounded-3xl"
             (keyup) = "searchRestaurant($event)"
           />
-          <button>
+          <button (click)="handleLeftClick()">
             <img
-              src="/assets/icons/search.svg"
+              src="/assets/icons/left-arrow-black.png"
               alt="search icon"
-              class="absolute top-1/2 transform -translate-y-1/2 right-3"
+              class="absolute h-5 top-1/2 transform -translate-y-1/2 left-3"
             />
           </button>
         </div>
     </section>
-    <div *ngIf="restaurants.length !== 0">
+
+
+    <ul
+            class="grid mt-5 grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8"
+            *ngIf="restaurants.length !== 0"
+          >
+            <li
+              class="group card max-h-[80px] min-h-[80px] bg-base-100 shadow"
+              *ngFor="let res of restaurants" (click)="handleResClick(res)"
+
+            >
+              <div
+                class="p-5 flex gap-5 aspect-h-1 aspect-w-1 w-full overflow-hidden xl:aspect-h-8 xl:aspect-w-7"
+              >
+                <img
+                    img src={{res.image}}
+                    class="max-h-[100vh]  max-w-[10vh] rounded-xl object-cover object-center group-hover:opacity-75"
+                />
+                <h3 class="mt-1 text-lg text-gray-700 font-bold font-uberMove">{{ res.name }}</h3>
+              </div>
+            </li>
+          </ul>
+    <!-- <div *ngIf="restaurants.length !== 0">
       <ul class="bg-white border border-secondaryLime w-full mt-2 rounded">
         <li
           class="pl-8 pr-2 py-1 border-b-2 border-secondaryLime relative cursor-pointer hover:bg-secondaryLimeHover hover:text-gray-900"
           *ngFor="let res of restaurants"
         >
-          <!-- <a routerLink="/products/{{ product._id }}"> -->
+
             <div class="flex items-center justify-start gap-2">
               <img src={{res.image}} alt="" class="max-h-[20px]" />
               <p class="text-md text-center">{{ res.name }}</p>
             </div>
-          <!-- </a> -->
+
         </li>
       </ul>
-    </div>
+    </div> -->
 
       <!-- ! Top Categories -->
       <app-top-categories></app-top-categories>

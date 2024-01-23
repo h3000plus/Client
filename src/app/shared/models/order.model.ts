@@ -1,9 +1,14 @@
 import { ICart } from "./cart.model";
 
 export interface IOrder {
-    _id: string,
-    deliveryFee: number,
-    deliveryTime: number,
+    deliveryFee?: number,
+    deliveryTime?: number,
     cartItems: ICart[],
-    subtotal: number
+    subtotal: number,
+    orderStatus?: string,
+    ordertype: string,
+    delivery: boolean,
+    pickup: boolean,
+    date?: string,
+    schedule?: string
 }

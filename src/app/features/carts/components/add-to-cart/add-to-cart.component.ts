@@ -154,4 +154,8 @@ export class AddToCartComponent {
   handleCartClick(item: IItem){
     this.router.navigate(['/restaurant', item?.resId]);
   }
+
+  handleLeftClick(resId: string) {
+    this.router.navigate(['/restaurant', resId]);
+  }
 }
