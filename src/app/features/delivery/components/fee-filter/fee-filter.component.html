@@ -3,29 +3,29 @@
     <div class="h-[57vh] bg-black bg-opacity-25">
     </div>
     <div>
-        <h1 class="text-center text-xl font-black pt-4">Price</h1>
+        <h1 class="text-center text-xl font-black pt-4">Delivery Fee</h1>
         <div class="shadow-[#DCDCDC_0px_2px_0px_0px] h-2"></div>
 
         <div class="flex items-center mt-3 mb-4 ml-5">
             <input id="something" type="checkbox" value="" name="default-radio" class="accent-black w-4 h-4 ">
-            <label for="default-radio-1" class="ms-2 pl-5 text-lg font-semibold text-gray-900 dark:text-gray-300">$10</label>
+            <label for="default-radio-1" class="ms-2 pl-5 text-lg font-semibold text-gray-900 dark:text-gray-300">&lt; $50</label>
         </div>
 
         <div class="flex items-center mt-3 mb-4 ml-5">
             <input id="something" type="checkbox" value="" name="default-radio" class="accent-black w-4 h-4 ">
-            <label for="default-radio-1" class="ms-2 pl-5 text-lg font-semibold text-gray-900 dark:text-gray-300">$100</label>
+            <label for="default-radio-1" class="ms-2 pl-5 text-lg font-semibold text-gray-900 dark:text-gray-300">&lt; $100</label>
         </div>
 
         <div class="flex items-center mt-3 mb-4 ml-5">
             <input id="something" type="checkbox" value="" name="default-radio" class="accent-black w-4 h-4 ">
-            <label for="default-radio-1" class="ms-2 pl-5 text-lg font-semibold text-gray-900 dark:text-gray-300">$1000</label>
+            <label for="default-radio-1" class="ms-2 pl-5 text-lg font-semibold text-gray-900 dark:text-gray-300">&lt; $150</label>
         </div>
     </div>
     <div class="fixed bottom-0 w-full bg-gray">
         <button class="mt-4 ml-[3vw] rounded-xl bg-black text-lg h-16 w-[94vw]" (click)="handleApply()">
             <p class="text-white font-bold font-uberMove">Apply</p>
         </button>
-        <button class="mb-4 ml-[3vw] rounded-xl text-lg h-16 w-[94vw] ">
+        <button (click)="reset()" class="mb-4 ml-[3vw] rounded-xl text-lg h-16 w-[94vw] ">
             <p class="text-black font-bold font-uberMove">Reset</p>
         </button>
     </div>

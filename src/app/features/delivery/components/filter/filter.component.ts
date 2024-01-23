@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-filter',
@@ -6,7 +7,18 @@ import { Component } from '@angular/core';
   styleUrl: './filter.component.scss'
 })
 export class FilterComponent {
-  handleCategoryIconClick() {
-    
+
+  constructor(private router: Router) {}
+
+  handlePriceClick() {
+    this.router.navigate(['p']);
+  }
+
+  handleFeeClick() {
+    this.router.navigate(['f']);
+  }
+
+  handleLikeClick() {
+    this.router.navigate(['l']);
   }
 }

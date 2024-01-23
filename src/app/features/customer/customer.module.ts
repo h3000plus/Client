@@ -17,6 +17,7 @@ import { LoyaltyComponent } from './components/loyalty/loyalty.component';
 import { AccountComponent } from './components/account/account.component';
 import { FavoriteComponent } from './components/favorite/favorite.component';
 import { SharedModule } from '../../shared/shared.module';
+import { AddressTimeComponent } from './components/address-time/address-time.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { SharedModule } from '../../shared/shared.module';
     AccountComponent,
     WalletComponent,
     LoyaltyComponent,
-    FavoriteComponent
+    FavoriteComponent,
+    AddressTimeComponent
   ],
   imports: [
     CommonModule,

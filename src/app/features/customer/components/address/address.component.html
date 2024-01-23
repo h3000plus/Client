@@ -1,13 +1,21 @@
+<div class="relative mt-2">
+  <h1 class="text-2xl pt-4 font-bold text-center">Address details</h1>
+  <img class="h-5 absolute left-5 top-6"  src="/assets/icons/left-arrow-black.png">
+</div>
+
 <section class = "mx-[5vw] mt-[5vh]">
+
+
     <form class="w-[90vw]" [formGroup]="addressForm" (ngSubmit)="handleNextClick()">
-      <h3 class="mt-[4vh] text-xl font-bold">Addresses</h3>
+      <!-- <h3 class="mt-[4vh] text-xl font-bold">Address details</h3> -->
 
         <div class="form-control w-[90vw]">
 
           <input
+            #mapSearchField
             type="text"
-            placeholder="address"
-            class="input mt-[4vh] w-full border-black"
+            placeholder="Address"
+            class="my-map-search-field input mt-[4vh] w-full border-black"
             formControlName="address"
             [class.input-error]="isFieldInvalid('address')"
             required
@@ -22,11 +30,42 @@
               >*Invalid Address</span
             >
           </label>
+
+          <h1 class="font-bold mt-[5vh]">Building type</h1>
+          <input
+            type="text"
+            placeholder="Home/Apt/Office/Hotel/Other"
+            class="input w-full border-black"
+            formControlName="address"
+            [class.input-error]="isFieldInvalid('address')"
+            required
+          />
+
+          <h1 class="font-bold mt-[5vh]">Apt/Suite/Floor</h1>
+          <input
+            type="text"
+            placeholder="e.g. 1208"
+            class="input w-full border-black"
+            formControlName="address"
+            [class.input-error]="isFieldInvalid('address')"
+            required
+          />
+
+          <h1 class="font-bold mt-[5vh]">Business/Building name</h1>
+          <input
+            type="text"
+            placeholder="e.g. Central Tower"
+            class="input w-full border-black"
+            formControlName="address"
+            [class.input-error]="isFieldInvalid('address')"
+            required
+          />
+
         </div>
 
         <div class="text-end mt-2 w-full">
           <button
-            class="btn bg-black text-white px-6 mt-[60vh]"
+            class="btn bg-black text-white px-6 mt-[25vh]"
             [disabled]="
               isFieldInvalid('address') ||
               !addressForm.get('address')?.valid

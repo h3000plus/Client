@@ -15,6 +15,7 @@ import { DeliveryService } from './services/delivery.service';
 import { HomeModule } from './features/home/home.module';
 import { ReservationModule } from './features/reservation/reservation.module';
 import { FormsModule } from '@angular/forms';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,7 +32,8 @@ import { FormsModule } from '@angular/forms';
     CartsModule,
     OrderModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    GoogleMapsModule,
   ],
   providers: [DeliveryService],
   bootstrap: [AppComponent]

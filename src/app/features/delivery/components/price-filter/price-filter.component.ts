@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-price-filter',
@@ -7,7 +8,13 @@ import { Component } from '@angular/core';
 })
 export class PriceFilterComponent {
 
+  constructor(private router: Router) {}
+
   handleApply() {
-    
+
+  }
+
+  reset() {
+    this.router.navigate(['delivery'])
   }
 }

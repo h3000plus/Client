@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ICustomer } from '../../../../shared/models/customer.model';
@@ -21,6 +21,27 @@ export class AddressComponent {
     this.addressForm = this.formBuilder.group({
       address: ['', [Validators.required]],
       // password: ['', [Validators.required, Validators.minLength(6)]],
+    });
+  }
+
+  @ViewChild('mapSearchField') searchField: ElementRef | undefined;
+  ngAfterViewInit(): void {
+    const searchBox = new google.maps.places.SearchBox(
+      this.searchField?.nativeElement
+    );
+
+    searchBox.addListener('places_changed', () => {
+      const places = searchBox.getPlaces();
+      if (places?.length === 0) {
+        return;
+      }
+      places?.forEach((place) => {
+        console.log(place.name, place.address_components);
+        console.log(
+          place.geometry?.location?.lat(),
+          place.geometry?.location?.lng()
+        );
+      });
     });
   }
 

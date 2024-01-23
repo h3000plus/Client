@@ -1,259 +1,110 @@
-<section class="py-2 flex justify-center items-center h-screen w-full">
-    <form [formGroup]="registrationForm" (ngSubmit)="registrationFormSubmit()">
-      <h1 class="text-primary text-3xl text-center">Register</h1>
-      <div class="max-w-[60%] mx-auto">
-        <img src="/assets/images/Register.png" alt="Registration image" />
-      </div>
-      <!-- ! STEP:1 - EMAIL & PASSWORD -->
-      <div *ngIf="step === 1">
-        <!-- ? Steps -->
+<div class="relative mt-2">
+  <h1 class="text-2xl pt-4 font-bold text-center">Sign UP</h1>
+  <img class="h-5 absolute left-5 top-6"  src="/assets/icons/left-arrow-black.png">
+</div>
 
-        <div class="flex justify-center items-center">
-          <ul class="steps steps-horizontal lg:steps-horizontal">
-            <li class="step step-primary"></li>
-            <li class="step"></li>
-            <li class="step"></li>
-          </ul>
-        </div>
-        <!-- ? Form -->
+<section class = "mx-[5vw] ">
 
-        <div class="grid justify-center items-center w-full mx-auto gap-2">
-          <div class="form-control w-full max-w-xs">
-            <label class="label">
-              <span class="label-text font-agrandirRegular">Email</span>
-            </label>
-            <input
-              type="email"
-              formControlName="email"
-              placeholder="Your Email"
-              class="input input-primary w-full max-w-xs"
-              [class.input-error]="isFieldInvalid('email')"
-            />
-            <label class="label">
-              <span class="label-text-alt"></span>
-              <span
-                class="label-text-alt text-error"
-                [class.hidden]="!isFieldInvalid('email')"
-              >
-                *Invalid Email
-              </span>
-            </label>
-          </div>
+    <form class="w-[90vw]" [formGroup]="signupForm" (ngSubmit)="handleNextClick()">
+      <!-- <h3 class="mt-[4vh] text-xl font-bold">Address details</h3> -->
 
-          <div class="form-control w-full max-w-xs">
-            <label class="label">
-              <span class="label-text font-agrandirRegular">Password</span>
-            </label>
-            <input
-              type="password"
-              formControlName="password"
-              placeholder="Type here"
-              class="input input-primary w-full max-w-xs"
-              [class.input-error]="isFieldInvalid('password')"
-            />
-            <!-- Invalid Form Input -->
-            <label class="label">
-              <span class="label-text-alt"></span>
-              <span
-                class="label-text-alt text-error hidden"
-                [class.hidden]="!isFieldInvalid('password')"
-                >*Invalid Password</span
-              >
-            </label>
-          </div>
-          <!-- NEXT Button -->
-          <div class="text-center mt-2">
-            <button
-              class="btn btn-primary px-6"
-              [disabled]="
-                isFieldInvalid('email') ||
-                isFieldInvalid('password') ||
-                !registrationForm.get('email')?.valid ||
-                !registrationForm.get('password')?.valid
-              "
-              (click)="onEmailSubmit()"
+        <div class="form-control w-[90vw]">
+
+
+
+          <h1 class="font-bold mt-[5vh]">First name</h1>
+          <input
+            type="text"
+            placeholder="Md. Najmul Huda"
+            class="input w-full border-black"
+            formControlName="address"
+            [class.input-error]="isFieldInvalid('address')"
+            required
+          />
+
+          <h1 class="font-bold mt-[5vh]">Last name</h1>
+          <input
+            type="text"
+            placeholder="Hridoy"
+            class="input w-full border-black"
+            formControlName="address"
+            [class.input-error]="isFieldInvalid('address')"
+            required
+          />
+
+          <h1 class="font-bold mt-[5vh]">Email</h1>
+          <input
+            type="email"
+            placeholder="Hridoy"
+            class="input w-full border-black"
+            formControlName="address"
+            [class.input-error]="isFieldInvalid('address')"
+            required
+          />
+
+          <h1 class="font-bold mt-[5vh]">Date of birth</h1>
+          <input
+            type="date"
+            placeholder="Birth date"
+            class="input w-full border-black"
+            formControlName="address"
+            [class.input-error]="isFieldInvalid('address')"
+            required
+          />
+
+          <h1 class="font-bold mt-[5vh]">Address</h1>
+          <input
+            #mapSearchField
+            type="text"
+            placeholder="Address"
+            class="my-map-search-field input w-full border-black"
+            formControlName="address"
+            [class.input-error]="isFieldInvalid('address')"
+            required
+          />
+          <!-- Invalid Form Input -->
+          <!-- <label class="label">
+            <span class="label-text-alt"></span>
+            <span
+              class="label-text-alt text-error"
+              *ngIf="isFieldInvalid('address')"
+              class="text-error"
+              >*Invalid Address</span
             >
-              Next
-            </button>
-            <p class="text-right mr-5 mt-5">
-              Already have a account? please
-              <a
-                href="/customer/login"
-                class="text-primaryGreen hover:text-primaryGreenHover"
-                >Login</a
-              >
-            </p>
-          </div>
+          </label> -->
+
+          <h1 class="font-bold mt-[4vh]">New password</h1>
+          <input
+            type="password"
+            placeholder="New password"
+            class="input w-full border-black"
+            formControlName="address"
+            [class.input-error]="isFieldInvalid('address')"
+            required
+          />
+
+          <h1 class="font-bold mt-[5vh]">Confirm password</h1>
+          <input
+            type="pasword"
+            placeholder="Confirm password"
+            class="input w-full border-black"
+            formControlName="address"
+            [class.input-error]="isFieldInvalid('address')"
+            required
+          />
+
         </div>
-      </div>
 
-      <!-- ! STEP:2 - First Name & Last Name -->
-      <div *ngIf="step === 2">
-        <!-- ? Steps -->
-        <div class="flex justify-center items-center">
-          <ul class="steps steps-horizontal lg:steps-horizontal">
-            <li class="step step-primary"></li>
-            <li class="step step-primary"></li>
-            <li class="step"></li>
-          </ul>
-        </div>
-        <!-- ? Form -->
-
-        <div class="grid justify-center items-center w-full mx-auto gap-2">
-          <div class="form-control w-full max-w-xs">
-            <label class="label">
-              <span class="label-text font-agrandirRegular">First Name</span>
-            </label>
-            <input
-              type="text"
-              placeholder="Ariful"
-              formControlName="firstName"
-              class="input input-primary w-full max-w-xs"
-              [class.input-error]="isFieldInvalid('firstName')"
-            />
-            <!-- Invalid Form Input -->
-            <label class="label">
-              <span class="label-text-alt"></span>
-              <span
-                class="label-text-alt text-error"
-                [class.hidden]="!isFieldInvalid('firstName')"
-                >*First Name Required</span
-              >
-            </label>
-          </div>
-
-          <div class="form-control w-full max-w-xs">
-            <label class="label">
-              <span class="label-text font-agrandirRegular">Last Name</span>
-            </label>
-            <input
-              type="text"
-              formControlName="lastName"
-              placeholder="Islam"
-              class="input input-primary w-full max-w-xs"
-              [class.input-error]="isFieldInvalid('lastName')"
-            />
-            <!-- Invalid Form Input -->
-            <label class="label">
-              <span class="label-text-alt"></span>
-              <span
-                class="label-text-alt text-error"
-                [class.hidden]="!isFieldInvalid('lastName')"
-                >*Last Name Required.</span
-              >
-            </label>
-          </div>
-          <!-- NEXT Button -->
-          <div class="text-center mt-2">
-            <button
-              class="btn btn-primary px-6"
-              [disabled]="
-                isFieldInvalid('firstName') ||
-                isFieldInvalid('lastName') ||
-                !registrationForm.get('firstName')?.valid ||
-                !registrationForm.get('lastName')?.valid
-              "
-              (click)="increaseStep()"
-            >
-              Next
-            </button>
-            <p class="text-right mr-5 mt-5">
-              Already have a account? please
-              <a
-                href="/customer/login"
-                class="text-primaryGreen hover:text-primaryGreenHover"
-                >Login</a
-              >
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- ! STEP:3 - Address & Postal Code -->
-
-      <div *ngIf="step === 3">
-        <!-- ? Steps -->
-
-        <div class="flex justify-center items-center">
-          <ul class="steps steps-horizontal lg:steps-horizontal">
-            <li class="step step-primary"></li>
-            <li class="step step-primary"></li>
-            <li class="step step-primary"></li>
-          </ul>
-        </div>
-        <!-- ? Form -->
-        <div class="grid justify-center items-center w-full mx-auto gap-2">
-          <div class="form-control w-full max-w-xs">
-            <label class="label">
-              <span class="label-text font-agrandirRegular">Address</span>
-            </label>
-            <div class="relative">
-              <span
-                class="absolute top-1/2 right-2 -translate-x-1/2 -translate-y-1/2 cursor-pointer border-solid border-2 border-primary hover:bg-secondaryLime rounded-full p-1"
-                (click)="getLocation()"
-              >
-                <img src="/assets/icons/location.svg" alt=""
-              /></span>
-              <textarea
-                type="textarea"
-                formControlName="address"
-                placeholder="House: 1, Road: 9, Block: J, Baridhara, Dhaka-1212, Bangladesh"
-                class="input input-primary w-full h-full max-w-xs resize-y min-h-[100px]"
-                [class.input-error]="isFieldInvalid('address')"
-              ></textarea>
-            </div>
-
-            <!-- getLocation() -->
-            <!-- Invalid Form Input -->
-            <label class="label">
-              <span class="label-text-alt"></span>
-              <span
-                class="label-text-alt text-error"
-                [class.hidden]="!isFieldInvalid('address')"
-                >*Address required.</span
-              >
-            </label>
-          </div>
-
-          <!-- NEXT Button -->
-          <div class="text-center mt-2">
-            <button
-              class="btn btn-primary px-6"
-              type="submit"
-              [disabled]="
-                isFieldInvalid('address') ||
-                !registrationForm.get('address')?.valid
-              "
-            >
-              Submit
-            </button>
-            <p class="text-right mr-5 mt-5">
-              Already have a account? please
-              <a
-                href="/customer/login"
-                class="text-primaryGreen hover:text-primaryGreenHover"
-                >Login</a
-              >
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- ! Success Screen -->
-      <div *ngIf="registrationCompleted">
-        <div class="success-checkmark">
-          <div class="check-icon my-10">
-            <span class="icon-line line-tip"></span>
-            <span class="icon-line line-long"></span>
-            <div class="icon-circle"></div>
-            <div class="icon-fix"></div>
-          </div>
-        </div>
-        <div class="text-center mt-2">
-          <button class="btn btn-primary px-6" (click)="HandleHomeBtnClick()">
-            Go To Home
+        <div class="text-end mt-2 w-full">
+          <button
+            class="btn bg-black text-white px-6 mt-[8vh] mb-4"
+            [disabled]="
+              isFieldInvalid('address') ||
+              !signupForm.get('address')?.valid
+            "
+          >
+            Signup
           </button>
         </div>
-      </div>
     </form>
   </section>
