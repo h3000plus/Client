@@ -13,17 +13,22 @@ export class SearchCategoriesComponent {
 
   constructor(private _deliveryService: DeliveryService,private http:HttpClient, private router: Router) {}
 
-  restaurants: Restaurant[] = [];
+  restaurants: any = [];
 
   searchRestaurant(query: KeyboardEvent){
     if (query) {
       const element = query.target as HTMLInputElement;
+      const mode = "delivery";
+      const cuisine = "";
       if (element.value.length > 0) {
-        this._deliveryService.searchRestaurant(element.value).subscribe(
+        this._deliveryService.filteredRestaurants(mode, element.value, cuisine).subscribe(
           (data) => {
             this.restaurants = data
           }
         )
+      }
+      if(element.value.length===0){
+        this.restaurants = []
       }
     }
   //  console.log(this._deliveryService)

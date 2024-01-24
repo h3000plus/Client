@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-address-time',
@@ -7,4 +8,17 @@ import { Component } from '@angular/core';
 })
 export class AddressTimeComponent {
 
+  constructor(private router: Router) {}
+
+  handleAddressDetails() {
+    this.router.navigate(['customer/address'])
+  }
+
+  back() {
+    history.back();
+  }
+
+  handleSchedule() {
+    this.router.navigate(['schedule'])
+  }
 }

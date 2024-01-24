@@ -11,6 +11,6 @@ export class AddressComponent {
   constructor(private router: Router) {}
 
   handleAddressIconClick() {
-    this.router.navigate(['customer/search-address']);
+    this.router.navigate(['customer/address-time']);
   }
 }

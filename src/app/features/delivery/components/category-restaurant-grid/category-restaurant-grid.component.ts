@@ -12,9 +12,14 @@ export class CategoryRestaurantGridComponent {
 
   constructor( private router: Router, private _deliveryService: DeliveryService) {}
 
-  restaurants: Restaurant[] = []
+  restaurants: any = []
   ngOnInit(){
-    this._deliveryService.deliveryRestaurants().subscribe( data => this.restaurants = data)
+    const mode = "delivery";
+    const searchTerm = "";
+    const cuisine= "";
+    this._deliveryService.filteredRestaurants(mode, searchTerm, cuisine).subscribe( (data) => {
+      this.restaurants = data
+    })
   }
 
   isLoading: boolean = false;

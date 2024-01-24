@@ -89,5 +89,9 @@ export class AddressComponent {
     }
   }
 
+  back() {
+    this.router.navigate(['customer/address-time'])
+  }
+
 
 }

@@ -32,7 +32,7 @@ export class ScheduleComponent {
 
 
   handleLeftClick() {
-    this.router.navigate(['checkout']);
+    history.back();
   }
 
   deliveryMode() {
