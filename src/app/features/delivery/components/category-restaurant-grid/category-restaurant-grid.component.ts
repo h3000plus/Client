@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Restaurant } from '../../../../shared/models/restaurant.model';
 import { DeliveryService } from '../../../../services/delivery.service';
@@ -12,15 +12,10 @@ export class CategoryRestaurantGridComponent {
 
   constructor( private router: Router, private _deliveryService: DeliveryService) {}
 
-  restaurants: any = []
-  ngOnInit(){
-    const mode = "delivery";
-    const searchTerm = "";
-    const cuisine= "";
-    this._deliveryService.filteredRestaurants(mode, searchTerm, cuisine).subscribe( (data) => {
-      this.restaurants = data
-    })
-  }
+  // restaurants: any = []
+  @Input()
+   restaurants : any = [];
+
 
   isLoading: boolean = false;
 

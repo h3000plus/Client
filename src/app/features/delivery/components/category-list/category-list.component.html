@@ -8,7 +8,8 @@
   <div *ngFor="let category of categories">
     <article
       class="text-center  rounded min-w-[100px] min-h-[100px] flex flex-col justify-center items-center p-2 text-[12px] gap-1 hover:bg-secondaryLime cursor-pointer"
-      (click)="handleCategoryIconClick()"
+
+      (click) = "handleCuisine(category.name)"
     >
     <img
       src={{category.image}}

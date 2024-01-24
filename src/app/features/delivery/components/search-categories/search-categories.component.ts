@@ -21,7 +21,7 @@ export class SearchCategoriesComponent {
       const mode = "delivery";
       const cuisine = "";
       if (element.value.length > 0) {
-        this._deliveryService.filteredRestaurants(mode, element.value, cuisine).subscribe(
+        this._deliveryService.filteredRestaurants({mode, searchTerm:element.value, cuisine}).subscribe(
           (data) => {
             this.restaurants = data
           }

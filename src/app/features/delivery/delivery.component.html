@@ -1,16 +1,16 @@
 <!-- ! Header -->
 <div class=" overflow-y-auto">
     <!-- <app-header></app-header> -->
-    <div class="mb-16">
+    <div class="mb-16" [ngClass]="{'z-index': zIndex}">
       <!-- Delivery Address -->
       <app-address></app-address>
       <!-- ! Search Box -->
       <app-search (click)="handleSearchClick()"></app-search>
 
       <!-- ! Categories -->
-      <app-category-list></app-category-list>
+      <app-category-list [handleCuisine]="handleCuisine" [filters]="filters"></app-category-list>
 
-      <app-filter ></app-filter>
+      <app-filter [(priceDisplay)]="priceDisplay" ></app-filter>
 
       <!-- ! Restaurant Category with Restaurant -->
 
@@ -18,10 +18,24 @@
 
       <!-- ! All dilevery restaurants -->
 
-      <app-category-restaurant-grid></app-category-restaurant-grid>
+      <app-category-restaurant-grid [restaurants]="restaurants"></app-category-restaurant-grid>
 
       <!-- ! Bottom Menu -->
       <app-bottom-menu></app-bottom-menu>
     </div>
 
+    <!-- Price filter -->
+    <div *ngIf="priceDisplay">
+      <app-price-filter  ></app-price-filter>
+    </div>
+    <!-- Delivery fee filter -->
+    <!-- <app-fee-filter  [ngClass]="{'z-index': fIndex}"></app-fee-filter> -->
+
+    <!-- Like filter -->
+    <!-- <app-like-filter  [ngClass]="{'z-index': lIndex}"></app-like-filter>  -->
+
   </div>
+
+
+
+  <!-- [handlePrice]="handlePrice" [handleDeliveryFee]="handleDeliveryFee" [handleLike]="handleLike" -->

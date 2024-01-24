@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Category } from '../../../../shared/models/category.model';
 import { HttpClient } from '@angular/common/http';
@@ -10,9 +10,15 @@ import { DeliveryService } from '../../../../services/delivery.service';
   styleUrl: './category-list.component.scss'
 })
 export class CategoryListComponent {
-  constructor(private deliveryService: DeliveryService,private http:HttpClient,private router: Router) {}
+  constructor(private deliveryService: DeliveryService,private http:HttpClient,private router: Router, ) {}
 
   categories: any = [];
+  @Input()
+  handleCuisine!: ((args: any) => void);
+
+  @Input()
+  filters : any
+
   /**
    * Navigates to the category page when the category icon is clicked.
    */
@@ -49,11 +55,10 @@ export class CategoryListComponent {
 
   ngOnInit() {
     this.deliveryService.getCuisines().subscribe((data) => {
-      console.log(data)
       this.categories = data.cuisines})
   }
 
-  handleCategoryIconClick() {
-    this.router.navigate(['delivery/category']);
-  }
+  // handleCategoryIconClick() {
+  //   this.router.navigate(['delivery/category']);
+  // }
 }
