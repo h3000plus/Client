@@ -20,5 +20,5 @@
         </div>
     </div> -->
 
-    <app-items-by-category *ngFor="let category of categories" [category]="category"></app-items-by-category>
+    <app-items-by-category *ngFor="let category of categories" [category]="category" [items]="items[category]"></app-items-by-category>
 </section>

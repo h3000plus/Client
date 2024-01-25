@@ -8,31 +8,46 @@ import { Router } from '@angular/router';
 })
 export class FilterComponent {
 
-  constructor(private router: Router) {}
+  constructor() {}
 
-  // @Input()
-    // handlePriceClick !: (() => void);
-
+  
+    // price
     @Input() priceDisplay : boolean | undefined
 
     @Output()  priceDisplayChange = new EventEmitter<boolean>()
 
-  // @ViewChild()
     handlePriceClick() {
 
       console.log('before',this.priceDisplay)
       this.priceDisplay = true
       this.priceDisplayChange.emit(this.priceDisplay)
-      // this.priceDisplay = true
-      // console.log(this.priceDisplay)
-      // this.router.navigate(['p']);
+    
     }
 
-  handleFeeClick() {
-    this.router.navigate(['f']);
-  }
+    // fee
+    @Input() feeDisplay : boolean | undefined
 
-  handleLikeClick() {
-    this.router.navigate(['l']);
-  }
+    @Output()  feeDisplayChange = new EventEmitter<boolean>()
+
+    handleFeeClick() {
+
+      console.log('before',this.feeDisplay)
+      this.feeDisplay = true
+      this.feeDisplayChange.emit(this.feeDisplay)
+    
+    }
+    
+
+    // like
+    @Input() likeDisplay : boolean | undefined
+
+    @Output()  likeDisplayChange = new EventEmitter<boolean>()
+
+    handleLikeClick() {
+
+      console.log('before',this.likeDisplay)
+      this.likeDisplay = true
+      this.likeDisplayChange.emit(this.likeDisplay)
+    
+    }
 }

@@ -13,17 +13,17 @@ import { switchMap } from 'rxjs';
 export class ItemsByCategoryComponent {
 
   constructor(private route: ActivatedRoute, private _deliveryService: DeliveryService, private router: Router) {}
-  items: IItem[] = [];
+  @Input() items: any = [];
   restaurantId: string = "";
   ngOnInit(): void {
-    this.route.params.pipe(
-      switchMap((params) => {
-        this.restaurantId = params['_id'];
-        return this._deliveryService.restaurantItems(this.restaurantId);
-      })
-    ).subscribe((data) => {
-      this.items = data;
-    });
+    // this.route.params.pipe(
+    //   switchMap((params) => {
+    //     this.restaurantId = params['_id'];
+    //     return this._deliveryService.restaurantItems(this.restaurantId);
+    //   })
+    // ).subscribe((data) => {
+    //   this.items = data;
+    // });
   }
 
   handleItemClick(item: IItem) {

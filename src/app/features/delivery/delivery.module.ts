@@ -19,6 +19,7 @@ import { TopCategoriesComponent } from './components/top-categories/top-categori
 import { PriceFilterComponent } from './components/price-filter/price-filter.component';
 import { FeeFilterComponent } from './components/fee-filter/fee-filter.component';
 import { LikeFilterComponent } from './components/like-filter/like-filter.component';
+import { ResultRestaurantComponent } from './components/result-restaurant/result-restaurant.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { LikeFilterComponent } from './components/like-filter/like-filter.compon
     PriceFilterComponent,
     FeeFilterComponent,
     LikeFilterComponent,
+    ResultRestaurantComponent,
   ],
   imports: [
     CommonModule,

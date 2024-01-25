@@ -15,7 +15,7 @@ export class DeliveryService {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
     'Access-Control-Allow-Headers': 'Content-Type',
-    'token': this._token
+    'token': this._token,
   }
 
   requestOptions = {
@@ -23,7 +23,7 @@ export class DeliveryService {
   };
 
   restaurantItems(restaurantId: string): Observable<any> {
-    return this.http.get(`http://localhost:3000/items/${restaurantId}`);
+    return this.http.get(`http://localhost:3000/items/${restaurantId}`, this.requestOptions);
   }
 
   restaurantDetails(restaurantId: string): Observable<any> {

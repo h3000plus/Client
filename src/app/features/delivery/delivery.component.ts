@@ -17,9 +17,8 @@ export class DeliveryComponent {
     like: ""
   }
   priceDisplay : boolean = false;
-  feeDisplay : string = 'hidden';
-  likeDisplay : string = 'hidden';
-
+  feeDisplay : boolean = false;
+  likeDisplay : boolean = false;
 
 
 
@@ -49,20 +48,29 @@ ngOnInit(){
   const mode = "delivery";
   const searchTerm = "";
   const cuisine= "";
-  this.deliveryService.filteredRestaurants({mode, searchTerm, cuisine}).subscribe( (data) => {
+    this.deliveryService.filteredRestaurants({mode, searchTerm, cuisine}).subscribe( (data) => {
     this.restaurants = data
+    console.log(this.restaurants)
   })
+  // this.yes (mode, searchTerm, cuisine)
 }
 
+// yes (mode: string, searchTerm: string, cuisine: string) {
 
-  handleCuisine(name: string) {
-    this.filters.cuisine = name;
-    console.log(this.filters)
-    // this.deliveryService.filteredRestaurants(this.filters).subscribe((data)=>{
+// }
 
 
-    // })
-  }
+  // handleCuisine(name: string) {
+  //   this.filters.cuisine = name;
+  //   const mode = "delivery";
+  //   const searchTerm = "";
+  //   const cuisine= name;
+  //     this.deliveryService.filteredRestaurants({mode, searchTerm, cuisine}).subscribe( (data) => {
+  //   this.restaurants = data
+  //   console.log(this.restaurants)
+  // })
+  //   // this.yes (mode, searchTerm, cuisine);
+  // }
 
   handlePrice(price: string) {
     this.filters.price = price;

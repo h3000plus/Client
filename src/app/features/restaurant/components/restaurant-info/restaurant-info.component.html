@@ -11,9 +11,9 @@
     </div>
 
     <div calss="flex flex-col items-center justify-center">
-        <h1 class="text-center mt-3 text-3xl font-black">{{restaurant.name}}</h1>
+        <h1 class="text-center mt-3 text-3xl font-black">{{restaurant?.name}}</h1>
 
-        <div class="flex justify-center min-w-[100vw]"><span class="p-2 max-w-[50vw] rounded-2xl bg-slate-200 font-bold flex gap-1 m-2 justify-center text-2xl"><img class="h-6" src="/assets/icons/like.png">{{restaurant.like}}. 1.4mi</span></div>
+        <div class="flex justify-center min-w-[100vw]"><span class="p-2 max-w-[50vw] rounded-2xl bg-slate-200 font-bold flex gap-1 m-2 justify-center text-2xl"><img class="h-6" src="/assets/icons/like.png">{{restaurant?.like}}. 1.4mi</span></div>
 
             <div *ngIf="!mode" class="flex justify-center min-w-[100vw]">
                 <span class="p-2 max-w-[50vw] rounded-3xl bg-slate-200 flex gap-1 m-2 justify-center text-2xl">
