@@ -36,7 +36,6 @@ export class DeliveryService {
   }
 
   filteredRestaurants({mode, searchTerm, cuisine}: {mode:string, searchTerm : string, cuisine : string}): Observable<any> {
-
     return this.http.get(`http://localhost:3000/restaurants?mode=${mode}&searchTerm=${searchTerm}&cuisine=${cuisine}`);
   }
 

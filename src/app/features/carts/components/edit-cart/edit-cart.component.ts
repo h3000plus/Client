@@ -139,7 +139,7 @@ export class EditCartComponent {
 
   addIngredient(event: any, ing: any) {
     if (event.target.checked) {
-      this.totalCost += ing.price;
+      this.totalCost += (ing.price * this.quantity);
       this.add.push(
         {
           name: ing.name,
@@ -149,7 +149,7 @@ export class EditCartComponent {
       );
     }
     else{
-      this.totalCost -= ing.price;
+      this.totalCost -= (ing.price * this.quantity);
       const objectToRemove = {
         name: ing.name,
         price: ing.price,

@@ -18,11 +18,15 @@ export class PlaceOrderComponent {
   dFee: number = 0;
 
   // border-color
-  pickup: boolean = !JSON.parse(localStorage.getItem('mode') as any);
-  standard: boolean = JSON.parse(localStorage.getItem('mode') as any);
-  schedule: boolean = JSON.parse(localStorage.getItem('schedule') as any);
+  pickup: boolean = false
+  standard: boolean = false
+  schedule: boolean = false
 
   ngOnInit () {
+    this.pickup= !JSON.parse(localStorage.getItem('mode') as any);
+    this.standard = JSON.parse(localStorage.getItem('mode') as any);
+    this.schedule = JSON.parse(localStorage.getItem('schedule') as any);
+
     this.carts = this.cartService.getItems();
     for (let i = 0; i < this.carts.length; i++) {
       this.totalCost += this.carts[i].price;
@@ -37,7 +41,7 @@ export class PlaceOrderComponent {
       delivery: false,
       pickup: false
     }
-
+    console.log(order)
     if (this.pickup && !this.schedule) {
       order.deliveryFee = 0;
       order.deliveryTime = 0;
@@ -54,8 +58,10 @@ export class PlaceOrderComponent {
     else if (this.standard && !this.schedule) {
       order.delivery = true;
       order.pickup = false;
+      console.log(order)
       this.orderService.createOrder(order).subscribe(
         (data) => {
+          console.log(JSON.stringify(data));
           this.router.navigate(['orders']);
           console.log("delivery")
         }

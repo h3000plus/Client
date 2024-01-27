@@ -43,7 +43,6 @@ export class AddToCartComponent {
     this.route.params.pipe(
       switchMap((params) => {
         this.itemId = params['itemId'];
-        console.log(this.itemId)
         return this._itemService.itemDetails(this.itemId);
       })
     ).subscribe((data) => {
@@ -84,7 +83,7 @@ export class AddToCartComponent {
 
   addIngredient(event: any, ing: any) {
     if (event.target.checked) {
-      this.totalCost += ing.price;
+      this.totalCost += (ing.price * this.quantity);
       this.add.push(
         {
           name: ing.name,
@@ -94,7 +93,7 @@ export class AddToCartComponent {
       );
     }
     else{
-      this.totalCost -= ing.price;
+      this.totalCost -= (ing.price * this.quantity);
       const objectToRemove = {
         name: ing.name,
         price: ing.price,
