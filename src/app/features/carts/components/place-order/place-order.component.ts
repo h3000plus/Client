@@ -39,9 +39,10 @@ export class PlaceOrderComponent {
       subtotal: this.totalCost,
       ordertype: "marketplace",
       delivery: false,
-      pickup: false
+      pickup: false,
+      createdAt: new Date()
     }
-    console.log(order)
+    // console.log(order)
     if (this.pickup && !this.schedule) {
       order.deliveryFee = 0;
       order.deliveryTime = 0;
@@ -58,7 +59,7 @@ export class PlaceOrderComponent {
     else if (this.standard && !this.schedule) {
       order.delivery = true;
       order.pickup = false;
-      console.log(order)
+      // console.log(order)
       this.orderService.createOrder(order).subscribe(
         (data) => {
           console.log(JSON.stringify(data));

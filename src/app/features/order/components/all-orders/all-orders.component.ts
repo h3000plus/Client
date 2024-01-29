@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Category } from '../../../../shared/models/category.model';
+import { HttpClient } from '@angular/common/http';
+import { OrderService } from '../../../../services/order.service';
 
 @Component({
   selector: 'app-all-orders',
@@ -7,22 +9,24 @@ import { Category } from '../../../../shared/models/category.model';
   styleUrl: './all-orders.component.scss'
 })
 export class AllOrdersComponent {
-  orders: Category[] = [
-    {
-      name: 'something',
-      image: ''
-    },
-    {
-      name: 'something',
-      image: ''
-    },
-    {
-      name: 'something',
-      image: ''
-    },
-    {
-      name: 'something',
-      image: ''
-    }
-  ]
+  completedOrders: any = []
+  processingOrders: any = []
+
+  constructor(private orderService: OrderService) {}
+
+  ngOnInit() {
+    this.orderService.getCompletedOrders().subscribe((data) => {
+      
+      this.completedOrders = data
+      console.log(this.completedOrders)
+    })
+
+    this.orderService.getProcessingOrders().subscribe((data) => {
+      
+      this.processingOrders = data
+      console.log(this.processingOrders)
+    })
+    
+  }
+
 }

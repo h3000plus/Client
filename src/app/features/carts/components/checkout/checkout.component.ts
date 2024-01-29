@@ -50,4 +50,8 @@ export class CheckoutComponent {
     }
     return this.total;
   }
+
+  handleAddItems() {
+    this.router.navigate(['/restaurant', this.cartItems[0].resId]);
+  }
 }

@@ -1,0 +1,166 @@
+{
+    "_id": "65b2440e33d9c0a610c4cbfb",
+    "restaurantId": 1,
+    "categoryId": "65a92335e134e63d02e09be3",
+    "mealTimeId": 1,
+    "item": {
+        "ingredients": {
+            "rawIngredients": [
+                {
+                    "id": 10,
+                    "ingredientName": "Sour Cream",
+                    "unitOfStock": "gm",
+                    "quantity": 6,
+                    "costPerUnit": 50,
+                    "caloriesPerUnit": 60,
+                    "_id": "65b2440e33d9c0a610c4cbfd"
+                },
+                {
+                    "id": 5,
+                    "ingredientName": "Milk",
+                    "unitOfStock": "ml",
+                    "quantity": 3,
+                    "costPerUnit": 0.20000000000000004,
+                    "caloriesPerUnit": 100,
+                    "_id": "65b2440e33d9c0a610c4cbfe"
+                },
+                {
+                    "id": 9,
+                    "ingredientName": "Black Pepper",
+                    "unitOfStock": "gm",
+                    "quantity": 2,
+                    "costPerUnit": 20,
+                    "caloriesPerUnit": 1,
+                    "_id": "65b2440e33d9c0a610c4cbff"
+                }
+            ],
+            "recipes": [
+                {
+                    "restaurantId": 1,
+                    "recipeId": 2,
+                    "recipeName": "Burger Sauce",
+                    "recipeItemPortionSize": 1,
+                    "recipeItemPreparationTime": 20,
+                    "recipeItemCost": 100,
+                    "recipeItemCalories": 204,
+                    "recipeItemDescription": "Create for Burger sauce",
+                    "ingredients": [
+                        {
+                            "id": 5,
+                            "ingredientName": "Butter",
+                            "unitOfStock": "gm",
+                            "quantity": 2,
+                            "costPerUnit": 0.25,
+                            "caloriesPerUnit": 102,
+                            "_id": "65af8187a5550e9b1abc07d5"
+                        },
+                        {
+                            "id": 111,
+                            "ingredientName": "Cheese",
+                            "unitOfStock": "gm",
+                            "quantity": 3,
+                            "costPerUnit": 200,
+                            "caloriesPerUnit": 150,
+                            "_id": "65af8187a5550e9b1abc07d6"
+                        }
+                    ],
+                    "_id": "65af8187a5550e9b1abc07d4"
+                }
+            ]
+        },
+        "options": {
+            "add": [
+                {
+                    "id": 9,
+                    "ingredientName": "Black Pepper",
+                    "unitOfStock": "tablespoon",
+                    "quantity": 2,
+                    "costPerUnit": 20,
+                    "caloriesPerUnit": 1,
+                    "price": 40,
+                    "_id": "65b2440e33d9c0a610c4cc03"
+                },
+                {
+                    "id": 111,
+                    "ingredientName": "Cheese",
+                    "unitOfStock": "gm",
+                    "quantity": 2,
+                    "costPerUnit": 200,
+                    "caloriesPerUnit": 150,
+                    "price": 0,
+                    "_id": "65b2440e33d9c0a610c4cc04"
+                }
+            ],
+            "no": [
+                {
+                    "id": 9,
+                    "ingredientName": "Black Pepper",
+                    "unitOfStock": "tablespoon",
+                    "quantity": 2,
+                    "costPerUnit": 20,
+                    "caloriesPerUnit": 1,
+                    "price": 40,
+                    "_id": "65b2440e33d9c0a610c4cc05"
+                },
+                {
+                    "id": 111,
+                    "ingredientName": "Cheese",
+                    "unitOfStock": "gm",
+                    "quantity": 2,
+                    "costPerUnit": 200,
+                    "caloriesPerUnit": 150,
+                    "price": 0,
+                    "_id": "65b2440e33d9c0a610c4cc06"
+                }
+            ]
+        },
+        "itemName": "Burger King",
+        "itemImage": "http://res.cloudinary.com/dkfnaltqp/image/upload/v1706181509/dkfnaltqp_1706181513171_burger1.jpg",
+        "itemDescription": "It consists of a ground beef patty, typically grilled or fried, placed between two slices of a bun",
+        "itemPrice": 5,
+        "itemCalories": 660,
+        "timeOfDay": [
+            "BreakFast",
+            "Lunch"
+        ],
+        "itemProfileTastyTags": [
+            "Rich",
+            "Smoky"
+        ],
+        "itemPortionSize": "Large",
+        "itemPreparationTime": 15,
+        "itemLastingTime": 300,
+        "typeOfFoods": [
+            "All"
+        ],
+        "itemPackingType": [
+            {
+                "id": 1,
+                "boxName": "Medium Box",
+                "currentStockQuantity": 100,
+                "unitOfPrice": "cents",
+                "costPerUnit": 0,
+                "reorderPoint": 232,
+                "unitOfDimentions": "cm",
+                "dimensions": "40 X 40 X 40",
+                "weightLimit": 3,
+                "temperatureLimit": 40,
+                "waterproof": "No",
+                "expectedStockForToday": 0,
+                "expectedStockForTomorrow": 0,
+                "restaurantId": 1,
+                "createdAt": "2024-01-25T11:16:23.250Z",
+                "updatedAt": "2024-01-25T11:16:23.250Z"
+            }
+        ],
+        "servingTemperature": 30,
+        "itemDietaryRestrictions": [
+            "Eggs",
+            "Kiwi"
+        ],
+        "_id": "65b2440e33d9c0a610c4cbfc",
+        "itemId": 62
+    },
+    "__v": 0,
+    "categoryName": "Burger"
+}
