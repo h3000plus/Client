@@ -7,22 +7,22 @@
         <div class="shadow-[#DCDCDC_0px_2px_0px_0px] h-2"></div>
 
         <div class="flex items-center mt-3 mb-4 ml-5">
-            <input id="something" type="checkbox" value="" name="default-radio" class="accent-black w-4 h-4 ">
+            <input id="something" type="radio" (change)="handleSelected($event)" value="5" name="default-radio" class="accent-black w-4 h-4 ">
             <label for="default-radio-1" class="ms-2 pl-5 text-lg font-semibold text-gray-900 dark:text-gray-300"> &lt; $5</label>
         </div>
 
         <div class="flex items-center mt-3 mb-4 ml-5">
-            <input id="something" type="checkbox" value="" name="default-radio" class="accent-black w-4 h-4 ">
+            <input id="something" type="radio" (change)="handleSelected($event)" value="15" name="default-radio" class="accent-black w-4 h-4 ">
             <label for="default-radio-1" class="ms-2 pl-5 text-lg font-semibold text-gray-900 dark:text-gray-300"> &lt; $15</label>
         </div>
 
         <div class="flex items-center mt-3 ml-5">
-            <input id="something" type="checkbox" value="" name="default-radio" class="accent-black w-4 h-4 ">
+            <input id="something" type="radio" (change)="handleSelected($event)" value="25" name="default-radio" class="accent-black w-4 h-4 ">
             <label for="default-radio-1" class="ms-2 pl-5 text-lg font-semibold text-gray-900 dark:text-gray-300"> &lt; $25</label>
         </div>
     </div>
     <div class="w-full bg-white">
-        <button class="mt-4 ml-[3vw] rounded-xl bg-black text-lg h-16 w-[94vw]" (click)="handleApply()">
+        <button class="mt-4 ml-[3vw] rounded-xl bg-black text-lg h-16 w-[94vw]" (click)="handleFeeApply()">
             <p class="text-white font-bold font-uberMove">Apply</p>
         </button>
         <button (click)="reset()" class="mb-4 ml-[3vw] rounded-xl text-lg h-16 w-[94vw] ">

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,11 +10,33 @@ export class LikeFilterComponent {
 
   constructor(private router: Router) {}
 
-  handleApply() {
+  selectedLike: string = "";
 
+  handleSelected(event: any) {
+    this.selectedLike = event.target.value;
+  }
+
+  // Like
+  @Input() likeDisplay: boolean | undefined;
+  @Output()  likeDisplayChange = new EventEmitter<boolean>()
+
+  @Input() filters: any;
+  @Output()  filtersChange = new EventEmitter<any>()
+
+  handleLikeApply() {
+    // console.log('before', this.filters)
+    this.filters.like = this.selectedLike;
+    this.filtersChange.emit(this.filters)
+
+    this.likeDisplay = false;
+    this.likeDisplayChange.emit(this.likeDisplay);
   }
 
   reset() {
-    this.router.navigate(['delivery'])
+    this.filters.like = "";
+    this.filtersChange.emit(this.filters)
+
+    this.likeDisplay = false;
+    this.likeDisplayChange.emit(this.likeDisplay);
   }
 }
