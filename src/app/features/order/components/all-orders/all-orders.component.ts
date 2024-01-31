@@ -18,13 +18,13 @@ export class AllOrdersComponent {
     this.orderService.getCompletedOrders().subscribe((data) => {
       
       this.completedOrders = data
-      console.log(this.completedOrders)
+      // console.log(this.completedOrders)
     })
 
     this.orderService.getProcessingOrders().subscribe((data) => {
       
       this.processingOrders = data
-      console.log(this.processingOrders)
+      // console.log(this.processingOrders)
     })
     
   }

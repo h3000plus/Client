@@ -28,8 +28,6 @@ export class RestaurantComponent {
         return this._deliveryService.restaurantItems(this.restaurantId);
       })
     ).subscribe((data) => {
-
-      
       this.items = data;
       this.categories = Object.keys(this.items).slice(1)
       // console.log(this.categories)
@@ -38,9 +36,6 @@ export class RestaurantComponent {
       // }
       // this.categories.slice(1);
       // console.log(this.items)
-
-
-
     });
   }
 }
