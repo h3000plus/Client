@@ -27,6 +27,7 @@ export class ItemsByCategoryComponent {
   }
 
   handleItemClick(item: IItem) {
+    console.log(item?._id)
     this.router.navigate(['/item', item?._id]);
   }
 

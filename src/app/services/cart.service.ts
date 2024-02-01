@@ -56,7 +56,7 @@ export class CartService {
     no: IIngredient[]
   ): void {
     const existingItem = this.items.find((item) => item.cartId === cartId);
-
+    
     if (existingItem) {
       existingItem.quantity = quantity;
       existingItem.price = price;
@@ -73,6 +73,7 @@ export class CartService {
         addon: addon,
         no: no
       });
+      
     }
 
     this.saveToLocalStorage();
@@ -233,5 +234,10 @@ export class CartService {
       this.items.splice(index, 1);
       // this.saveToLocalStorage();
     }
+  }
+
+  removeAllFromCart() : void {
+    this.items = [];
+    this.saveToLocalStorage();
   }
 }

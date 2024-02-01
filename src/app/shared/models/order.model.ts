@@ -10,7 +10,8 @@ export interface IOrder {
     delivery: boolean,
     pickup: boolean,
     date?: string,
-    schedule?: string
+    schedule?: string,
+    createdAt: Date
 }
 
 

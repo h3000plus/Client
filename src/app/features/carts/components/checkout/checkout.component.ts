@@ -20,6 +20,7 @@ export class CheckoutComponent {
   ngOnInit() {
     localStorage.setItem('schedule', JSON.stringify(this.schedule));
     this.cartItems = this._cartService.getItems();
+    console.log(this.cartItems)
     this.subtotal(this.cartItems);
   }
 
@@ -49,5 +50,9 @@ export class CheckoutComponent {
       this.total += items[i].price;
     }
     return this.total;
+  }
+
+  handleAddItems() {
+    this.router.navigate(['/restaurant', this.cartItems[0].resId]);
   }
 }

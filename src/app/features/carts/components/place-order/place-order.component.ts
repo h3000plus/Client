@@ -36,6 +36,7 @@ export class PlaceOrderComponent {
       this.totalCost += this.carts[i].price;
     }
   }
+
   handlePlaceOrder() {
     const order: IOrder = {
       cartItems: this.carts,
@@ -43,8 +44,11 @@ export class PlaceOrderComponent {
       ordertype: 'marketplace',
       delivery: false,
       pickup: false,
-    };
-    console.log(order);
+      createdAt: new Date()
+    }
+    
+    ;
+    // console.log(order);
     if (this.pickup && !this.schedule) {
       order.deliveryFee = 0;
       order.deliveryTime = 0;
@@ -58,6 +62,18 @@ export class PlaceOrderComponent {
     } else if (this.standard && !this.schedule) {
       order.delivery = true;
       order.pickup = false;
+      // console.log(order)
+      this.orderService.createOrder(order).subscribe(
+        (data) => {
+          
+          console.log(JSON.stringify(data));
+          this.router.navigate(['orders']);
+          console.log("delivery")
+        }
+      )
+    }
+    else if (this.schedule) {
+      const sche = JSON.parse(localStorage.getItem('schedule') as any)
 
       this.orderService.createOrder(order).subscribe((data) => {
         console.log(JSON.stringify(data));
@@ -77,6 +93,8 @@ export class PlaceOrderComponent {
         console.log('schedule');
       });
     }
+
+    this.cartService.removeAllFromCart();
 
     // alert("Your order is placed now.");
   }

@@ -19,10 +19,11 @@ export class FeaturedItemsComponent {
    @Input() items : any = []
   restaurantId: string = "";
   ngOnInit(): void {
-
+    
   }
 
   handleItemClick(item: IItem) {
+    
     this.router.navigate(['/item', item?._id]);
   }
 }

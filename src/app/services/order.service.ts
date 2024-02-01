@@ -24,13 +24,19 @@ export class OrderService {
   };
 
   createOrder(order: IOrder): Observable<any> {
-
-    
     
     return this.http.post('http://localhost:3000/order', order,  this.requestOptions);
   }
 
   createScheduleOrder(order: IOrder): Observable<any> {
     return this.http.post('http://localhost:3000/schedule-order', order, this.requestOptions);
+  }
+
+  getCompletedOrders(): Observable<any> {
+    return this.http.get('http://localhost:3000/orders/completed', this.requestOptions);
+  }
+
+  getProcessingOrders(): Observable<any> {
+    return this.http.get('http://localhost:3000/orders/processing', this.requestOptions);
   }
 }

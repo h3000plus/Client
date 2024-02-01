@@ -44,7 +44,7 @@ export class DeliveryComponent {
   recentlyViewedData: Restaurant[] = [];
   popularData: Restaurant[] = [];
 
-  searchStatus: boolean = true;
+  searchStatus: boolean = false;
 
   ngOnInit() {
     const mode = 'delivery';

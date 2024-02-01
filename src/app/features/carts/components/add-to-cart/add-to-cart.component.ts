@@ -54,14 +54,28 @@ export class AddToCartComponent {
       this.itemName = data.name;
       this.image = data.image;
       this.description = data.description;
+      
     });
 
 
   }
 
-  onAddToCartClick () {
-    this.cartId = Math.floor(100000 + Math.random() * 900000).toString();
-    this._cartService.addToCart(this.itemId, this.resId, this.cartId, this.itemName, this.image, this.description, this.quantity, this.totalCost, this.add, this.no);
+  checkExistingRestaurant(resId: any): void {
+    const cart = this._cartService.getItems();
+    console.log(resId + "" + cart[0].resId)
+     return;
+  }
+
+  onAddToCartClick (): void {
+    const cart = this._cartService.getItems();
+    if((cart.length > 0 && this.resId === cart[0].resId) || cart.length === 0) {
+      this.cartId = Math.floor(100000 + Math.random() * 900000).toString();
+      this._cartService.addToCart(this.itemId, this.resId, this.cartId, this.itemName, this.image, this.description, this.quantity, this.totalCost, this.add, this.no);
+    }
+    else {
+      alert('clear your previous restaurant cart first or order..')
+    }
+    
   }
 // checking if an item is in the cart - incomplete
   getCartQuantity () {
