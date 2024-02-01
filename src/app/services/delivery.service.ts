@@ -3,27 +3,29 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DeliveryService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http:HttpClient) { }
-
-  _token: string = JSON.parse(localStorage.getItem('token') as string)
+  _token: string = JSON.parse(localStorage.getItem('token') as string);
 
   headerDict = {
     'Content-Type': 'application/json',
-    'Accept': 'application/json',
+    Accept: 'application/json',
     'Access-Control-Allow-Headers': 'Content-Type',
-    'token': this._token,
-  }
+    token: this._token,
+  };
 
   requestOptions = {
-    headers: new HttpHeaders(this.headerDict)
+    headers: new HttpHeaders(this.headerDict),
   };
 
   restaurantItems(restaurantId: string): Observable<any> {
-    return this.http.get(`http://localhost:3000/items/${restaurantId}`, this.requestOptions);
+    return this.http.get(
+      `http://localhost:3000/items/${restaurantId}`,
+      this.requestOptions
+    );
   }
 
   restaurantDetails(restaurantId: string): Observable<any> {
@@ -32,18 +34,33 @@ export class DeliveryService {
 
   searchRestaurant(searchTerm: string): Observable<any> {
     console.log(searchTerm);
-    return this.http.get(`http://localhost:3000/restaurants/delivery/search?searchTerm=${searchTerm}`);
+    return this.http.get(
+      `http://localhost:3000/restaurants/delivery/search?searchTerm=${searchTerm}`
+    );
   }
 
-  filteredRestaurants({mode, searchTerm, cuisine}: {mode:string, searchTerm : string, cuisine : string}): Observable<any> {
-    return this.http.get(`http://localhost:3000/restaurants?mode=${mode}&searchTerm=${searchTerm}&cuisine=${cuisine}`);
+  filteredRestaurants({
+    mode,
+    searchTerm,
+    cuisine,
+  }: {
+    mode: string;
+    searchTerm: string;
+    cuisine: string;
+  }): Observable<any> {
+    return this.http.get(
+      `http://localhost:3000/restaurants?mode=${mode}&searchTerm=${searchTerm}&cuisine=${cuisine}`
+    );
   }
 
   getCuisines(): Observable<any> {
-    return this.http.get('http://localhost:3000/all-cuisines')
+    return this.http.get('http://localhost:3000/all-cuisines');
   }
 
   deliveryRestaurants(): Observable<any> {
-    return this.http.get('http://localhost:3000/restaurants/delivery', this.requestOptions)
+    return this.http.get(
+      'http://localhost:3000/restaurants/delivery',
+      this.requestOptions
+    );
   }
 }

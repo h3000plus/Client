@@ -1,6 +1,30 @@
 <section>
+  <div *ngIf="showHeader" class="header">
+    <div class="flex justify-between m-4">
+      <div class="flex gap-3">
+        <img class="h-5" src="/assets/icons/left-arrow-black.png" />
+        <h1 class="font-black text-1xl">Barano NYC</h1>
+      </div>
+      <img class="h-6" src="/assets/icons/browse.png" />
+    </div>
 
-    <!-- <div class="flex justify-between m-4">
+    <div
+      class="flex flex-row flex-grow gap-4 mt-5 justify-start items-center overflow-x-auto category p-2"
+    >
+      <div *ngFor="let category of categories">
+        <article
+          class="text-center rounded-3xl min-w-[100px] bg-slate-200 flex justify-center items-center p-2 text-[12px] gap-1 hover:bg-secondaryLime cursor-pointer"
+        >
+          <span
+            ><h3 class="font-bold font-uberMove text-lg">
+              {{ category.title }}
+            </h3></span
+          >
+        </article>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="flex justify-between m-4">
         <div class="flex gap-3">
             <img class="h-5" src="/assets/icons/left-arrow-black.png">
             <h1 class=" font-black text-1xl">Barano NYC</h1>
@@ -20,5 +44,9 @@
         </div>
     </div> -->
 
-    <app-items-by-category *ngFor="let category of categories" [category]="category" [items]="items[category]"></app-items-by-category>
+  <app-items-by-category
+    *ngFor="let category of categories"
+    [category]="category"
+    [items]="items[category]"
+  ></app-items-by-category>
 </section>

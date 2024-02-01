@@ -4,20 +4,16 @@ import { Restaurant } from '../../../../shared/models/restaurant.model';
 @Component({
   selector: 'app-scroll-categories',
   templateUrl: './scroll-categories.component.html',
-  styleUrl: './scroll-categories.component.scss'
+  styleUrl: './scroll-categories.component.scss',
 })
 export class ScrollCategoriesComponent {
-
   // categories = [{title: "Pizza"}, {title: "Pasta"}, {title: "Dessert"}, {title: "Chicken"}, {title: "Sandwich"}, {title: "Soup"}, {title: "Dessert"}, {title: "Dessert"}];
 
-  @Input() categories: any ;
-  @Input() items : any
+  @Input() categories: any;
+  @Input() items: any;
+  showHeader: boolean = false;
 
-
- 
-  ngOnInit() {
-   
-  }
+  ngOnInit() {}
 
   // items: Restaurant[] = [
   //   {
@@ -99,9 +95,5 @@ export class ScrollCategoriesComponent {
   //   },
   // ];
 
-  handleItemClick(restaurant: Restaurant) {
-
-  }
-
-
+  handleItemClick(restaurant: Restaurant) {}
 }
