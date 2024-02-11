@@ -28,7 +28,7 @@
     </div>
   </div>
   <div class="mt-12">
-    <span class="text-2xl font-semibold font-uberMove ml-3">Add Ons</span>
+    <span class="text-2xl font-semibold font-uberMove ml-3">Add On</span>
     <div *ngFor="let ingredient of item?.addon">
       <div class="flex items-center mt-3 mb-4 ml-5">
         <input
@@ -42,7 +42,7 @@
         <label
           for="default-radio-1"
           class="ms-2 text-lg font-semibold text-gray-900 dark:text-gray-300"
-          >{{ ingredient?.name }} - ${{ ingredient?.price }}</label
+          >{{ ingredient?.name }} - ${{ ingredient?.price?.toFixed(2) }}</label
         >
       </div>
     </div>
@@ -89,7 +89,7 @@
     (click)="handleCartClick(item)"
   >
     <p class="text-white" (click)="onAddToCartClick()">
-      Add {{ quantity }} to cart ${{ totalCost }}
+      Add {{ quantity }} to cart ${{ totalCost?.toFixed(2) }}
     </p>
   </button>
 </section>

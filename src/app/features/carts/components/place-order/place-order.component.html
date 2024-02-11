@@ -1,106 +1,126 @@
 <section>
+  <div class="relative mt-2">
+    <h1 class="text-xl font-bold text-center">Checkout</h1>
+    <h1 class="text-xl text-center">Dominick's Pizza & Pasta</h1>
+    <img
+      class="h-5 absolute left-5 top-6"
+      (click)="handleback()"
+      src="/assets/icons/left-arrow-black.png"
+    />
+  </div>
 
-    <div class="relative mt-2">
-        <h1 class="text-xl font-bold text-center">Checkout</h1>
-        <h1 class="text-xl text-center">Dominick's Pizza & Pasta</h1>
-        <img class="h-5 absolute left-5 top-6" (click)="handleback()" src="/assets/icons/left-arrow-black.png">
+  <h1 class="text-2xl font-black mt-6 ml-5 mb-5">Options</h1>
+
+  <!-- Pickup -->
+  <div
+    (click)="handlePickup()"
+    class="group card m-5 p-4 bg-base-100"
+    [ngClass]="{
+      'shadow-[0_0_5px_rgba(0,0,0,1.0)]': pickup && !schedule,
+      'shadow-[0_0_3px_rgba(0,0,0,0.3)]': !pickup || pickup
+    }"
+  >
+    <div class="flex gap-5">
+      <img src="/assets/icons/walking.png" class="h-8 mt-3" />
+      <span>
+        <h3 class="mt-1 text-xl text-gray-700 font-bold font-uberMove">
+          Pickup
+        </h3>
+        <h3 class="text-xl font-uberMove">15 mi</h3>
+      </span>
     </div>
+  </div>
 
-    <h1 class="text-2xl font-black mt-6 ml-5 mb-5">Options</h1>
-
-    <!-- Pickup -->
-    <div (click)="handlePickup()" class="group card m-5 p-4 bg-base-100" [ngClass]="{'shadow-[0_0_5px_rgba(0,0,0,1.0)]': pickup && !schedule, 'shadow-[0_0_3px_rgba(0,0,0,0.3)]': !pickup || pickup}">
-        <div class="flex gap-5">
-            <img
-                src="/assets/icons/walking.png"
-                class="h-8 mt-3"
-            />
-            <span>
-                <h3 class="mt-1 text-xl text-gray-700 font-bold font-uberMove">Pickup</h3>
-                <h3 class="text-xl font-uberMove">15 mi</h3>
-            </span>
-        </div>
+  <!-- Standard -->
+  <div
+    (click)="handleStandard()"
+    class="group card m-5 p-4 bg-base-100 shadow-[0_0_3px_rgba(0,0,0,0.3)]"
+    [ngClass]="{
+      'shadow-[0_0_5px_rgba(0,0,0,1.0)]': standard && !schedule,
+      'shadow-[0_0_3px_rgba(0,0,0,0.3)]': !standard || standard
+    }"
+  >
+    <div class="flex gap-5">
+      <img src="/assets/icons/delivery-time.png" class="h-8 mt-3" />
+      <span>
+        <h3 class="mt-1 text-xl text-gray-700 font-bold font-uberMove">
+          Standard
+        </h3>
+        <h3 class="text-xl font-uberMove">50-70 min</h3>
+      </span>
     </div>
+  </div>
 
-
-    <!-- Standard -->
-    <div (click)="handleStandard()" class="group card m-5 p-4 bg-base-100 shadow-[0_0_3px_rgba(0,0,0,0.3)]" [ngClass]="{'shadow-[0_0_5px_rgba(0,0,0,1.0)]': standard && !schedule, 'shadow-[0_0_3px_rgba(0,0,0,0.3)]': !standard || standard}">
-        <div class="flex gap-5">
-            <img
-                src="/assets/icons/delivery-time.png"
-                class="h-8 mt-3"
-            />
-            <span>
-                <h3 class="mt-1 text-xl text-gray-700 font-bold font-uberMove">Standard</h3>
-                <h3 class="text-xl font-uberMove">50-70 min</h3>
-            </span>
-        </div>
+  <!-- Schedule -->
+  <div
+    (click)="handleSchedule()"
+    class="group card m-5 p-4 bg-base-100 shadow-[0_0_3px_rgba(0,0,0,0.3)]"
+    [ngClass]="{
+      'shadow-[0_0_5px_rgba(0,0,0,1.0)]': schedule,
+      'shadow-[0_0_3px_rgba(0,0,0,0.3)]': !schedule
+    }"
+  >
+    <div class="flex gap-5">
+      <img src="/assets/icons/calendar.png" class="h-8 mt-3" />
+      <span>
+        <h3 class="mt-1 text-xl text-gray-700 font-bold font-uberMove">
+          Schedule
+        </h3>
+        <h3 class="text-xl font-uberMove">Select a time</h3>
+      </span>
     </div>
+  </div>
 
+  <h1 class="text-2xl font-black mt-6 ml-5 mb-5">Your items</h1>
 
-    <!-- Schedule -->
-    <div (click)="handleSchedule()" class="group card m-5 p-4 bg-base-100 shadow-[0_0_3px_rgba(0,0,0,0.3)]"  [ngClass]="{'shadow-[0_0_5px_rgba(0,0,0,1.0)]': schedule, 'shadow-[0_0_3px_rgba(0,0,0,0.3)]': !schedule}">
-        <div class="flex gap-5">
-            <img
-                src="/assets/icons/calendar.png"
-                class="h-8 mt-3"
-            />
-            <span>
-                <h3 class="mt-1 text-xl text-gray-700 font-bold font-uberMove">Schedule</h3>
-                <h3 class="text-xl font-uberMove">Select a time</h3>
-            </span>
-        </div>
-    </div>
-
-    <h1 class="text-2xl font-black mt-6 ml-5 mb-5">Your items</h1>
-
-    <div *ngFor="let cart of carts">
-        <div class="relative m-5">
-            <div class="flex gap-5">
-                <img class="h-12 w-12 rounded-full" src={{cart.image}}>
-                <span>
-                    <h1 class="text-xl font-bold">{{cart.name}}</h1>
-                    <h1>{{cart.quantity}} pieces</h1>
-                </span>
-            </div>
-            <h1 class=" text-lg font-bold absolute right-0 top-2 h-7">${{cart.price}}</h1>
-        </div>
-        <div class="shadow-[#DCDCDC_0px_2px_0px_0px] h-2"></div>
-    </div>
-
-
-
-
-
+  <div *ngFor="let cart of carts">
     <div class="relative m-5">
-        <div class="flex pt-3 gap-5">
-            <img class="h-8 w-8" src="/assets/icons/price-tag.png">
-            <span>
-                <h1 class="text-xl ml-6 font-bold">Add a promo</h1>
-            </span>
-        </div>
-        <img class="absolute right-0 top-4 h-4" src="/assets/icons/right.png">
+      <div class="flex gap-5">
+        <img class="h-12 w-12 rounded-full" src="{{ cart.image }}" />
+        <span>
+          <h1 class="text-xl font-bold">{{ cart.name }}</h1>
+          <h1>{{ cart.quantity }} pieces</h1>
+        </span>
+      </div>
+      <h1 class="text-lg font-bold absolute right-0 top-2 h-7">
+        ${{ cart.price?.toFixed(2) }}
+      </h1>
     </div>
+    <div class="shadow-[#DCDCDC_0px_2px_0px_0px] h-2"></div>
+  </div>
 
-    <div class="shadow-[#DCDCDC_0px_1px_0px_0px] h-2"></div>
-
-    <div class="m-5 flex justify-between">
-        <h1 class="text-xl font-normal font-uberMove">Subtotal</h1>
-        <h1 class="text-xl font-normal font-uberMove">${{totalCost}}</h1>
+  <div class="relative m-5">
+    <div class="flex pt-3 gap-5">
+      <img class="h-8 w-8" src="/assets/icons/price-tag.png" />
+      <span>
+        <h1 class="text-xl ml-6 font-bold">Add a promo</h1>
+      </span>
     </div>
+    <img class="absolute right-0 top-4 h-4" src="/assets/icons/right.png" />
+  </div>
 
-    <div class="mt-5 ml-5 mr-5 flex justify-between">
-        <h1 class="text-xl font-normal font-uberMove">Delivery Fee</h1>
-        <h1 class="text-xl font-normal font-uberMove">${{dFee}}</h1>
-    </div>
+  <div class="shadow-[#DCDCDC_0px_1px_0px_0px] h-2"></div>
 
-    <div class="shadow-[#DCDCDC_0px_1px_0px_0px] mb-16 h-2"></div>
+  <div class="m-5 flex justify-between">
+    <h1 class="text-xl font-normal font-uberMove">Subtotal</h1>
+    <h1 class="text-xl font-normal font-uberMove">
+      ${{ totalCost?.toFixed(2) }}
+    </h1>
+  </div>
 
-    <div class="p-2"></div>
+  <div class="mt-5 ml-5 mr-5 flex justify-between">
+    <h1 class="text-xl font-normal font-uberMove">Delivery Fee</h1>
+    <h1 class="text-xl font-normal font-uberMove">${{ dFee }}</h1>
+  </div>
 
+  <div class="shadow-[#DCDCDC_0px_1px_0px_0px] mb-16 h-2"></div>
 
-    <button class="btm-nav mt-4 ml-[3vw] rounded-xl bg-black text-lg h-16 w-[94vw]" (click)="handlePlaceOrder()">
-        <p class="text-white font-bold font-uberMove">Place Order</p>
-    </button>
+  <div class="p-2"></div>
 
+  <button
+    class="btm-nav mt-4 ml-[3vw] rounded-xl bg-black text-lg h-16 w-[94vw]"
+    (click)="handlePlaceOrder()"
+  >
+    <p class="text-white font-bold font-uberMove">Place Order</p>
+  </button>
 </section>

@@ -1,44 +1,97 @@
 <section>
-    <div class="relative bg-white max-h-96 border-y-stone-400">
-        <img class="h-52 w-full" src='/assets/icons/restaurant.jpeg'>
-        <span (click)="handleCartClick()" class="absolute top-14 left-5 bg-white rounded-full"><img class="h-7 m-2" src="/assets/icons/left-arrow-black.png"></span>
-        <h1 class="text-3xl font-black font-uberMove m-3">{{item.name}}</h1>
-        <span class="text-2xl font-semibold font-uberMove m-3">${{item.price}}</span>
-        <p class="text-xl font-medium font-uberMove mt-1 ml-3">{{item.description}}</p>
-    </div>
-    <div class="mt-12">
-        <span class="text-2xl font-semibold font-uberMove ml-3">Special Instructions</span>
-        <div class="m-3">
-            <input type="text" id="large-input" placeholder="Add a note" class="block h-24 w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-        </div>
-    </div>
-    <div class="mt-12">
-        <span class="text-2xl font-semibold font-uberMove ml-3">Add Ons</span>
-        <div *ngFor="let ingredient of item.addon">
-            <div class="flex items-center mt-3 mb-4 ml-5">
-                <input (change)="addIngredient($event, ingredient)" id={{ingredient.name}} type="checkbox" [checked]="ischeckedAdd[item.addon.indexOf(ingredient)]" value="checked" name="default-radio" class="accent-black w-4 h-4 ">
-                <label for="default-radio-1" class="ms-2 text-lg font-semibold text-gray-900 dark:text-gray-300">{{ingredient.name}} - ${{ingredient.price}}</label>
-            </div>
-        </div>
-    </div>
-    <div class="mt-12">
-        <span class="text-2xl font-semibold font-uberMove ml-3">No</span>
-        <div *ngFor="let ingredient of item.no">
-            <div class="flex items-center mt-3 mb-4 ml-5">
-                <input (change)="removeIngredient($event, ingredient)" id={{ingredient.name}} type="checkbox" [checked]="ischeckedNo[item.no.indexOf(ingredient)]" value="" name="default-radio" class="accent-black w-4 h-4 ">
-                <label for="default-radio-1" class="ms-2 text-lg font-semibold text-gray-900 dark:text-gray-300">{{ingredient.name}}</label>
-            </div>
-        </div>
-    </div>
-    <article
-      class="ml-3 mt-10 mb-20 text-center rounded-3xl w-[40%]  bg-slate-200 flex  justify-center items-center p-2  gap-10 hover:bg-green-600 cursor-pointer"
+  <div class="relative bg-white max-h-96 border-y-stone-400">
+    <img class="h-52 w-full" src="/assets/icons/restaurant.jpeg" />
+    <span
+      (click)="handleCartClick()"
+      class="absolute top-14 left-5 bg-white rounded-full"
+      ><img class="h-7 m-2" src="/assets/icons/left-arrow-black.png"
+    /></span>
+    <h1 class="text-3xl font-black font-uberMove m-3">{{ item.name }}</h1>
+    <span class="text-2xl font-semibold font-uberMove m-3"
+      >${{ item.price }}</span
     >
-        <span><h3 (click)="onClickMinus()" class="font-bold font-uberMove text-3xl">-</h3></span><span><h3 class="font-bold font-uberMove text-xl">{{quantity}}</h3></span><span><h3 (click)="onClickPlus()" class="font-bold font-uberMove text-3xl">+</h3></span>
-    </article>
-    <div class="p-2"></div>
+    <p class="text-xl font-medium font-uberMove mt-1 ml-3">
+      {{ item.description }}
+    </p>
+  </div>
+  <div class="mt-12">
+    <span class="text-2xl font-semibold font-uberMove ml-3"
+      >Special Instructions</span
+    >
+    <div class="m-3">
+      <input
+        type="text"
+        id="large-input"
+        placeholder="Add a note"
+        class="block h-24 w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      />
+    </div>
+  </div>
+  <div class="mt-12">
+    <span class="text-2xl font-semibold font-uberMove ml-3">Add Ons</span>
+    <div *ngFor="let ingredient of item.addon">
+      <div class="flex items-center mt-3 mb-4 ml-5">
+        <input
+          (change)="addIngredient($event, ingredient)"
+          id="{{ ingredient.name }}"
+          type="checkbox"
+          [checked]="ischeckedAdd[item.addon.indexOf(ingredient)]"
+          value="checked"
+          name="default-radio"
+          class="accent-black w-4 h-4"
+        />
+        <label
+          for="default-radio-1"
+          class="ms-2 text-lg font-semibold text-gray-900 dark:text-gray-300"
+          >{{ ingredient.name }} - ${{ ingredient.price?.toFixed(2) }}</label
+        >
+      </div>
+    </div>
+  </div>
+  <div class="mt-12">
+    <span class="text-2xl font-semibold font-uberMove ml-3">No</span>
+    <div *ngFor="let ingredient of item.no">
+      <div class="flex items-center mt-3 mb-4 ml-5">
+        <input
+          (change)="removeIngredient($event, ingredient)"
+          id="{{ ingredient.name }}"
+          type="checkbox"
+          [checked]="ischeckedNo[item.no.indexOf(ingredient)]"
+          value=""
+          name="default-radio"
+          class="accent-black w-4 h-4"
+        />
+        <label
+          for="default-radio-1"
+          class="ms-2 text-lg font-semibold text-gray-900 dark:text-gray-300"
+          >{{ ingredient.name }}</label
+        >
+      </div>
+    </div>
+  </div>
+  <article
+    class="ml-3 mt-10 mb-20 text-center rounded-3xl w-[40%] bg-slate-200 flex justify-center items-center p-2 gap-10 hover:bg-green-600 cursor-pointer"
+  >
+    <span
+      ><h3 (click)="onClickMinus()" class="font-bold font-uberMove text-3xl">
+        -
+      </h3></span
+    ><span
+      ><h3 class="font-bold font-uberMove text-xl">{{ quantity }}</h3></span
+    ><span
+      ><h3 (click)="onClickPlus()" class="font-bold font-uberMove text-3xl">
+        +
+      </h3></span
+    >
+  </article>
+  <div class="p-2"></div>
 
-    <button class="btm-nav mt-2 ml-[3vw] rounded-xl font-uberMove bg-black text-lg h-16 w-[94vw]" (click)="handleCartClick()">
-        <p class="text-white" (click)="onUpdateCartClick()">Update {{quantity}} to cart ${{totalCost}}</p>
-      </button>
-
+  <button
+    class="btm-nav mt-2 ml-[3vw] rounded-xl font-uberMove bg-black text-lg h-16 w-[94vw]"
+    (click)="handleCartClick()"
+  >
+    <p class="text-white" (click)="onUpdateCartClick()">
+      Update {{ quantity }} to cart ${{ totalCost?.toFixed(2) }}
+    </p>
+  </button>
 </section>

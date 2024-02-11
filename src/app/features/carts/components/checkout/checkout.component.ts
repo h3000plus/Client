@@ -7,10 +7,14 @@ import { CartService } from '../../../../services/cart.service';
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
-  styleUrl: './checkout.component.scss'
+  styleUrl: './checkout.component.scss',
 })
 export class CheckoutComponent {
-  constructor(private router: Router, private route: ActivatedRoute, private _cartService: CartService) {}
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private _cartService: CartService
+  ) {}
 
   cartItems: ICart[] = [];
   total: number = 0;
@@ -20,7 +24,7 @@ export class CheckoutComponent {
   ngOnInit() {
     localStorage.setItem('schedule', JSON.stringify(this.schedule));
     this.cartItems = this._cartService.getItems();
-    console.log(this.cartItems)
+    console.log(this.cartItems);
     this.subtotal(this.cartItems);
   }
 
@@ -32,7 +36,7 @@ export class CheckoutComponent {
     this.quantity = this._cartService.decreaseQuantity(cartId);
   }
 
-  handleCheckout(){
+  handleCheckout() {
     this.router.navigate(['checkout']);
   }
 
@@ -44,7 +48,7 @@ export class CheckoutComponent {
     history.back();
   }
 
-  subtotal (items: ICart[]): number {
+  subtotal(items: ICart[]): number {
     this.total = 0;
     for (let i = 0; i < items.length; i++) {
       this.total += items[i].price;
@@ -53,6 +57,10 @@ export class CheckoutComponent {
   }
 
   handleAddItems() {
-    this.router.navigate(['/restaurant', this.cartItems[0].resId]);
+    if (this.cartItems[0].resId) {
+      this.router.navigate(['/restaurant', this.cartItems[0].resId]);
+    } else {
+      this.router.navigate(['/home']);
+    }
   }
 }

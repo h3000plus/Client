@@ -29,7 +29,6 @@ export class RestaurantInfoComponent {
         })
       )
       .subscribe((data) => {
-        console.log(data);
         this.restaurant = data;
       });
   }
