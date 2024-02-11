@@ -1,26 +1,41 @@
-<section>
+<section id="{{ category }}">
   <span>
-    <h3 class="font-uberMove font-bold text-2xl capitalize mt-8 mb-4 pl-4">{{category}}</h3>
+    <h3 class="font-uberMove font-bold text-2xl capitalize mt-8 mb-4 pl-4">
+      {{ category }}
+    </h3>
   </span>
-  <ul class="grid mt-5 grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8"
-    *ngIf="items.length > 0">
-    <li class="group rl card card-compact max-h-[170px] min-h-[170px] bg-base-100 shadow-md" *ngFor="let item of items"
-      (click)="handleItemClick(item)">
+  <ul
+    class="grid mt-5 grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8"
+    *ngIf="items.length > 0"
+  >
+    <li
+      class="group rl card card-compact max-h-[170px] min-h-[170px] bg-base-100 shadow-md"
+      *ngFor="let item of items"
+      (click)="handleItemClick(item)"
+    >
       <div
-        class="relative flex justify-between aspect-w-1 w-full overflow-hidden rounded-lg xl:aspect-h-8 xl:aspect-w-7">
+        class="relative flex justify-between aspect-w-1 w-full overflow-hidden rounded-lg xl:aspect-h-8 xl:aspect-w-7"
+      >
         <div class="pl-4">
-          <p class="text-xl font-bold">{{item.name}}</p>
-          <p class="text-lg font-semibold">${{item.price}}</p>
+          <p class="text-xl font-bold">{{ item.name }}</p>
+          <p class="text-lg font-semibold">${{ item.price }}</p>
           <p class="text-base font-normal">
-            {{item.description}}
+            {{ item.description }}
           </p>
-          <div class="flex"><span
-              class="p-2 max-w-[30vw] rounded-2xl bg-slate-200 font-bold flex gap-1 mt-2 justify-center text-base"><img
-                class="h-5" src="/assets/icons/like.png">75% (65)</span></div>
+          <div class="flex">
+            <span
+              class="p-2 max-w-[30vw] rounded-2xl bg-slate-200 font-bold flex gap-1 mt-2 justify-center text-base"
+              ><img class="h-5" src="/assets/icons/like.png" />75% (65)</span
+            >
+          </div>
         </div>
-        <img [src]="item.image" class="mr-4 rounded-2xl max-h-[150px] min-w-[150px] min-h-[150px] max-w-[150px]" />
-        <span class="absolute bottom-1 right-1"><img class="h-12 bg-white rounded-full"
-            src="/assets/icons/plus.png"></span>
+        <img
+          [src]="item.image"
+          class="mr-4 rounded-2xl max-h-[150px] min-w-[150px] min-h-[150px] max-w-[150px]"
+        />
+        <span class="absolute bottom-1 right-1"
+          ><img class="h-12 bg-white rounded-full" src="/assets/icons/plus.png"
+        /></span>
       </div>
       <!-- <p class="mt-1 text-lg font-medium text-gray-900">
               {{ +product.price | takaCurrency }}

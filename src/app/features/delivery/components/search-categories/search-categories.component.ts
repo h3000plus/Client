@@ -7,32 +7,35 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-search-categories',
   templateUrl: './search-categories.component.html',
-  styleUrl: './search-categories.component.scss'
+  styleUrl: './search-categories.component.scss',
 })
 export class SearchCategoriesComponent {
-
-  constructor(private _deliveryService: DeliveryService,private http:HttpClient, private router: Router) {}
+  constructor(
+    private _deliveryService: DeliveryService,
+    private http: HttpClient,
+    private router: Router
+  ) {}
 
   restaurants: any = [];
 
-  searchRestaurant(query: KeyboardEvent){
+  searchRestaurant(query: KeyboardEvent) {
     if (query) {
       const element = query.target as HTMLInputElement;
-      const mode = "delivery";
-      const cuisine = "";
+      const mode = 'delivery';
+      const cuisine = '';
       if (element.value.length > 0) {
-        this._deliveryService.filteredRestaurants({mode, searchTerm:element.value, cuisine}).subscribe(
-          (data) => {
-            this.restaurants = data
-          }
-        )
+        this._deliveryService
+          .filteredRestaurants({ mode, searchTerm: element.value, cuisine })
+          .subscribe((data) => {
+            this.restaurants = data;
+          });
       }
-      if(element.value.length===0){
-        this.restaurants = []
+      if (element.value.length === 0) {
+        this.restaurants = [];
       }
     }
-  //  console.log(this._deliveryService)
-  //  this.http.get(`http://localhost:3000/restaurants/delivery/search?searchTerm=${searchTerm}`).subscribe( data => this.restaurants = data)
+    //  console.log(this._deliveryService)
+    //  this.http.get(`${this.baseURL}/restaurants/delivery/search?searchTerm=${searchTerm}`).subscribe( data => this.restaurants = data)
   }
 
   handleResClick(restaurant: Restaurant) {

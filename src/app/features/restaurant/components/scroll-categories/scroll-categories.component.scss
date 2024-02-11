@@ -1,6 +1,7 @@
 @media screen and (max-width: 768px) {
   .category::-webkit-scrollbar {
     display: none;
+    -webkit-overflow-scrolling: touch;
   }
 }
 .header {
@@ -8,4 +9,8 @@
   top: 0px;
   z-index: 4;
   background-color: white;
+}
+
+.food-items {
+  position: absolute;
 }

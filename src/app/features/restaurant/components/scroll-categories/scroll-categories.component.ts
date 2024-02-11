@@ -1,4 +1,10 @@
-import { Component, Input } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  Input,
+  ViewChild,
+} from '@angular/core';
 import { Restaurant } from '../../../../shared/models/restaurant.model';
 
 @Component({
@@ -96,4 +102,25 @@ export class ScrollCategoriesComponent {
   // ];
 
   handleItemClick(restaurant: Restaurant) {}
+
+  handleCategoryClick(category: string) {
+    const el = document.getElementById(category);
+    el?.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  }
+
+  @ViewChild('foodItems') divFoodItems!: ElementRef;
+
+  @HostListener('document:scroll', ['$event'])
+  public onViewportScroll() {
+    // const windowHeight = window.innerHeight;
+
+    const boundingRectFoodItems =
+      this.divFoodItems.nativeElement.getBoundingClientRect();
+
+    if (boundingRectFoodItems.top <= 207) {
+      this.showHeader = true;
+    } else {
+      this.showHeader = false;
+    }
+  }
 }

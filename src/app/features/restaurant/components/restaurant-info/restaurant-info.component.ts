@@ -7,29 +7,35 @@ import { Restaurant } from '../../../../shared/models/restaurant.model';
 @Component({
   selector: 'app-restaurant-info',
   templateUrl: './restaurant-info.component.html',
-  styleUrl: './restaurant-info.component.scss'
+  styleUrl: './restaurant-info.component.scss',
 })
 export class RestaurantInfoComponent {
-  constructor(private route: ActivatedRoute, private _deliveryService: DeliveryService, private router: Router) {}
+  constructor(
+    private route: ActivatedRoute,
+    private _deliveryService: DeliveryService,
+    private router: Router
+  ) {}
 
   mode: boolean = JSON.parse(localStorage.getItem('mode') as any);
 
   restaurant: any;
-  restaurantId: string = "";
+  restaurantId: string = '';
   ngOnInit(): void {
-
-    this.route.params.pipe(
-      switchMap((params) => {
-        this.restaurantId = params['_id'];
-        return this._deliveryService.restaurantDetails(this.restaurantId);
-      })
-    ).subscribe((data) => {
-      this.restaurant = data;
-    });
+    this.route.params
+      .pipe(
+        switchMap((params) => {
+          this.restaurantId = params['_id'];
+          return this._deliveryService.restaurantDetails(this.restaurantId);
+        })
+      )
+      .subscribe((data) => {
+        console.log(data);
+        this.restaurant = data;
+      });
   }
 
   handleBackClick() {
-    this.router.navigate(['delivery'])
+    this.router.navigate(['delivery']);
   }
 
   handleSearchClick(restaurant: Restaurant) {

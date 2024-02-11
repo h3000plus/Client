@@ -5,21 +5,22 @@ import { ICustomer } from '../shared/models/customer.model';
 import { ICustomerLogin } from '../shared/models/customerLogin.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CustomerService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http:HttpClient) { }
+  baseURL: string = 'https://marketplace-client-bento.koyeb.app';
 
   login(loginData: ICustomerLogin): Observable<any> {
-    return this.http.post('http://localhost:3000/login', loginData);
+    return this.http.post(`${this.baseURL}/login`, loginData);
   }
 
   signup(customerData: ICustomer): Observable<any> {
-    return this.http.post('http://localhost:3000/signup', customerData);
+    return this.http.post(`${this.baseURL}/signup`, customerData);
   }
 
   isExistEmail(email: string): Observable<any> {
-    return this.http.post('http://localhost:3000/check-email', { email });
+    return this.http.post(`${this.baseURL}/check-email`, { email });
   }
 }

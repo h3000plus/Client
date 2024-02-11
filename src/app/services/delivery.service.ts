@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class DeliveryService {
   constructor(private http: HttpClient) {}
+  baseURL: string = 'https://marketplace-client-bento.koyeb.app';
 
   _token: string = JSON.parse(localStorage.getItem('token') as string);
 
@@ -23,19 +24,19 @@ export class DeliveryService {
 
   restaurantItems(restaurantId: string): Observable<any> {
     return this.http.get(
-      `http://localhost:3000/items/${restaurantId}`,
+      `${this.baseURL}/items/${restaurantId}`,
       this.requestOptions
     );
   }
 
   restaurantDetails(restaurantId: string): Observable<any> {
-    return this.http.get(`http://localhost:3000/details/${restaurantId}`);
+    return this.http.get(`${this.baseURL}/details/${restaurantId}`);
   }
 
   searchRestaurant(searchTerm: string): Observable<any> {
     console.log(searchTerm);
     return this.http.get(
-      `http://localhost:3000/restaurants/delivery/search?searchTerm=${searchTerm}`
+      `${this.baseURL}/restaurants/delivery/search?searchTerm=${searchTerm}`
     );
   }
 
@@ -49,17 +50,17 @@ export class DeliveryService {
     cuisine: string;
   }): Observable<any> {
     return this.http.get(
-      `http://localhost:3000/restaurants?mode=${mode}&searchTerm=${searchTerm}&cuisine=${cuisine}`
+      `${this.baseURL}/restaurants?mode=${mode}&searchTerm=${searchTerm}&cuisine=${cuisine}`
     );
   }
 
   getCuisines(): Observable<any> {
-    return this.http.get('http://localhost:3000/all-cuisines');
+    return this.http.get(`${this.baseURL}/all-cuisines`);
   }
 
   deliveryRestaurants(): Observable<any> {
     return this.http.get(
-      'http://localhost:3000/restaurants/delivery',
+      `${this.baseURL}/restaurants/delivery`,
       this.requestOptions
     );
   }
