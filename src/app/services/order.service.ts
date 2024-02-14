@@ -9,7 +9,8 @@ import { Observable } from 'rxjs';
 export class OrderService {
   constructor(private http: HttpClient) {}
 
-  baseURL: string = 'https://marketplace-client-bento.koyeb.app';
+  // baseURL: string = 'https://marketplace-client-bento.koyeb.app';
+  baseURL: string = 'http://localhost:3000';
 
   _token: string = JSON.parse(localStorage.getItem('token') as string);
 
@@ -25,6 +26,7 @@ export class OrderService {
   };
 
   createOrder(order: IOrder): Observable<any> {
+    console.log(JSON.stringify(order));
     return this.http.post(`${this.baseURL}/order`, order, this.requestOptions);
   }
 
