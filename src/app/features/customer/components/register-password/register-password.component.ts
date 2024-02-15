@@ -50,12 +50,12 @@ export class RegisterPasswordComponent {
 
     if (this.passwordForm.valid) {
       const user = this.passwordForm.value;
-      this.localEmail = JSON.parse(localStorage.getItem('email') as any) ;
+      this.localEmail = JSON.parse(localStorage.getItem('email') as any);
 
-      if(user.newPassword === user.confirmPassword) {
+      if (user.newPassword === user.confirmPassword) {
         const newUser = { password: user.newPassword, email: this.localEmail.email };
         localStorage.setItem('user', JSON.stringify(newUser));
-        this.router.navigate(['customer/address']);
+        this.router.navigate(['customer/date-of-birth']);
       }
       else {
         this.isNotMatched = true;

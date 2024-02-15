@@ -1,39 +1,25 @@
-<section class = "mx-[5vw] mt-[5vh]">
-    <form class="w-[90vw]" [formGroup]="emailForm" (ngSubmit)="handleNextClick()">
-      <h3 class="mt-[4vh] text-xl font-bold">What's your email address?</h3>
+<section class="mx-[5vw] mt-[5vh]">
+  <form class="w-[90vw]" [formGroup]="emailForm" (ngSubmit)="handleNextClick()">
+    <h3 class="mt-[4vh] text-xl font-bold">What's your email address?</h3>
 
-        <div class="form-control w-[90vw]">
+    <div class="form-control w-[90vw]">
 
-          <input
-            type="text"
-            placeholder="name@example.com"
-            class="input mt-[4vh] w-full border-black"
-            formControlName="email"
-            [class.input-error]="isFieldInvalid('email')"
-            required
-          />
-          <!-- Invalid Form Input -->
-          <label class="label">
-            <span class="label-text-alt"></span>
-            <span
-              class="label-text-alt text-error"
-              *ngIf="isFieldInvalid('email')"
-              class="text-error"
-              >*Invalid Email</span
-            >
-          </label>
-        </div>
+      <input type="text" placeholder="name@example.com" class="input mt-[4vh] w-full border-black"
+        formControlName="email" [class.input-error]="isFieldInvalid('email')" required />
+      <!-- Invalid Form Input -->
+      <label class="label">
+        <span class="label-text-alt"></span>
+        <span class="label-text-alt text-error" *ngIf="isFieldInvalid('email')" class="text-error">*Invalid Email</span>
+      </label>
+    </div>
 
-        <div class="text-end mt-2 w-full">
-          <button
-            class="btn bg-black text-white px-6 mt-[60vh]"
-            [disabled]="
+    <div class="text-end mt-2 w-full">
+      <button class="btn bg-black text-white px-6 mt-[60vh]" [disabled]="
               isFieldInvalid('email') ||
               !emailForm.get('email')?.valid
-            "
-          >
-            Next
-          </button>
-        </div>
-    </form>
-  </section>
+            ">
+        Next
+      </button>
+    </div>
+  </form>
+</section>

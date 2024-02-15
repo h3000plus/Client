@@ -81,7 +81,7 @@ export class AddressComponent {
       }
       this._customerService.signup(user).subscribe(
         (data) => {
-          if(data.messeag === 'added') {
+          if (data.messeag === 'added') {
             this.router.navigate(['home']);
           }
         }
@@ -90,7 +90,7 @@ export class AddressComponent {
   }
 
   back() {
-    this.router.navigate(['customer/address-time'])
+    this.router.navigate(['customer/tasty-tags'])
   }
 
 

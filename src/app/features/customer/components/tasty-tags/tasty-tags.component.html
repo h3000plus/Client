@@ -1,0 +1,30 @@
+<div class="relative mt-2 ">
+    <img (click)="back()" class="h-5  absolute left-5 top-6" src="/assets/icons/left-arrow-black.png">
+</div>
+
+<h1 class="text-lg pt-16 font-bold text-center ">What Kind Of Food Do You Prefer ?</h1>
+
+<section class="mx-[5vw] mt-[10vh]   ">
+
+    <div class="grid grid-cols-3 gap-x-2 gap-y-5">
+
+        <span (click)="addOrRemoveFromSelectedTagsArray(tag)" *ngFor="let tag of tastyTags" [ngClass]="[
+            selectedTags[tag] ? 'bg-black':'bg-slate-200' ,  
+            selectedTags[tag] ? 'text-white':'text-black' ,  
+            ]"
+            class="  w-24 h-10 flex justify-center items-center rounded-3xl font-bold  font-uberMove  mx-auto">{{tag}}</span>
+
+    </div>
+
+
+
+
+    <div class="text-end mt-2 w-full">
+        <button (click)="onNextButtonClick()" [disabled]="isNexBtnEnabled()"
+            class="btn bg-black text-white px-6 mt-[10vh]">
+            Next
+        </button>
+    </div>
+
+
+</section>

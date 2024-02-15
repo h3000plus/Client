@@ -54,6 +54,7 @@ export class LoginComponent {
       localStorage.setItem('email', JSON.stringify(_email));
       this._customerService.isExistEmail(_email).subscribe(
         (data) => {
+          console.log(data);
           if (data.exists) {
             this.router.navigate(['customer/login-password']);
           }
