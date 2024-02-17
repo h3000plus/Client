@@ -1,6 +1,7 @@
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
+// import { DatePipe } from '@angular/common';
 
 
 @Component({
@@ -31,9 +32,12 @@ export class DateOfBirthComponent {
   handleNextClick(): void {
     if (this.dateOfBirthForm.valid) {
       const emailsPassFromLocalStorage = JSON.parse(localStorage.getItem('user') as any)
-      emailsPassFromLocalStorage.dateOfBirth = this.dateOfBirthForm.value.date
-      localStorage.setItem('user', JSON.stringify(emailsPassFromLocalStorage))
-      this.router.navigate(['customer/tasty-tags']);
+      if (this.dateOfBirthForm.value.date) {
+        emailsPassFromLocalStorage.dob = new Date(this.dateOfBirthForm.value.date)
+        localStorage.setItem('user', JSON.stringify(emailsPassFromLocalStorage))
+        this.router.navigate(['customer/tasty-tags']);
+      }
+
     }
   }
 
