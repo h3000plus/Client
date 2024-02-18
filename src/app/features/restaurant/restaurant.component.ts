@@ -13,7 +13,7 @@ export class RestaurantComponent {
     private router: Router,
     private route: ActivatedRoute,
     private _deliveryService: DeliveryService
-  ) {}
+  ) { }
 
   handleCartClick() {
     this.router.navigate(['/cart']);
@@ -32,6 +32,7 @@ export class RestaurantComponent {
         })
       )
       .subscribe((data) => {
+        console.log('data', data);
         this.items = data;
         this.categories = Object.keys(this.items).slice(1);
         // console.log(this.categories)

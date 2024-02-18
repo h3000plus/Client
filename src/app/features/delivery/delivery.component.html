@@ -9,38 +9,32 @@
     <div>{{filters.price}}</div>
     <div>{{filters.like}}</div>
     <div>{{filters.deliveryFee}}</div>
-    <!-- ! Categories -->
-    <app-category-list
-      [filters]="filters"
-      [(restaurants)]="restaurants"
-      
-    ></app-category-list>
-    <!-- [(orderStatus)]="orderStatus" -->
-    <app-filter
-      [filters] = "filters"
-      [(priceDisplay)]="priceDisplay"
-      [(feeDisplay)]="feeDisplay"
-      [(likeDisplay)]="likeDisplay"
-    ></app-filter>
 
-    <!-- Search cuisine restaurants -->
-    <app-result-restaurant
-      *ngIf="searchStatus"
-      [restaurants]="restaurants"
-    ></app-result-restaurant>
+
+    <!-- ! Categories //////////////////////////////////// -->
+    <app-category-list [filters]="filters" [(restaurants)]="restaurants"
+      (restaurantsChange)="handleSearchedRestaurants($event)"></app-category-list>
+
+
+    <!-- [(orderStatus)]="orderStatus" -->
+    <app-filter [filters]="filters" [(priceDisplay)]="priceDisplay" [(feeDisplay)]="feeDisplay"
+      [(likeDisplay)]="likeDisplay"></app-filter>
+
+
+
+    <!-- Search cuisine restaurants ////////////////////////////-->
+    <app-result-restaurant *ngIf="searchStatus" [restaurants]="restaurants"></app-result-restaurant>
+
+
 
     <!-- ! Restaurant Category with Restaurant -->
 
-    <app-restaurants-by-category
-      *ngFor="let category of categories"
-      [category]="category"
-    ></app-restaurants-by-category>
+    <app-restaurants-by-category *ngFor="let category of categories"
+      [category]="category"></app-restaurants-by-category>
 
     <!-- ! All dilevery restaurants -->
 
-    <app-category-restaurant-grid
-      [restaurants]="allRestaurants"
-    ></app-category-restaurant-grid>
+    <app-category-restaurant-grid [restaurants]="allRestaurants"></app-category-restaurant-grid>
 
     <!-- ! Bottom Menu -->
     <app-bottom-menu></app-bottom-menu>

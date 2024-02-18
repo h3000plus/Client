@@ -11,15 +11,17 @@ import { WalletComponent } from './components/wallet/wallet.component';
 import { LoyaltyComponent } from './components/loyalty/loyalty.component';
 import { FavoriteComponent } from './components/favorite/favorite.component';
 import { AddressTimeComponent } from './components/address-time/address-time.component';
+import { DateOfBirthComponent } from './components/date-of-birth/date-of-birth.component';
+import { TastyTagsComponent } from './components/tasty-tags/tasty-tags.component';
 
 const routes: Routes = [
   {
     path: 'customer',
     children: [
-  //     {
-  //       path: '',
-  //       component: HomeComponent,
-  //     },
+      //     {
+      //       path: '',
+      //       component: HomeComponent,
+      //     },
 
       // {
       //   path: 'select',
@@ -40,6 +42,14 @@ const routes: Routes = [
       {
         path: 'register-password',
         component: RegisterPasswordComponent,
+      },
+      {
+        path: 'date-of-birth',
+        component: DateOfBirthComponent,
+      },
+      {
+        path: 'tasty-tags',
+        component: TastyTagsComponent,
       },
       {
         path: 'address',

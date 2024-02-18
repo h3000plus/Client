@@ -18,6 +18,8 @@ import { AccountComponent } from './components/account/account.component';
 import { FavoriteComponent } from './components/favorite/favorite.component';
 import { SharedModule } from '../../shared/shared.module';
 import { AddressTimeComponent } from './components/address-time/address-time.component';
+import { DateOfBirthComponent } from './components/date-of-birth/date-of-birth.component';
+import { TastyTagsComponent } from './components/tasty-tags/tasty-tags.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { AddressTimeComponent } from './components/address-time/address-time.com
     WalletComponent,
     LoyaltyComponent,
     FavoriteComponent,
-    AddressTimeComponent
+    AddressTimeComponent,
+    DateOfBirthComponent,
+    TastyTagsComponent
   ],
   imports: [
     CommonModule,

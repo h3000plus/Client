@@ -10,19 +10,25 @@ import { CustomerService } from '../../../../services/customer.service';
   styleUrl: './address.component.scss'
 })
 export class AddressComponent {
-  addressForm: FormGroup;
+
   // private message = inject(MessageService);
+  latitude!: number
+  longitude!: number
 
   constructor(
     private router: Router,
     private _customerService: CustomerService,
     private formBuilder: FormBuilder
   ) {
-    this.addressForm = this.formBuilder.group({
-      address: ['', [Validators.required]],
-      // password: ['', [Validators.required, Validators.minLength(6)]],
-    });
   }
+
+  addressForm = this.formBuilder.group({
+    address: ['', [Validators.required]],
+    buildingType: ['', Validators.required],
+    floor: ['', Validators.required],
+    buildingName: ['', Validators.required],
+
+  });
 
   @ViewChild('mapSearchField') searchField: ElementRef | undefined;
   ngAfterViewInit(): void {
@@ -36,11 +42,19 @@ export class AddressComponent {
         return;
       }
       places?.forEach((place) => {
+        if (place.geometry?.location?.lat() && place.geometry?.location?.lng()) {
+          this.latitude = place.geometry?.location?.lat()
+          this.longitude = place.geometry?.location?.lng()
+        }
+
+
         console.log(place.name, place.address_components);
         console.log(
           place.geometry?.location?.lat(),
           place.geometry?.location?.lng()
         );
+
+
       });
     });
   }
@@ -71,17 +85,42 @@ export class AddressComponent {
    */
   handleNextClick(): void {
     if (this.addressForm.valid) {
-      const addresData = this.addressForm.value.address;
+      // const addressData = {
+      //   address: this.addressForm.value.address,
+      //   buildingName: this.addressForm.value.buildingName,
+      //   buildingType: this.addressForm.value.buildingType,
+      //   floor: this.addressForm.value.floor
+      // }
+
+      const addressData = `${this.addressForm.value.address}, ${this.addressForm.value.buildingName}, ${this.addressForm.value.buildingType}, ${this.addressForm.value.floor}`
+
       this.emailData = JSON.parse(localStorage.getItem('user') as any).email;
       this.passwordData = JSON.parse(localStorage.getItem('user') as any).password;
+
+      const tastyTags = JSON.parse(localStorage.getItem('user') as any).tastyTags
+      const dob = JSON.parse(localStorage.getItem('user') as any).dob
+
+
       const user: ICustomer = {
-        address: addresData,
+        address: addressData,
         email: this.emailData,
-        password: this.passwordData
+        password: this.passwordData,
+        customerPreference: { tastyTags: tastyTags, category: [] },
+        dob: dob,
+        currentLatLong: {
+          latitude: this.latitude,
+          longitude: this.longitude
+        }
       }
+
+
+
+
+      console.log('user full', user);
       this._customerService.signup(user).subscribe(
         (data) => {
-          if(data.messeag === 'added') {
+          console.log('post response', data);
+          if (data.message === 'added') {
             this.router.navigate(['home']);
           }
         }
@@ -90,7 +129,9 @@ export class AddressComponent {
   }
 
   back() {
-    this.router.navigate(['customer/address-time'])
+    // this.router.navigate(['customer/tasty-tags'])
+    // javascript: history.go(-1)
+
   }
 
 
