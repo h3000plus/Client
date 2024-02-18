@@ -6,25 +6,27 @@ import { DeliveryService } from '../../../../services/delivery.service';
 @Component({
   selector: 'app-category-restaurant-grid',
   templateUrl: './category-restaurant-grid.component.html',
-  styleUrl: './category-restaurant-grid.component.scss'
+  styleUrl: './category-restaurant-grid.component.scss',
 })
 export class CategoryRestaurantGridComponent {
-
-  constructor( private router: Router, private _deliveryService: DeliveryService) {}
+  constructor(
+    private router: Router,
+    private _deliveryService: DeliveryService
+  ) {}
 
   // restaurants: any = []
   @Input()
-   restaurants : any = [];
-
+  restaurants: any = [];
 
   isLoading: boolean = false;
 
+  ngOnInit() {}
   handleRestaurantClick(restaurant: any) {
-    this.router.navigate(['/restaurant/1',]);
+    console.log(this.restaurants);
+    this.router.navigate(['/restaurant/1']);
   }
 
   // restaurantDetails () {
 
   // }
-
 }
