@@ -10,26 +10,38 @@ import { DeliveryService } from '../../../../services/delivery.service';
   styleUrl: './category-list.component.scss'
 })
 export class CategoryListComponent {
-  constructor(private deliveryService: DeliveryService,private http:HttpClient,private router: Router, ) {}
+  constructor(private deliveryService: DeliveryService, private http: HttpClient, private router: Router,) { }
 
-  categories: any = [];
+  categories: any = [
+    { name: 'American', image: "https://i.ibb.co/hWxLKQh/american.png" },
+    { name: 'Asian', image: "https://i.ibb.co/jr810xQ/asian.png" },
+    { name: 'Arabian', image: "https://i.ibb.co/vPdzp1P/arabian.png" },
+    { name: 'Bar', image: "https://i.ibb.co/bRQVRg5/bar.png" },
+    { name: 'Dessert', image: "https://i.ibb.co/98cs9Jm/dessert.png" },
+    { name: 'English', image: "https://i.ibb.co/1vHykMB/english.png" },
+    { name: 'European', image: "https://i.ibb.co/9hthNJp/european.png" },
+    { name: 'Italian', image: "https://i.ibb.co/T2sj07r/italian.png" },
+    { name: 'Indian', image: "https://i.ibb.co/WGMmk0h/indian.png" },
+    { name: 'Vegan', image: "https://i.ibb.co/3RW3T3L/vegan.png" },
+    { name: 'Miscellaneous', image: "https://i.ibb.co/WxJDsrp/miscellanous.png" },
+  ];
   // @Input()
   // handleCuisine!: ((args: any) => void);
 
   @Input()
-  filters : any
+  filters: any
 
   @Input()
-   restaurants : any = [];
+  restaurants: any = [];
 
-   
-   @Output() restaurantsChange = new EventEmitter<any>()
+
+  @Output() restaurantsChange = new EventEmitter<any>()
   //  handlePriceClick() {
 
   //    console.log('before',this.priceDisplay)
   //    this.priceDisplay = true
   //    this.priceDisplayChange.emit(this.priceDisplay)
-   
+
   //  } 
 
   /**
@@ -68,19 +80,20 @@ export class CategoryListComponent {
 
   ngOnInit() {
     // this.restaurantDisplayChange.emit(this.restaurants)
-    this.deliveryService.getCuisines().subscribe((data) => {
-      this.categories = data.cuisines})
+
+    /*  this.deliveryService.getCuisines().subscribe((data) => {
+       this.categories = data.cuisines}) */
   }
 
-  handleCuisine(name : string){
+  handleCuisine(name: string) {
     this.filters.cuisine = name;
     const mode = "delivery";
     const searchTerm = "";
-    const cuisine= name;
-      this.deliveryService.filteredRestaurants({mode, searchTerm, cuisine}).subscribe( (data) => {
-        this.restaurants = data
-        this.restaurantsChange.emit(this.restaurants)
-  })
+    const cuisine = name;
+    this.deliveryService.filteredRestaurants({ mode, searchTerm, cuisine }).subscribe((data) => {
+      this.restaurants = data
+      this.restaurantsChange.emit(this.restaurants)
+    })
 
   }
 

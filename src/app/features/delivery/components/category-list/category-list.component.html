@@ -2,25 +2,14 @@
 
 
 
-<div
-  class="flex flex-row flex-grow gap-5 justify-start items-center overflow-x-auto category p-2"
->
+<div class="flex flex-row flex-grow gap-5 justify-start items-center overflow-x-auto category p-2">
   <div *ngFor="let category of categories">
     <article
       class="text-center  rounded min-w-[100px] min-h-[100px] flex flex-col justify-center items-center p-2 text-[12px] gap-1 hover:bg-secondaryLime cursor-pointer"
-
-      (click) = "handleCuisine(category.name)"
-    >
-    <img
-      src={{category.image}}
-      alt="Covid 19 icons"
-      class="h-[8vh] w-[8vh] rounded-[4vh]"
-    />
-    <h6 class="text-lg font-bold">{{category.name}}</h6>
+      (click)="handleCuisine(category.name)">
+      <img src={{category.image}} alt="Covid 19 icons" class="h-[8vh] w-[8vh] rounded-[4vh]" />
+      <h6 class="text-lg font-bold">{{category.name}}</h6>
     </article>
   </div>
 
 </div>
-
-
-
