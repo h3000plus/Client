@@ -45,9 +45,9 @@ export class TastyTagsComponent {
     }
   }
 
-  back() {
-    this.router.navigate(['customer/date-of-birth'])
-  }
+  // back() {
+  //   this.router.navigate(['customer/date-of-birth'])
+  // }
 
 
 }

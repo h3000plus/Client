@@ -4,7 +4,7 @@ export interface ICustomer {
     email: string;
     password: string,
     image?: string,
-    address?: any,
+    address?: string,
     currentLatLong: { longitude: number, latitude: number }
     longitude?: number,
     latitude?: number,

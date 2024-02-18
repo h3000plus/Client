@@ -64,7 +64,7 @@ export class RegisterPasswordComponent {
     }
   }
 
-  back() {
-    this.router.navigate(['customer/enter-email'])
-  }
+  // back() {
+  //   this.router.navigate(['customer/enter-email'])
+  // }
 }

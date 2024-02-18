@@ -42,7 +42,7 @@ export class DateOfBirthComponent {
   }
 
 
-  back() {
-    this.router.navigate(['customer/register-password'])
-  }
+  // back() {
+  //   this.router.navigate(['customer/register-password'])
+  // }
 }

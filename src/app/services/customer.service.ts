@@ -14,6 +14,7 @@ export class CustomerService {
   baseURL: string = 'http://localhost:3000';
 
   login(loginData: ICustomerLogin): Observable<any> {
+    console.log('logindata', loginData);
     return this.http.post(`${this.baseURL}/login`, loginData);
   }
 

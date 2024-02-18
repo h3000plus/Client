@@ -85,12 +85,14 @@ export class AddressComponent {
    */
   handleNextClick(): void {
     if (this.addressForm.valid) {
-      const addressData = {
-        address: this.addressForm.value.address,
-        buildingName: this.addressForm.value.buildingName,
-        buildingType: this.addressForm.value.buildingType,
-        floor: this.addressForm.value.floor
-      }
+      // const addressData = {
+      //   address: this.addressForm.value.address,
+      //   buildingName: this.addressForm.value.buildingName,
+      //   buildingType: this.addressForm.value.buildingType,
+      //   floor: this.addressForm.value.floor
+      // }
+
+      const addressData = `${this.addressForm.value.address}, ${this.addressForm.value.buildingName}, ${this.addressForm.value.buildingType}, ${this.addressForm.value.floor}`
 
       this.emailData = JSON.parse(localStorage.getItem('user') as any).email;
       this.passwordData = JSON.parse(localStorage.getItem('user') as any).password;
@@ -127,7 +129,9 @@ export class AddressComponent {
   }
 
   back() {
-    this.router.navigate(['customer/tasty-tags'])
+    // this.router.navigate(['customer/tasty-tags'])
+    // javascript: history.go(-1)
+
   }
 
 
