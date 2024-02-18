@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ICart } from '../../../../shared/models/cart.model';
 import { switchMap } from 'rxjs';
 import { CartService } from '../../../../services/cart.service';
+import { DeliveryService } from '../../../../services/delivery.service';
 
 @Component({
   selector: 'app-checkout',
@@ -13,18 +14,25 @@ export class CheckoutComponent {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private _cartService: CartService
+    private _cartService: CartService,
+    private _deliveryService: DeliveryService
   ) {}
 
   cartItems: ICart[] = [];
   total: number = 0;
   quantity: number | undefined = 0;
   schedule: boolean = false;
+  restaurantName: string = '';
 
   ngOnInit() {
     localStorage.setItem('schedule', JSON.stringify(this.schedule));
     this.cartItems = this._cartService.getItems();
     console.log(this.cartItems);
+    this._deliveryService
+      .restaurantDetails(this.cartItems[0].resId)
+      .subscribe((data) => {
+        this.restaurantName = data.name;
+      });
     this.subtotal(this.cartItems);
   }
 
