@@ -28,7 +28,7 @@ export class DeliveryComponent {
   constructor(
     private router: Router,
     private deliveryService: DeliveryService
-  ) {}
+  ) { }
 
   showModal: boolean = false;
   categories = [
@@ -56,6 +56,12 @@ export class DeliveryComponent {
         this.restaurants = data;
         this.allRestaurants = data;
       });
+  }
+
+
+  handleSearchedRestaurants(event: []) {
+    this.searchStatus = true;
+    this.restaurants = event
   }
 
   handlePrice(price: string) {
