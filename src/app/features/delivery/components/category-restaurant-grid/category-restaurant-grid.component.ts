@@ -23,7 +23,7 @@ export class CategoryRestaurantGridComponent {
   ngOnInit() {}
   handleRestaurantClick(restaurant: any) {
     console.log(this.restaurants);
-    this.router.navigate(['/restaurant/1']);
+    this.router.navigate([`/restaurant/${restaurant.resId}`]);
   }
 
   // restaurantDetails () {

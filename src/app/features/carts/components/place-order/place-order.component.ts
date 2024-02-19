@@ -4,6 +4,7 @@ import { CartService } from '../../../../services/cart.service';
 import { ICart } from '../../../../shared/models/cart.model';
 import { OrderService } from '../../../../services/order.service';
 import { IOrder } from '../../../../shared/models/order.model';
+import { DeliveryService } from '../../../../services/delivery.service';
 
 @Component({
   selector: 'app-place-order',
@@ -14,13 +15,14 @@ export class PlaceOrderComponent {
   constructor(
     private router: Router,
     private cartService: CartService,
-    private orderService: OrderService
+    private orderService: OrderService,
+    private _deliveryService: DeliveryService
   ) {}
 
   carts: ICart[] = [];
   totalCost: number = 0;
   dFee: number = 0;
-
+  restaurantName: string = '';
   // border-color
   pickup: boolean = false;
   standard: boolean = false;
@@ -32,6 +34,12 @@ export class PlaceOrderComponent {
     this.schedule = JSON.parse(localStorage.getItem('schedule') as any);
 
     this.carts = this.cartService.getItems();
+    this._deliveryService
+      .restaurantDetails(this.carts[0].resId)
+      .subscribe((data) => {
+        this.restaurantName = data.name;
+      });
+
     for (let i = 0; i < this.carts.length; i++) {
       this.totalCost += this.carts[i].price;
     }
@@ -44,10 +52,9 @@ export class PlaceOrderComponent {
       ordertype: 'marketplace',
       delivery: false,
       pickup: false,
-      createdAt: new Date()
-    }
-    
-    ;
+      createdAt: new Date(),
+    };
+
     // console.log(order);
     if (this.pickup && !this.schedule) {
       order.deliveryFee = 0;
@@ -63,17 +70,13 @@ export class PlaceOrderComponent {
       order.delivery = true;
       order.pickup = false;
       // console.log(order)
-      this.orderService.createOrder(order).subscribe(
-        (data) => {
-          
-          console.log(JSON.stringify(data));
-          this.router.navigate(['orders']);
-          console.log("delivery")
-        }
-      )
-    }
-    else if (this.schedule) {
-      const sche = JSON.parse(localStorage.getItem('schedule') as any)
+      this.orderService.createOrder(order).subscribe((data) => {
+        console.log(JSON.stringify(data));
+        this.router.navigate(['orders']);
+        console.log('delivery');
+      });
+    } else if (this.schedule) {
+      const sche = JSON.parse(localStorage.getItem('schedule') as any);
 
       this.orderService.createOrder(order).subscribe((data) => {
         console.log(JSON.stringify(data));

@@ -16,7 +16,7 @@
           <img
             (click)="handleEditCart(item)"
             class="min-w-[25%] max-w-[25%] h-24 rounded-xl ml-4 mt-6 mr-4"
-            src="/assets/icons/catg.jpg"
+            src="{{ item.image }}"
           />
           <div (click)="handleEditCart(item)" class="min-w-[35%] max-w-[35%]">
             <h1 class="text-2xl font-bold font-uberMove">{{ item.name }}</h1>
@@ -75,7 +75,7 @@
       <p class="text-white font-bold font-uberMove">Go to checkout</p>
     </button>
     <button
-      class="mt-4 mb-4 ml-[3vw] rounded-xl bg-slate-300 text-lg h-16 w-[94vw]"
+      class="mt-2 mb-2 ml-[3vw] rounded-xl bg-slate-300 text-lg h-16 w-[94vw]"
       (click)="handleAddItems()"
     >
       <p class="text-black font-bold font-uberMove">Add items</p>

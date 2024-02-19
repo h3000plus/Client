@@ -12,7 +12,7 @@
   >
     <div *ngFor="let item of items">
       <div
-        class="card card-compact w-96 bg-base-100 shadow-md max-h-[220px] max-w-[150px] min-w-[150px] min-h-[220px]"
+        class="card card-compact w-96 bg-base-100 shadow-md max-h-[220px] max-w-[150px] min-w-[150px] min-h-[240px]"
         (click)="handleItemClick(item)"
       >
         <div class="relative">
@@ -24,12 +24,12 @@
             />
           </figure>
 
-          <div class="p-0 m-0 gap-0">
+          <div class="p-0 m-2 gap-0">
             <h2 class="card-title text-lg font-uberMove">{{ item?.name }}</h2>
 
             <h5>${{ item?.price }}</h5>
           </div>
-          <span class="absolute bottom-16 right-2"
+          <span class="absolute top-24 right-2"
             ><img
               class="h-12 bg-white rounded-full"
               src="/assets/icons/plus.png"
