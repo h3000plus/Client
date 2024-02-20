@@ -6,9 +6,6 @@
     <app-address></app-address>
     <!-- ! Search Box -->
     <app-search (click)="handleSearchClick()"></app-search>
-    <div>{{filters.price}}</div>
-    <div>{{filters.like}}</div>
-    <div>{{filters.deliveryFee}}</div>
 
 
     <!-- ! Categories //////////////////////////////////// -->
@@ -42,7 +39,7 @@
 
   <!-- Price filter -->
   <div *ngIf="priceDisplay">
-    <app-price-filter [(filters)]="filters" [(priceDisplay)]="priceDisplay"></app-price-filter>
+    <app-price-filter [(filters)]="filters" [(priceDisplay)]="priceDisplay" [(restaurants)]="restaurants" [(searchStatus)]="searchStatus"></app-price-filter>
   </div>
   <!-- Delivery fee filter -->
   <div *ngIf="feeDisplay">

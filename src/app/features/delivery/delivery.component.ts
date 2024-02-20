@@ -50,8 +50,9 @@ export class DeliveryComponent {
     const mode = 'delivery';
     const searchTerm = '';
     const cuisine = '';
+    const price = '';
     this.deliveryService
-      .filteredRestaurants({ mode, searchTerm, cuisine })
+      .filteredRestaurants({ mode, searchTerm, cuisine, price })
       .subscribe((data) => {
         this.restaurants = data;
         this.allRestaurants = data;
@@ -60,7 +61,7 @@ export class DeliveryComponent {
 
 
   handleSearchedRestaurants(event: []) {
-    this.searchStatus = true;
+    this.searchStatus = !this.searchStatus;
     this.restaurants = event
   }
 

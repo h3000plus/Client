@@ -44,13 +44,15 @@ export class DeliveryService {
     mode,
     searchTerm,
     cuisine,
+    price
   }: {
     mode: string;
     searchTerm: string;
     cuisine: string;
+    price: string;
   }): Observable<any> {
     return this.http.get(
-      `${this.baseURL}/restaurants?mode=${mode}&searchTerm=${searchTerm}&cuisine=${cuisine}`
+      `${this.baseURL}/restaurants?mode=${mode}&searchTerm=${searchTerm}&cuisine=${cuisine}&priceRange=${price}`
     );
   }
 

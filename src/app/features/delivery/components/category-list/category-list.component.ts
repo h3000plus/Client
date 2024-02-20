@@ -90,7 +90,8 @@ export class CategoryListComponent {
     const mode = "delivery";
     const searchTerm = "";
     const cuisine = name;
-    this.deliveryService.filteredRestaurants({ mode, searchTerm, cuisine }).subscribe((data) => {
+    const price = "";
+    this.deliveryService.filteredRestaurants({ mode, searchTerm, cuisine, price }).subscribe((data) => {
       this.restaurants = data
       this.restaurantsChange.emit(this.restaurants)
     })

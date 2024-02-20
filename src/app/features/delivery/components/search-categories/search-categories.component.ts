@@ -23,9 +23,10 @@ export class SearchCategoriesComponent {
       const element = query.target as HTMLInputElement;
       const mode = 'delivery';
       const cuisine = '';
+      const price = '';
       if (element.value.length > 0) {
         this._deliveryService
-          .filteredRestaurants({ mode, searchTerm: element.value, cuisine })
+          .filteredRestaurants({ mode, searchTerm: element.value, cuisine, price })
           .subscribe((data) => {
             this.restaurants = data;
           });
