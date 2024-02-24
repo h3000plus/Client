@@ -1,4 +1,6 @@
-<section>
+<!-- Popular Restaurants -->
+
+<section *ngIf="category.title == 'popular'">
       <div class="flex justify-between">
         <span><h3 class="font-uberMove font-bold text-2xl capitalize mt-8 mb-4 pl-4">{{category.title}}</h3></span><span (click)="handleClickfilter(category.title)" class="mr-3 mt-8 mb-4 pl-4"><img class="h-6" src="/assets/icons/right-arrow.png"></span>
       </div>
@@ -20,7 +22,7 @@
           [product]="restaurant"
         ></app-product> -->
       <!-- </ng-template> -->
-      <div *ngFor="let restaurant of restaurants">
+      <div *ngFor="let restaurant of popularRestaurants">
         <div
   class=" card card-compact w-96 bg-base-100 shadow-md max-h-[220px] max-w-[250px] min-w-[250px] min-h-[220px]"
 >
@@ -48,3 +50,57 @@
       </div>
     </div>
   </section>
+
+
+<!-- Recommended Restaurants -->
+
+<section *ngIf="category.title == 'recommended for you'">
+  <div class="flex justify-between">
+    <span><h3 class="font-uberMove font-bold text-2xl capitalize mt-8 mb-4 pl-4">{{category.title}}</h3></span><span (click)="handleClickfilter(category.title)" class="mr-3 mt-8 mb-4 pl-4"><img class="h-6" src="/assets/icons/right-arrow.png"></span>
+  </div>
+
+
+
+  <div
+    class="py-2 flex flex-row flex-grow gap-5 justify-start items-center overflow-x-auto product-list px-4"
+  >
+    <div
+      class="flex justify-center items-center w-full h-full"
+      *ngIf="isLoading"
+    >
+      <div class="loading loading-bars text-primary loading-lg"></div>
+    </div>
+    <!-- <ng-template> -->
+      <!-- <app-product
+        *ngFor="let restaurant of restaurants"
+        [product]="restaurant"
+      ></app-product> -->
+    <!-- </ng-template> -->
+    <div *ngFor="let restaurant of recommendedRestaurants">
+      <div
+  class=" card card-compact w-96 bg-base-100 shadow-md max-h-[220px] max-w-[250px] min-w-[250px] min-h-[220px]"
+  >
+  <div class="offerR">
+  <figure>
+    <img
+      src="{{ restaurant.restaurantCoverPhoto }}"
+      alt="Shoes"
+      class="rounded-3xl max-h-[150px] min-w-[250px]"
+    />
+  </figure>
+
+  <div class="ml-1 p-0 m-0 gap-0">
+    <div class="flex justify-between">
+      <h2 class="card-title text-lg font-uberMove">{{ restaurant.restaurantName.split(" ").slice(0, 2).join(" ") }}</h2>
+      <span class="font-bold flex gap-1 m-2"><img class="h-5" src="/assets/icons/like.png">4.7k</span>
+    </div>
+    <h5>$0.59 Delivery Fee . 15 min</h5>
+  </div>
+  <div class="offerA bg-green-600 text-white w-40"><span class="mx-2">Free Item(Spend $40)</span></div>
+  <span class="heartA"><img class="h-8" src="/assets/icons/white-heart.png"></span>
+  </div>
+
+  </div>
+    </div>
+  </div>
+</section>

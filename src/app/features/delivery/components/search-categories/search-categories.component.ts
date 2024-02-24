@@ -40,7 +40,8 @@ export class SearchCategoriesComponent {
   }
 
   handleResClick(restaurant: Restaurant) {
-    this.router.navigate(['/restaurant', restaurant?._id]);
+    // this.router.navigate(['/restaurant', restaurant?._id]);
+    this.router.navigate(['/restaurant/331']);
   }
 
   handleLeftClick() {

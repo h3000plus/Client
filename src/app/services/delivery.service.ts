@@ -66,4 +66,8 @@ export class DeliveryService {
       this.requestOptions
     );
   }
+
+  recommendedRestaurants(): Observable<any> {
+    return this.http.get(`http://localhost:3000/recommended-engine`, this.requestOptions);
+  }
 }

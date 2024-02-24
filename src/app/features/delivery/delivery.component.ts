@@ -32,10 +32,10 @@ export class DeliveryComponent {
 
   showModal: boolean = false;
   categories = [
-    { title: 'recently viewed' },
+    
     { title: 'recommended for you' },
     { title: 'popular' },
-    { title: 'top 10' },
+    
   ];
   restaurants: any = [];
   allRestaurants: any = [];

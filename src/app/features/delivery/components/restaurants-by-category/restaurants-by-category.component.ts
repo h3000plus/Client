@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Restaurant } from '../../../../shared/models/restaurant.model';
 import { Router } from '@angular/router';
+import { DeliveryService } from '../../../../services/delivery.service';
 
 @Component({
   selector: 'app-restaurants-by-category',
@@ -8,12 +9,21 @@ import { Router } from '@angular/router';
   styleUrl: './restaurants-by-category.component.scss'
 })
 export class RestaurantsByCategoryComponent {
-  constructor(private router: Router) {}
-  restaurants: Restaurant[] = [
+  constructor(private router: Router, private deliveryService: DeliveryService) {}
+  recommendedRestaurants: any;
+
+  ngOnInit() {
+    this.deliveryService.recommendedRestaurants().subscribe((data) => {
+      this.recommendedRestaurants = data;
+    })
+    
+  }
+
+  popularRestaurants: Restaurant[] = [
     {
       _id: '1',
       name: 'Barano NYC',
-      image: '/assets/icons/restaurant.jpeg',
+      image: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=600',
       deliveryFee: 50,
       deliveryTime: 100,
       like: "4.1k",
@@ -23,8 +33,8 @@ export class RestaurantsByCategoryComponent {
     },
     {
       _id: '2',
-      name: 'Barano NYC',
-      image: '/assets/icons/restaurant.jpeg',
+      name: 'Mc Donalds',
+      image: 'https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=600',
       deliveryFee: 50,
       deliveryTime: 100,
       like: "4.1k",
@@ -34,8 +44,8 @@ export class RestaurantsByCategoryComponent {
     },
     {
       _id: '3',
-      name: 'Barano NYC',
-      image: '/assets/icons/restaurant.jpeg',
+      name: 'KFC',
+      image: 'https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?auto=compress&cs=tinysrgb&w=600',
       deliveryFee: 50,
       deliveryTime: 100,
       like: "4.1k",

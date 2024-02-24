@@ -10,8 +10,8 @@ import { ICustomerLogin } from '../shared/models/customerLogin.model';
 export class CustomerService {
   constructor(private http: HttpClient) {}
 
-  baseURL: string = 'https://marketplace-client-bento.koyeb.app';
-  // baseURL: string = 'http://localhost:3000';
+  // baseURL: string = 'https://marketplace-client-bento.koyeb.app';
+  baseURL: string = 'http://localhost:3000';
 
   login(loginData: ICustomerLogin): Observable<any> {
     return this.http.post(`${this.baseURL}/login`, loginData);

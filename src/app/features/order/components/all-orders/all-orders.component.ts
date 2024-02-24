@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Category } from '../../../../shared/models/category.model';
 import { HttpClient } from '@angular/common/http';
 import { OrderService } from '../../../../services/order.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-all-orders',
@@ -12,7 +13,7 @@ export class AllOrdersComponent {
   completedOrders: any = []
   processingOrders: any = []
 
-  constructor(private orderService: OrderService) {}
+  constructor(private orderService: OrderService, private router: Router) {}
 
   ngOnInit() {
     this.orderService.getCompletedOrders().subscribe((data) => {
@@ -26,7 +27,13 @@ export class AllOrdersComponent {
       this.processingOrders = data
       // console.log(this.processingOrders)
     })
+
+
     
+  }
+
+  orderStatus() {
+      this.router.navigate(['order-status'])
   }
 
 }
