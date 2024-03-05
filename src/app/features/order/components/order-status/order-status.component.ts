@@ -15,6 +15,7 @@ export class OrderStatusComponent {
 
   orderId: any;
   userId: any;
+  order: any;
   orderStatus: any;
   private unsubscribe$ = new Subject<void>();
   condition: boolean[] = [false, false, false, false];
@@ -24,9 +25,12 @@ export class OrderStatusComponent {
     this.route.params.pipe(
       switchMap(params => {
         this.orderId = params['id'];
-        return this.orderId;
+        return this.orderService.getOrderDetails(this.orderId);
       })
-    ).subscribe();
+    ).subscribe((data) => {
+      this.orderStatus = data.orderStatus
+      }
+    );
 
     this.socket.connect();
     this.orderService.getOrderUserId().subscribe((data) => {

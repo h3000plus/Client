@@ -59,7 +59,11 @@ export class OrderService {
     );
   }
 
-  updateOrderStatus(id: string): Observable<any> {
-    return this.http.put(`${this.baseURL}/order-status/${id}`, null);
+  getOrderDetails(id: string): Observable<any> {
+    return this.http.get(
+      `${this.baseURL}/order-details/${id}`,
+      this.requestOptions
+    );
   }
+
 }
