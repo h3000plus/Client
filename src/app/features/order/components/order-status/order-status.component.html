@@ -13,10 +13,10 @@
 </div>
 
 <div class="mt-24 flex gap-3 justify-center">
-    <div class="h-2 w-[20vw] bg-slate-200"></div>
-    <div class="h-2 w-[20vw] bg-slate-200"></div>
-    <div class="h-2 w-[20vw] bg-slate-200"></div>
-    <div class="h-2 w-[20vw] bg-slate-200"></div>
+    <div [ngStyle]="{'background-color': orderStatus === 'pending' ? 'green' : '#D3D3D3'}" class="h-2 w-[20vw]"></div>
+    <div [ngStyle]="{'background-color': orderStatus === 'preparing' ? 'green' : '#D3D3D3'}" class="h-2 w-[20vw]"></div>
+    <div [ngStyle]="{'background-color': orderStatus === 'ready' ? 'green' : '#D3D3D3'}" class="h-2 w-[20vw]"></div>
+    <div [ngStyle]="{'background-color': orderStatus === 'completed' ? 'green' : '#D3D3D3'}" class="h-2 w-[20vw]"></div>
 </div>
 
-<h1 class="text-2xl text-center mt-10">Pending</h1>
+<h1 class="text-2xl text-center mt-10">{{orderStatus}}</h1>

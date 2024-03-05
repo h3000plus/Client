@@ -51,4 +51,15 @@ export class OrderService {
       this.requestOptions
     );
   }
+
+  getOrderUserId(): Observable<any> {
+    return this.http.get(
+      `${this.baseURL}/order-user-id`,
+      this.requestOptions
+    );
+  }
+
+  updateOrderStatus(id: string): Observable<any> {
+    return this.http.put(`${this.baseURL}/order-status/${id}`, null);
+  }
 }

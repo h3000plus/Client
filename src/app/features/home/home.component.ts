@@ -6,12 +6,14 @@ import { Router } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent {
+export class HomeComponent{
   constructor(private router: Router) {}
+  
+
 
   mode: boolean = true;
   token: string = '';
-  reservationURL: string = 'http://localhost:5173/reserve';
+  reservationURL: string = 'https://bento-reservation.vercel.app/';
 
   handleDeliveryClick() {
     this.mode = true;
@@ -27,6 +29,6 @@ export class HomeComponent {
     this.token = localStorage.getItem('token') as string;
     this.token = this.token.replace(/["/" ]/g, '');
     console.log(this.token);
-    window.location.href = `${this.reservationURL}?token=${this.token}`;
+    window.location.href = `${this.reservationURL}?token="${this.token}"`;
   }
 }

@@ -8,6 +8,7 @@ import { OrderComponent } from './order.component';
 import { SharedModule } from '../../shared/shared.module';
 
 
+
 @NgModule({
   declarations: [
     AllOrdersComponent,
@@ -18,6 +19,6 @@ import { SharedModule } from '../../shared/shared.module';
     CommonModule,
     OrderRoutingModule,
     SharedModule
-  ]
+  ],
 })
 export class OrderModule { }

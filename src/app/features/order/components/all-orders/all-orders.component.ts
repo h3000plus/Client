@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class AllOrdersComponent {
   completedOrders: any = []
   processingOrders: any = []
+  monthNames: any = {'01':"January", '02':"February", '03':"March", '04':"April", '05':"May", '06':"June", '07':"July", '08':"August", '09':"September", '10':"October", '11':"November", '12':"December"};
 
   constructor(private orderService: OrderService, private router: Router) {}
 
@@ -25,15 +26,15 @@ export class AllOrdersComponent {
     this.orderService.getProcessingOrders().subscribe((data) => {
       
       this.processingOrders = data
-      // console.log(this.processingOrders)
+      console.log(this.processingOrders)
     })
 
 
     
   }
 
-  orderStatus() {
-      this.router.navigate(['order-status'])
+  orderStatus(id: string) {
+      this.router.navigate(['order-status', id])
   }
 
 }

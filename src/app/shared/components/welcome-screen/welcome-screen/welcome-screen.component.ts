@@ -20,15 +20,11 @@ export class WelcomeScreenComponent {
     //     });
     //   }, 4000);
     // } else {
-      // setTimeout(() => {
-      //   this.ngZone.run(() => {
-      //     this.router.navigate(['customer/select']);
-      //   });
-      // }, 4000);
+      setTimeout(() => {
+        this.ngZone.run(() => {
+          this.router.navigate(['customer/enter-email']);
+        });
+      }, 5000);
   //   }
-  }
-
-  handleContinueClick(){
-    this.router.navigate(['customer/enter-email']);
   }
 }

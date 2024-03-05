@@ -16,6 +16,10 @@ import { HomeModule } from './features/home/home.module';
 import { ReservationModule } from './features/reservation/reservation.module';
 import { FormsModule } from '@angular/forms';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+
+const config: SocketIoConfig = { url: 'http://localhost:3000', options: {} };
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,6 +38,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
     HttpClientModule,
     FormsModule,
     GoogleMapsModule,
+    SocketIoModule.forRoot(config),
   ],
   providers: [DeliveryService],
   bootstrap: [AppComponent]
