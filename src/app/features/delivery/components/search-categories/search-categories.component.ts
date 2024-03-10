@@ -39,9 +39,9 @@ export class SearchCategoriesComponent {
     //  this.http.get(`${this.baseURL}/restaurants/delivery/search?searchTerm=${searchTerm}`).subscribe( data => this.restaurants = data)
   }
 
-  handleResClick(restaurant: Restaurant) {
-    // this.router.navigate(['/restaurant', restaurant?._id]);
-    this.router.navigate(['/restaurant/331']);
+  handleResClick(restaurant: any) {
+    this.router.navigate(['/restaurant', restaurant?.resId]);
+    // this.router.navigate(['/restaurant/331']);
   }
 
   handleLeftClick() {

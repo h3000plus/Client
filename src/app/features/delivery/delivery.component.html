@@ -1,12 +1,15 @@
 <!-- ! Header -->
-<div class="overflow-y-auto">
+<div *ngIf="!offer" class="relative overflow-y-auto">
   <!-- <app-header></app-header> -->
   <div class="mb-16" [ngClass]="{ 'z-index': zIndex }">
     <!-- Delivery Address -->
     <app-address></app-address>
-    <!-- ! Search Box -->
+    <!-- Search Box -->
     <app-search (click)="handleSearchClick()"></app-search>
 
+
+    <!-- Offer -->
+    <img (click)="toggleOfferPage()" class="h-5 absolute top-4 right-4" src="/assets/icons/left-arrow-2.png"/>
 
     <!-- ! Categories //////////////////////////////////// -->
     <app-category-list [filters]="filters" [(restaurants)]="restaurants"
@@ -53,3 +56,8 @@
 </div>
 
 <!-- [handlePrice]="handlePrice" [handleDeliveryFee]="handleDeliveryFee" [handleLike]="handleLike" -->
+
+<!-- discount/offer -->
+<div *ngIf="offer">
+  <app-offer [(offer)]="offer" [restaurants]="allRestaurants"></app-offer>
+</div>

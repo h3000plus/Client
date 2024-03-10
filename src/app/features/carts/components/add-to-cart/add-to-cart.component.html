@@ -7,8 +7,8 @@
       ><img class="h-7 m-2" src="/assets/icons/left-arrow-black.png"
     /></span>
     <h1 class="text-3xl font-black font-uberMove m-3">{{ item?.name }}</h1>
-    <span class="text-2xl font-semibold font-uberMove m-3"
-      >${{ item?.price }}</span
+    <span class="text-2xl font-semibold font-uberMove m-3 flex"
+      ><p>$</p><p *ngIf="item.originalPrice !== item.price" class="line-through">{{item.originalPrice}}</p>&nbsp;<p>{{ item?.price }}</p></span
     >
     <p class="text-xl font-medium font-uberMove mt-1 ml-3">
       {{ item?.description }}

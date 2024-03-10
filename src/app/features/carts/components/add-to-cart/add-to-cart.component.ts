@@ -58,6 +58,7 @@ export class AddToCartComponent {
         this.itemName = data.name;
         this.image = data.image;
         this.description = data.description;
+        console.log(data)
       });
   }
 

@@ -25,9 +25,9 @@
           </figure>
 
           <div class="p-0 m-2 gap-0">
-            <h2 class="card-title text-lg font-uberMove">{{ item?.name }}</h2>
-
-            <h5>${{ item?.price }}</h5>
+            <h2 class="card-title text-base font-uberMove">{{ item.name.split(" ").slice(0, 2) }}</h2>
+            <h2 class="card-title text-base font-uberMove">{{ item.name.split(" ").slice(2, 4) }}</h2>
+            <span class="flex justify-between"><h5 *ngIf="item.price !== item.originalPrice" class="line-through">${{item.originalPrice }}</h5> <h5 class="font-bold">${{ item?.price }}</h5></span> 
           </div>
           <span class="absolute top-24 right-2"
             ><img

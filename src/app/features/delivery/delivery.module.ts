@@ -20,6 +20,7 @@ import { PriceFilterComponent } from './components/price-filter/price-filter.com
 import { FeeFilterComponent } from './components/fee-filter/fee-filter.component';
 import { LikeFilterComponent } from './components/like-filter/like-filter.component';
 import { ResultRestaurantComponent } from './components/result-restaurant/result-restaurant.component';
+import { OfferComponent } from './components/offer/offer.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { ResultRestaurantComponent } from './components/result-restaurant/result
     FeeFilterComponent,
     LikeFilterComponent,
     ResultRestaurantComponent,
+    OfferComponent,
   ],
   imports: [
     CommonModule,

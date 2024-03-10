@@ -29,8 +29,10 @@
               <h3 class="mt-4 text-lg text-gray-700 font-bold font-uberMove">{{ restaurant.resName }}</h3>
               <span class="font-bold text-lg flex gap-1 mt-4 mr-4"><img class="h-6" src="/assets/icons/like.png">4.4k</span>
             </div>
-            <h4 class="ml-2 text-lg">$5 Delivery Fee . 40 min</h4>
+            
+            <h4 class="ml-2 text-lg">{{restaurant.resPriceRange}}</h4>
             <span class="heartRA"><img class="h-10" src="/assets/icons/white-heart.png"></span>
+            <div *ngIf="restaurant.resDiscount > 0" class="offerA bg-green-600 text-white min-w-[15vh] flex justify-center"><span class="mx-2 font-bold text-xl">{{restaurant.resDiscount}} % OFF</span></div>
           <!-- </div> -->
 
 

@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class DeliveryService {
   constructor(private http: HttpClient) {}
-  baseURL: string = 'https://marketplace-client-bento.koyeb.app';
+  baseURL: string = 'https://conceptual-becky-kawraplace.koyeb.app';
 
   _token: string = JSON.parse(localStorage.getItem('token') as string);
 

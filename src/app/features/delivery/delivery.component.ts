@@ -25,6 +25,8 @@ export class DeliveryComponent {
   fIndex: number = 2;
   lIndex: number = 2;
 
+  offer: boolean = true;
+
   constructor(
     private router: Router,
     private deliveryService: DeliveryService
@@ -56,7 +58,7 @@ export class DeliveryComponent {
       .subscribe((data) => {
         this.restaurants = data;
         this.allRestaurants = data;
-      });
+      });   
   }
 
 
@@ -79,5 +81,9 @@ export class DeliveryComponent {
 
   handleSearchClick() {
     this.router.navigate(['delivery/search']);
+  }
+
+  toggleOfferPage() {
+    this.offer = true;
   }
 }

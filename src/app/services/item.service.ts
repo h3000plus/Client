@@ -9,7 +9,7 @@ export class ItemService {
   constructor(private http: HttpClient) {}
 
   // baseURL: string = 'https://marketplace-client-bento.koyeb.app';
-  baseURL: string = 'http://localhost:3000';
+  baseURL: string = 'https://conceptual-becky-kawraplace.koyeb.app';
 
   itemDetails(itemId: string): Observable<any> {
     return this.http.get(`${this.baseURL}/itemDetails/${itemId}`);
