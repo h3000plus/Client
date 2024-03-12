@@ -10,7 +10,7 @@ export class OrderService {
   constructor(private http: HttpClient) {}
 
   // baseURL: string = 'https://marketplace-client-bento.koyeb.app';
-  baseURL: string = 'http://localhost:3000';
+  baseURL: string = 'https://conceptual-becky-kawraplace.koyeb.app';
 
   _token: string = JSON.parse(localStorage.getItem('token') as string);
 
