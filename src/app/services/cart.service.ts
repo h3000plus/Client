@@ -29,20 +29,11 @@ export class CartService {
     }
   }
 
-  /**
-   * Save the shopping cart to local storage.
-   */
+  
   private saveToLocalStorage() {
     localStorage.setItem(this.storageKey, JSON.stringify(this.items));
   }
 
-  /**
-   * Add a product to the shopping cart.
-   * @param product The product to be added.
-   * @param quantity The quantity of the product.
-   * @param days The number of days.
-   * @param times The number of times.
-   */
   addToCart(
     _id: string,
     resId: string,
@@ -79,12 +70,6 @@ export class CartService {
     this.saveToLocalStorage();
   }
 
-  /**
-   * Update the quantity of a product in the cart.
-   * @param productId The ID of the product to update.
-   * @param newQuantity The new quantity for the product.
-   */
-
   updateCart(
     _id: string,
     resId: string,
@@ -116,25 +101,7 @@ export class CartService {
 
     this.saveToLocalStorage();
   }
-  // updateCartItemQuantity(productId: string, newQuantity: number): void {
-  //   const item = this.items.find((item) => item._id === productId);
-
-  //   if (item) {
-  //     item.quantity = newQuantity;
-  //     item.totalAmount = newQuantity * item.price;
-
-  //     if (item.quantity <= 0) {
-  //       this.removeFromCart(productId);
-  //     }
-
-  //     this.saveToLocalStorage();
-  //   }
-  // }
-
-  // /**
-  //  * Increase the quantity of a product in the cart.
-  //  * @param productId The ID of the product to update.
-  //  */
+  
   increaseQuantity(cartId: string): number | undefined {
     const item = this.items.find((item) => item.cartId === cartId);
     console.log(item)
@@ -148,24 +115,7 @@ export class CartService {
     return item?.quantity;
   }
 
-  // /**
-  //  * Decrease the quantity of a product in the cart.
-  //  * @param productId The ID of the product to update.
-  //  */
-  // decreaseQuantity(productId: string): void {
-  //   const item = this.items.find((item) => item._id === productId);
-
-  //   if (item) {
-  //     item.quantity -= 1;
-  //     item.totalAmount = item.quantity * item.price;
-
-  //     if (item.quantity <= 0) {
-  //       this.removeFromCart(productId);
-  //     }
-
-  //     this.saveToLocalStorage();
-  //   }
-  // }
+  
 
   decreaseQuantity(cartId: string): number | undefined {
     const item = this.items.find((item) => item.cartId === cartId);
@@ -180,10 +130,7 @@ export class CartService {
     return item?.quantity;
   }
 
-  /**
-   * Get the items in the shopping cart.
-   * @returns The items in the shopping cart.
-   */
+  
   getItemQuantity(cartId: string): any {
     const item = this.items.find((item) => item.cartId === cartId);
     return item?.quantity
@@ -202,31 +149,7 @@ export class CartService {
     return item;
   }
 
-  // /**
-  //  * Get the total number of items in the shopping cart.
-  //  * @returns The total number of items.
-  //  */
-  // getCartTotal(): number {
-  //   let total = 0;
-  //   for (const item of this.items) {
-  //     total += item.totalAmount;
-  //   }
-  //   return total;
-  // }
-
-  // /**
-  //  * Clear the shopping cart.
-  //  */
-
-  // clearCart(): void {
-  //   this.items = [];
-  //   this.saveToLocalStorage();
-  // }
-
-  // /**
-  //  * Remove a product from the shopping cart.
-  //  * @param productId The ID of the product to be removed.
-  //  */
+  
   removeFromCart(cartId: string): void {
     const index = this.items.findIndex((item) => item.cartId === cartId);
 
