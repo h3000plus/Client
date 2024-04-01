@@ -22,8 +22,8 @@ export class RestaurantsByCategoryComponent {
   popularRestaurants: Restaurant[] = [
     {
       _id: '1',
-      name: 'Barano NYC',
-      image: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=600',
+      name: 'KFC',
+      image: 'https://i.ibb.co/zmNKB67/KFC.jpg',
       deliveryFee: 50,
       deliveryTime: 100,
       like: "4.1k",
@@ -106,5 +106,9 @@ export class RestaurantsByCategoryComponent {
   handleClickfilter(title: string){
     this.route = "delivery/" + title.split(' ')[0];
     this.router.navigate([this.route]);
+  }
+
+  handleClick(id: string) {
+    this.router.navigate(['restaurant', id]);
   }
 }

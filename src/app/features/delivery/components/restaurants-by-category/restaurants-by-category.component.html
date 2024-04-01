@@ -23,7 +23,7 @@
         ></app-product> -->
       <!-- </ng-template> -->
       <div *ngFor="let restaurant of popularRestaurants">
-        <div
+        <div (click)="handleClick(restaurant._id)"
   class=" card card-compact w-96 bg-base-100 shadow-md max-h-[220px] max-w-[250px] min-w-[250px] min-h-[220px]"
 >
   <div class="offerR">
