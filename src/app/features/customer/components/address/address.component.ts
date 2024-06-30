@@ -108,8 +108,8 @@ export class AddressComponent {
         customerPreference: { tastyTags: tastyTags, category: [] },
         dob: dob,
         currentLatLong: {
-          latitude: this.latitude,
-          longitude: this.longitude
+          latitude: this.latitude || 0,
+          longitude: this.longitude || 0
         }
       }
 
